@@ -199,3 +199,10 @@ ccdn_forum_moderator:
         posts_per_page: 40
         layout_templates:
             show_locked: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
+ewz_recaptcha:
+    public_key:   here_is_your_public_key
+    private_key:  here_is_your_private_key
+    secure:       false
+    locale_key:   kernel.default_locale
+    enabled: true

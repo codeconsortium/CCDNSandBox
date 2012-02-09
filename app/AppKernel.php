@@ -18,8 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
+
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
+
             new FOS\UserBundle\FOSUserBundle(),
+
+            new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),
             new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
             new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
             new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),

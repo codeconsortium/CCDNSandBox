@@ -18,6 +18,7 @@ $loader->registerNamespaces(array(
     'CCDNComponent'    => __DIR__.'/../vendor/bundles',
     'CCDNForum'        => __DIR__.'/../vendor/bundles',
     'CCDNUser'        => __DIR__.'/../vendor/bundles',
+    'CCDNMessage'     => __DIR__.'/../vendor/bundles',
     'FOS'             => __DIR__.'/../vendor/bundles',
     'EWZ'             => __DIR__.'/../vendor/bundles',
 ));

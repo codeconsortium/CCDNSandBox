@@ -3,10 +3,21 @@
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
 
-forum:
-    resource: "@CCDNForumBundle/Resources/config/routing.yml"
-    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
+#forum:
+#    resource: "@CCDNForumBundle/Resources/config/routing.yml"
+#    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
+#    resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
+CCDNForumModeratorBundle:
     resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
+    prefix: /
+
+CCDNForumAdminBundle:
+    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
+    prefix: /
+
+CCDNForumForumBundle:
+    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
+    prefix: /
 
 member:
     resource: "@CCDNUserMemberBundle/Resources/config/routing.yml"
@@ -16,3 +27,6 @@ user_admin:
     resource: "@CCDNUserUserAdminBundle/Resources/config/routing.yml"
 user:
     resource: "@CCDNUserUserBundle/Resources/config/routing.yml"
+
+message:
+    resource: "@CCDNMessageMessageBundle/Resources/config/routing.yml"

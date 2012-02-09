@@ -118,3 +118,7 @@
 [FOSUserBundle]
     git=http://github.com/FriendsOfSymfony/FOSUserBundle.git
     target=/bundles/FOS/UserBundle
+
+[CCDNMessage]
+    git=http://github.com/codeconsortium/CCDNMessage.git
+    target=/bundles/CCDNMessage

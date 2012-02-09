@@ -111,3 +111,10 @@
     git=http://github.com/codeconsortium/CCDNForum.git
     target=/bundles/CCDNForum
 
+[CCDNUser]
+    git=http://github.com/codeconsortium/CCDNUser.git
+    target=/bundles/CCDNUser
+
+[FOSUserBundle]
+    git=http://github.com/FriendsOfSymfony/FOSUserBundle.git
+    target=/bundles/FOS/UserBundle

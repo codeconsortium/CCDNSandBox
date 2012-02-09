@@ -4,6 +4,15 @@
 #   prefix:   /_internal
 
 forum:
-    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
-    resource: "@CCDNForumForumAdminBundle/Resources/config/routing.yml"
-    resource: "@CCDNForumForumModeratorBundle/Resources/config/routing.yml"
+    resource: "@CCDNForumBundle/Resources/config/routing.yml"
+    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
+    resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
+
+member:
+    resource: "@CCDNUserMemberBundle/Resources/config/routing.yml"
+profile:
+    resource: "@CCDNUserProfileBundle/Resources/config/routing.yml"
+user_admin:
+    resource: "@CCDNUserUserAdminBundle/Resources/config/routing.yml"
+user:
+    resource: "@CCDNUserUserBundle/Resources/config/routing.yml"

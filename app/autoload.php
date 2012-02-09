@@ -17,6 +17,8 @@ $loader->registerNamespaces(array(
     'Metadata'         => __DIR__.'/../vendor/metadata/src',
     'CCDNComponent'    => __DIR__.'/../vendor/bundles',
     'CCDNForum'        => __DIR__.'/../vendor/bundles',
+    'CCDNUser'        => __DIR__.'/../vendor/bundles',
+    'FOS' => __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

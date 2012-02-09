@@ -18,12 +18,17 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
+            new FOS\UserBundle\FOSUserBundle(),
             new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
             new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
             new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
             new CCDNForum\ForumBundle\CCDNForumForumBundle(),
-            new CCDNForum\ForumAdminBundle\CCDNForumForumAdminBundle(),
-            new CCDNForum\ForumModeratorBundle\CCDNForumForumModeratorBundle(),
+            new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
+            new CCDNForum\ModeratorBundle\CCDNForumModeratorBundle(),
+            new CCDNUser\MemberBundle\CCDNUserMemberBundle(),
+            new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),
+            new CCDNUser\UserAdminBundle\CCDNUserUserAdminBundle(),
+            new CCDNUser\UserBundle\CCDNUserUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

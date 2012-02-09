@@ -24,10 +24,6 @@ class AppKernel extends Kernel
             new CCDNForum\ForumBundle\CCDNForumForumBundle(),
             new CCDNForum\ForumAdminBundle\CCDNForumForumAdminBundle(),
             new CCDNForum\ForumModeratorBundle\CCDNForumForumModeratorBundle(),
-
-            new CCDNForum\ForumBundle\CCDNForumForumBundle(),
-            new CCDNForum\ForumAdminBundle\CCDNForumForumAdminBundle(),
-            new CCDNForum\ForumModeratorBundle\CCDNForumForumModeratorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

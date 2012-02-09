@@ -20,7 +20,7 @@ class AppKernel extends Kernel
 
 
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
-
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
             new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),

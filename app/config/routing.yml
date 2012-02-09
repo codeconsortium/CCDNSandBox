@@ -1,0 +1,9 @@
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal
+
+forum:
+    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
+    resource: "@CCDNForumForumAdminBundle/Resources/config/routing.yml"
+    resource: "@CCDNForumForumModeratorBundle/Resources/config/routing.yml"

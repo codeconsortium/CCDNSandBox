@@ -206,3 +206,18 @@ ewz_recaptcha:
     secure:       false
     locale_key:   kernel.default_locale
     enabled: true
+
+ccdn_message_message:
+    user:
+        profile_route: cc_profile_show_by_id
+    template:
+        engine: twig
+        theme: CCDNMessageMessageBundle:Form:fields.html.twig
+    folder:
+        messages_per_page: 40
+        layout_templates:
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    message:
+        layout_templates:
+            compose: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig

@@ -221,3 +221,11 @@ ccdn_message_message:
         layout_templates:
             compose: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: %facebook_app_id%
+    secret: %facebook_app_secret%
+    cookie: true
+    permissions: [email, user_birthday, user_location]

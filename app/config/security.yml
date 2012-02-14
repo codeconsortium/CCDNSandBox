@@ -10,18 +10,18 @@ security:
 
     firewalls:
         main:
-            #pattern:    .*
-            form_login:
+            pattern: ^/.*
+            fos_facebook:
+                always_use_default_target_path: true
+                app_url: "http://apps.facebook.com/%facebook_app_id%/"
+                server_url: "http://%server_host%/facebookApp/"
+                login_path:     ^/login$
+                check_path:     ^/login_check$
+                default_target_path: /
                 provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                success_handler: login_success_handler
-                failure_path:   null
+                #success_handler: facebook_auth_success_handler
             logout:
-                path:   /logout
-                target: /
-                success_handler: logout_success_handler
+                handlers: ["fos_facebook.logout_handler"]
             anonymous:  true
     access_control:
         # The WDT has to be allowed to anonymous users to avoid requiring the login with the AJAX request

@@ -7,6 +7,17 @@
 #    resource: "@CCDNForumBundle/Resources/config/routing.yml"
 #    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
 #    resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
+
+
+_security_check:
+      pattern:  /login_check/
+_security_logout:
+    pattern:  /logout
+
+_facebook_secured:
+        pattern: /secured/
+        defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
+
 CCDNForumModeratorBundle:
     resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
     prefix: /
@@ -30,8 +41,3 @@ user:
 
 message:
     resource: "@CCDNMessageMessageBundle/Resources/config/routing.yml"
-
-_security_check:
-      pattern:  /login_check/
-_security_logout:
-    pattern:  /logout

@@ -1,29 +1,46 @@
 security:
-    encoders:
-            "FOS\UserBundle\Model\UserInterface":
-                algorithm: sha512
-                encode_as_base64: false
-                iterations: 1
+
+    #factories:
+    #    - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
+
+    #encoders:
+    #        "FOS\UserBundle\Model\UserInterface":
+    #            algorithm: sha512
+    #            encode_as_base64: false
+    #            iterations: 1
     providers:
         fos_userbundle:
             id: fos_user.user_manager
+        #fos_facebook:
+        #    id: fos_facebook.auth
+
+        #my_fos_facebook_user:
+        #    id: my.facebook.user
 
     firewalls:
         main:
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /login
+                use_forward:    false
+                check_path:     /login_check
+                success_handler: login_success_handler
+                failure_path:   null
             pattern: ^/.*
             fos_facebook:
-                always_use_default_target_path: true
+                #always_use_default_target_path: true
                 app_url: "http://apps.facebook.com/%facebook_app_id%/"
                 server_url: "http://%server_host%/facebookApp/"
-                login_path:     ^/login$
-                check_path:     ^/login_check$
-                default_target_path: /
-                provider:       fos_userbundle
-                #success_handler: facebook_auth_success_handler
+                #login_path:     ^/login$
+                #check_path:     ^/login_check$
+                #default_target_path: /
+                #provider:       fos_facebook.auth
             logout:
                 handlers: ["fos_facebook.logout_handler"]
             anonymous:  true
     access_control:
+        - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
+        - { path: ^/.*, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
         # The WDT has to be allowed to anonymous users to avoid requiring the login with the AJAX request
         - { path: ^/_wdt/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/_profiler/, role: IS_AUTHENTICATED_ANONYMOUSLY }

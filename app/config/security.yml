@@ -19,13 +19,6 @@ security:
 
     firewalls:
         main:
-            form_login:
-                provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                success_handler: login_success_handler
-                failure_path:   null
             pattern: ^/.*
             fos_facebook:
                 #always_use_default_target_path: true
@@ -38,6 +31,13 @@ security:
             logout:
                 handlers: ["fos_facebook.logout_handler"]
             anonymous:  true
+            #form_login:
+            #    provider:       fos_userbundle
+            #    login_path:     /login
+            #    use_forward:    false
+            #    check_path:     /login_check
+            #    success_handler: login_success_handler
+            #    failure_path:   null
     access_control:
         - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
         - { path: ^/.*, role: [IS_AUTHENTICATED_ANONYMOUSLY] }

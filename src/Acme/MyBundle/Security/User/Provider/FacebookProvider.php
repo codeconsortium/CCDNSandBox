@@ -35,6 +35,11 @@ class FacebookProvider implements UserProviderInterface
         return $this->userManager->findUserBy(array('facebookId' => $fbId));
     }
 
+    public function findUserByEmail($email)
+    {
+        return $this->userManager->findUserBy(array('email' => $email));
+    }
+
     public function loadUserByUsername($username)
     {
         $user = $this->findUserByFbId($username);
@@ -47,9 +52,12 @@ class FacebookProvider implements UserProviderInterface
 
         if (!empty($fbdata)) {
             if (empty($user)) {
-                $user = $this->userManager->createUser();
-                $user->setEnabled(true);
-                $user->setPassword('');
+                $user = $this->findUserByEmail($fbdata['email']);
+                if (empty($user)) {
+                    $user = $this->userManager->createUser();
+                    $user->setEnabled(true);
+                    $user->setPassword('');
+                }
             }
 
             // TODO use http://developers.facebook.com/docs/api/realtime

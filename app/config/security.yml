@@ -1,33 +1,29 @@
 security:
 
-    #factories:
-    #    - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
+    encoders:
+            "FOS\UserBundle\Model\UserInterface":
+                algorithm: sha512
+                encode_as_base64: false
+                iterations: 1
 
-    #encoders:
-    #        "FOS\UserBundle\Model\UserInterface":
-    #            algorithm: sha512
-    #            encode_as_base64: false
-    #            iterations: 1
     providers:
+
         fos_userbundle:
             id: fos_user.user_manager
-        #fos_facebook:
-        #    id: fos_facebook.auth
 
-        #my_fos_facebook_user:
-        #    id: my.facebook.user
+        my_fos_facebook_provider:
+            id: my.facebook.user
 
     firewalls:
         main:
             pattern: ^/.*
             fos_facebook:
-                #always_use_default_target_path: true
                 app_url: "http://apps.facebook.com/%facebook_app_id%/"
-                server_url: "http://%server_host%/facebookApp/"
-                #login_path:     ^/login$
-                #check_path:     ^/login_check$
-                #default_target_path: /
-                #provider:       fos_facebook.auth
+                server_url: "http://%server_host%/facebookApp"
+                login_path: /login
+                check_path: /login_check
+                default_target_path: /
+                provider:       my_fos_facebook_provider
             logout:
                 handlers: ["fos_facebook.logout_handler"]
             anonymous:  true
@@ -55,7 +51,7 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: ROLE_ADMIN }
-#        - { path: ^/.*, role: ROLE_USER }
+        #- { path: ^/.*, role: ROLE_USER }
         # CCDN Forum
         - { path: ^/forum, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/forum/index, role: IS_AUTHENTICATED_ANONYMOUSLY }

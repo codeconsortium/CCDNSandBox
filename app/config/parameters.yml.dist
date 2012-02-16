@@ -13,3 +13,7 @@ parameters:
 
   locale:            en
   secret:            ThisTokenIsNotSoSecretChangeIt
+  facebook_app_id:   12121
+  facebook_app_secret: 12121
+  server_host:       forum.local
+

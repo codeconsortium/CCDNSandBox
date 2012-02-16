@@ -122,3 +122,12 @@
 [CCDNMessage]
     git=http://github.com/codeconsortium/CCDNMessage.git
     target=/bundles/CCDNMessage
+
+[FOSFacebookBundle]
+    git=http://github.com/FriendsOfSymfony/FOSFacebookBundle.git
+    target=/bundles/FOS/FacebookBundle
+    version=origin/master
+
+[FacebookSDK]
+    git=http://github.com/facebook/php-sdk.git
+    target=/facebook

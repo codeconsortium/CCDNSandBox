@@ -1,0 +1,40 @@
+{% extends 'CCDNComponentCommonBundle:Layout:layout_body_left.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('bundles/ccdncomponentcrumbtrail/css/crumbs.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('bundles/CCDNForumForum/css/board.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block title %}An Error Occurred: {{ status_text }}{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block body %}
+
+{% for key, message in app.session.getFlashes() %}
+<div class="common_box common_box_padded">
+	<div class="{{ key }}">
+	    {{ message| trans }}
+	</div>
+</div>
+{% endfor %}
+
+<div class="common_box_5 bg_header_smoke">
+	<div class="common_box_header">
+		<span class="heading_glow">{{ status_code }} {{ status_text }}</span>
+	</div>
+	<div class="common_box_panel h_align_centre v_align_middle">
+		<div class="h_align_centre v_align_middle margin_10 padding_10">
+	        <h1>404, y u no look in right place?  ლ(ಠ益ಠ)ლ</h1>
+	        <h2>
+				Sorry the page you are looking for does not exist.
+				<br /><br />
+				Sad face :(
+	        </h2>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

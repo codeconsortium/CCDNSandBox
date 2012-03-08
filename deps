@@ -1,9 +1,10 @@
 [symfony]
     git=http://github.com/symfony/symfony.git
+    version=v2.0.11
 
 [twig]
     git=http://github.com/fabpot/Twig.git
-    version=origin/master
+    version=v1.6.0
 
 [monolog]
     git=http://github.com/Seldaek/monolog.git
@@ -11,15 +12,15 @@
 
 [doctrine-common]
     git=http://github.com/doctrine/common.git
-    version=origin/master
+    version=2.1.4
 
 [doctrine-dbal]
     git=http://github.com/doctrine/dbal.git
-    version=origin/master
+    version=2.1.6
 
 [doctrine]
     git=http://github.com/doctrine/doctrine2.git
-    version=origin/master
+    version=2.1.6
 
 [swiftmailer]
     git=http://github.com/swiftmailer/swiftmailer.git
@@ -34,12 +35,12 @@
 
 [metadata]
     git=http://github.com/schmittjoh/metadata.git
-    version=1.1.0
+    version=1.0.0
 
 [SensioFrameworkExtraBundle]
     git=http://github.com/sensio/SensioFrameworkExtraBundle.git
     target=/bundles/Sensio/Bundle/FrameworkExtraBundle
-    version=origin/master
+    version=origin/2.0
 
 [JMSSecurityExtraBundle]
     git=http://github.com/schmittjoh/JMSSecurityExtraBundle.git
@@ -49,36 +50,36 @@
 [SensioDistributionBundle]
     git=http://github.com/sensio/SensioDistributionBundle.git
     target=/bundles/Sensio/Bundle/DistributionBundle
-    version=origin/master
+    version=origin/2.0
 
 [SensioGeneratorBundle]
     git=http://github.com/sensio/SensioGeneratorBundle.git
     target=/bundles/Sensio/Bundle/GeneratorBundle
-    version=origin/master
+    version=origin/2.0
 
 [AsseticBundle]
     git=http://github.com/symfony/AsseticBundle.git
     target=/bundles/Symfony/Bundle/AsseticBundle
-    version=origin/master
+    version=v1.0.1
 
-[DoctrineBundle]
-    git=http://github.com/doctrine/DoctrineBundle.git
-    target=/bundles/Doctrine/Bundle/DoctrineBundle
-    version=origin/master
 
-[SwiftmailerBundle]
-    git=http://github.com/symfony/SwiftmailerBundle.git
-    target=/bundles/Symfony/Bundle/SwiftmailerBundle
-    version=origin/master
 
-[MonologBundle]
-    git=http://github.com/symfony/MonologBundle.git
-    target=/bundles/Symfony/Bundle/MonologBundle
-    version=origin/master
+
+
+
 
 [FOSUserBundle]
     git=http://github.com/FriendsOfSymfony/FOSUserBundle.git
     target=/bundles/FOS/UserBundle
+
+[FOSFacebookBundle]
+    git=http://github.com/FriendsOfSymfony/FOSFacebookBundle.git
+    target=/bundles/FOS/FacebookBundle
+    version=origin/2.0
+
+[FacebookSDK]
+    git=http://github.com/facebook/php-sdk.git
+    target=/facebook
 
 [EWZTimeBundle]
     git=http://github.com/excelwebzone/EWZRecaptchaBundle.git
@@ -91,21 +92,27 @@
     git=http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
     target=/bundles/WhiteOctober/PagerfantaBundle
 
-[CommonBundle]
+
+
+[CCDNComponentCommonBundle]
     git=http://github.com/codeconsortium/CommonBundle.git
     target=/bundles/CCDNComponent/CommonBundle
 
-[BBCodeBundle]
+[CCDNComponentBBCodeBundle]
     git=http://github.com/codeconsortium/BBCodeBundle.git
     target=/bundles/CCDNComponent/BBCodeBundle
 
-[CrumbTrailBundle]
+[CCDNComponentCrumbTrailBundle]
     git=http://github.com/codeconsortium/CrumbTrailBundle.git
     target=/bundles/CCDNComponent/CrumbTrailBundle
 
-[CrumbTrailBundle]
-    git=http://github.com/codeconsortium/CrumbTrailBundle.git
-    target=/bundles/CCDNComponent/CrumbTrailBundle
+[CCDNComponentAttachmentBundle]
+    git=http://github.com/codeconsortium/AttachmentBundle.git
+    target=/bundles/CCDNComponent/AttachmentBundle
+
+[CCDNMessage]
+    git=http://github.com/codeconsortium/CCDNMessage.git
+    target=/bundles/CCDNMessage
 
 [CCDNForum]
     git=http://github.com/codeconsortium/CCDNForum.git
@@ -115,19 +122,3 @@
     git=http://github.com/codeconsortium/CCDNUser.git
     target=/bundles/CCDNUser
 
-[FOSUserBundle]
-    git=http://github.com/FriendsOfSymfony/FOSUserBundle.git
-    target=/bundles/FOS/UserBundle
-
-[CCDNMessage]
-    git=http://github.com/codeconsortium/CCDNMessage.git
-    target=/bundles/CCDNMessage
-
-[FOSFacebookBundle]
-    git=http://github.com/FriendsOfSymfony/FOSFacebookBundle.git
-    target=/bundles/FOS/FacebookBundle
-    version=origin/master
-
-[FacebookSDK]
-    git=http://github.com/facebook/php-sdk.git
-    target=/facebook

@@ -8,22 +8,23 @@ $loader->registerNamespaces(array(
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
     'Sensio'           => __DIR__.'/../vendor/bundles',
     'JMS'              => __DIR__.'/../vendor/bundles',
-    'Doctrine\\Bundle' => __DIR__.'/../vendor/bundles',
+//	'Doctrine\\Bundle' => __DIR__.'/../vendor/bundles',
     'Doctrine\\Common' => __DIR__.'/../vendor/doctrine-common/lib',
     'Doctrine\\DBAL'   => __DIR__.'/../vendor/doctrine-dbal/lib',
     'Doctrine'         => __DIR__.'/../vendor/doctrine/lib',
     'Monolog'          => __DIR__.'/../vendor/monolog/src',
     'Assetic'          => __DIR__.'/../vendor/assetic/src',
     'Metadata'         => __DIR__.'/../vendor/metadata/src',
-    'CCDNComponent'    => __DIR__.'/../vendor/bundles',
-    'CCDNForum'        => __DIR__.'/../vendor/bundles',
-    'CCDNUser'        => __DIR__.'/../vendor/bundles',
-    'CCDNMessage'     => __DIR__.'/../vendor/bundles',
-    'FOS'             => __DIR__.'/../vendor/bundles',
-    'EWZ'             => __DIR__.'/../vendor/bundles',
-    'WhiteOctober\PagerfantaBundle' => __DIR__.'/../vendor/bundles',
-    'Pagerfanta'                    => __DIR__.'/../vendor/pagerfanta/src',
 
+	'WhiteOctober\PagerfantaBundle' => __DIR__.'/../vendor/bundles',
+	'Pagerfanta'                    => __DIR__.'/../vendor/pagerfanta/src',
+	'FOS' 							=> __DIR__.'/../vendor/bundles',
+	'EWZ'							=> __DIR__.'/../vendor/bundles',
+	
+	'CCDNComponent'					=> __DIR__.'/../vendor/bundles',
+	'CCDNUser'						=> __DIR__.'/../vendor/bundles',
+	'CCDNForum'						=> __DIR__.'/../vendor/bundles',
+	'CCDNMessage'					=> __DIR__.'/../vendor/bundles',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
@@ -52,4 +53,3 @@ AnnotationRegistry::registerFile(__DIR__.'/../vendor/doctrine/lib/Doctrine/ORM/M
 // the lazy loading of the init file (which is expensive)
 require_once __DIR__.'/../vendor/swiftmailer/lib/classes/Swift.php';
 Swift::registerAutoload(__DIR__.'/../vendor/swiftmailer/lib/swift_init.php');
-

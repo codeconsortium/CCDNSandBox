@@ -13,32 +13,34 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
-            new FOS\FacebookBundle\FOSFacebookBundle(),
+			new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
+			new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+			new FOS\UserBundle\FOSUserBundle(),
+//			new FOS\FacebookBundle\FOSFacebookBundle(),
+			
+			new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
+		    new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
+		    new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
+			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
+			
+            new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),	
 
-            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
-            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-
-            new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),
-            new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
-            new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
-            new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
-            new CCDNForum\ForumBundle\CCDNForumForumBundle(),
+			new CCDNForum\ForumBundle\CCDNForumForumBundle(),
             new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
             new CCDNForum\ModeratorBundle\CCDNForumModeratorBundle(),
-            new CCDNUser\MemberBundle\CCDNUserMemberBundle(),
-            new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),
+
             new CCDNUser\UserAdminBundle\CCDNUserUserAdminBundle(),
             new CCDNUser\UserBundle\CCDNUserUserBundle(),
+            new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),
+            new CCDNUser\MemberBundle\CCDNUserMemberBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

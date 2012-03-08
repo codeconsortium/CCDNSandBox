@@ -1,5 +1,5 @@
 imports:
-    - { resource: parameters.yml }
+    - { resource: parameters.ini }
     - { resource: security.yml }
 
 framework:
@@ -12,27 +12,30 @@ framework:
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
     session:
+        default_locale:  %locale%
         auto_start:     true
 
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'CCDNForumForumBundle:Form:fields.html.twig'
+#            - 'CCDNComponentRecaptchaBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
-    # java: /usr/bin/java
     filters:
         cssrewrite: ~
         # closure:
         #     jar: %kernel.root_dir%/java/compiler.jar
         # yui_css:
         #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
+        
 
 # Doctrine Configuration
 doctrine:
@@ -43,6 +46,7 @@ doctrine:
         dbname:   %database_name%
         user:     %database_user%
         password: %database_password%
+        #unix_socket: /Applications/MAMP/tmp/mysql/mysql.sock 
         charset:  UTF8
 
     orm:
@@ -55,7 +59,7 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-    spool:     { type: memory }
+#    spool:     { type: memory }
 
 jms_security_extra:
     secure_controllers:  true
@@ -120,15 +124,90 @@ fos_user:
 #            name:               fos_user_group_form
 #            validation_groups:  [Registration]
 
-# for CCDNUser MemberBundle
-ccdn_user_member:
+
+#
+#
+# FOS FACEBOOK
+#
+#
+#fos_facebook:
+#    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+#    alias:  facebook
+#    app_id: %facebook_app_id%
+#    secret: %facebook_app_secret%
+#    cookie: true
+#    permissions: [email, user_birthday, user_location]
+#   
+#services:
+#    my.facebook.user:
+#        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
+#        arguments:
+#            facebook: "@fos_facebook.api"
+#            userManager: "@fos_user.user_manager"
+#            validator: "@validator"
+#            container: "@service_container"
+
+
+
+#
+#
+# EWZ Recatpcha bundle
+#
+#
+ewz_recaptcha:
+    public_key: 6LefsccSAAAAABpKveK2F3YlJm1-Lxdm1zQ2zP9r
+    private_key: 6LefsccSAAAAACRsUzSUBE0Om570zqAHowWEICMl
+    secure: false
+    locale_key: session.default_locale
+
+
+              
+#
+#
+#     CCDN
+#
+#
+ccdn_component_attachment:
     user:
         profile_route: cc_profile_show_by_id
-    members_per_page: 50
+    template:
+        engine: twig
+        theme: CCDNComponentAttachmentBundle:Form:fields.html.twig
+    store:
+        dir: /users/reecefowell/projects/htdocs/symfony/store/
+    quota_per_user:
+        max_files_quantity: 20
+        max_filesize_per_file: 300KiB
+        max_total_quota: 1000KiB
+
+# for CCDNUser MemberBundle    
+ccdn_user_member:
+    user:
+        profile_route: cc_profile_show_by_id 
+    members_per_page: 50       
     template:
         engine: twig
         theme: CCDNUserMemberBundle:Form:fields.html.twig
 
+# for CodeConsortium MessageBundle      
+ccdn_message_message:  
+    user:
+        profile_route: cc_profile_show_by_id
+    template:
+        engine: twig
+        theme: CCDNMessageMessageBundle:Form:fields.html.twig
+    folder:
+        messages_per_page: 40
+        layout_templates:
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    message:
+        layout_templates:
+            compose: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    quotas:
+        max_messages: 10
+
+# for CCDNForum ForumBundle    
 ccdn_forum_forum:
     user:
         profile_route: cc_profile_show_by_id
@@ -162,7 +241,7 @@ ccdn_forum_admin:
         profile_route: cc_profile_show_by_id
     template:
         engine: twig
-        theme: CCDNForumForumAdminBundle:fields.html.twig
+        theme: CCDNForumAdminBundle:fields.html.twig
     category:
         layout_templates:
             create: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -181,7 +260,7 @@ ccdn_forum_moderator:
         profile_route: cc_profile_show_by_id
     template:
         engine: twig
-        theme: CCDNForumForumModeratorBundle:fields.html.twig
+        theme: CCDNForumModeratorBundle:fields.html.twig
     flag:
         flags_per_page: 40
         layout_templates:
@@ -200,41 +279,3 @@ ccdn_forum_moderator:
         layout_templates:
             show_locked: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
-ewz_recaptcha:
-    public_key:   here_is_your_public_key
-    private_key:  here_is_your_private_key
-    secure:       false
-    locale_key:   kernel.default_locale
-    enabled: true
-
-ccdn_message_message:
-    user:
-        profile_route: cc_profile_show_by_id
-    template:
-        engine: twig
-        theme: CCDNMessageMessageBundle:Form:fields.html.twig
-    folder:
-        messages_per_page: 40
-        layout_templates:
-            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-    message:
-        layout_templates:
-            compose: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-
-fos_facebook:
-    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
-    alias:  facebook
-    app_id: %facebook_app_id%
-    secret: %facebook_app_secret%
-    cookie: true
-    permissions: [email, user_birthday, user_location]
-
-services:
-    my.facebook.user:
-        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
-        arguments:
-            facebook: "@fos_facebook.api"
-            userManager: "@fos_user.user_manager"
-            validator: "@validator"
-            container: "@service_container"

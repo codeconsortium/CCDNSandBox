@@ -34,6 +34,9 @@ security:
                 check_path:     /login_check
                 success_handler: ccdn_user_user.login_success_handler
                 failure_path:   null
+            logout:
+                path:   /logout
+#                target: /
     access_control:
         - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
         - { path: ^/.*, role: [IS_AUTHENTICATED_ANONYMOUSLY] }

@@ -5,4 +5,7 @@ app/logs/*
 build/
 vendor/
 .idea
+todo
+todo.*
 app/config/parameters.yml
+app/config/parameters.ini

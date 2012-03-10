@@ -155,8 +155,8 @@ fos_user:
 #
 #
 ewz_recaptcha:
-    public_key: 6LefsccSAAAAABpKveK2F3YlJm1-Lxdm1zQ2zP9r
-    private_key: 6LefsccSAAAAACRsUzSUBE0Om570zqAHowWEICMl
+    public_key: %ewz_recaptcha_public_key%
+    private_key: %ewz_recaptcha_private_key%
     secure: false
     locale_key: session.default_locale
 
@@ -167,6 +167,9 @@ ewz_recaptcha:
 #     CCDN
 #
 #
+
+
+# for CCSNComponent AttachmentBundle
 ccdn_component_attachment:
     user:
         profile_route: cc_profile_show_by_id
@@ -174,11 +177,15 @@ ccdn_component_attachment:
         engine: twig
         theme: CCDNComponentAttachmentBundle:Form:fields.html.twig
     store:
-        dir: /users/reecefowell/projects/htdocs/symfony/store/
+        dir: %ccdn_attachment_file_store%
     quota_per_user:
         max_files_quantity: 20
         max_filesize_per_file: 300KiB
         max_total_quota: 1000KiB
+    attachment:
+        layout_templates:
+            list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            upload: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
 # for CCDNUser MemberBundle    
 ccdn_user_member:
@@ -188,8 +195,74 @@ ccdn_user_member:
     template:
         engine: twig
         theme: CCDNUserMemberBundle:Form:fields.html.twig
+    member:
+        layout_templates:
+            list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
-# for CodeConsortium MessageBundle      
+# for CCDNUser ProfileBundle
+ccdn_user_profile:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNUserProfileBundle:Form:fields.html.twig
+    profile:
+        layout_templates:
+            edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+         
+# for CCDNUser UserAdminBundle   
+ccdn_user_user_admin:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNUserUserAdminBundle:Form:fields.html.twig
+    activation:
+        layout_templates:
+            show_unactivated_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    ban:
+        layout_templates:
+            show_banned_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    role:
+        layout_templates:
+            set_users_role: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    account:
+        layout_templates:
+            edit_user: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show_newest_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show_user: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
+# for CCDNUser UserBundle   
+ccdn_user_user:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNUserProfileBundle:Form:fields.html.twig
+    account:
+        layout_templates:
+            edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig     
+    password:
+        layout_templates:
+            change_password:  CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    registration:
+        layout_templates:
+            check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            confirmed: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            register: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    resetting:
+        layout_templates:
+            check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            password_already_requested: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            request: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            reset: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    security:
+        layout_templates:
+            login: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+        
+# for CCDNMessage MessageBundle      
 ccdn_message_message:  
     user:
         profile_route: cc_profile_show_by_id

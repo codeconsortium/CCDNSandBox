@@ -93,6 +93,9 @@
     target=/bundles/WhiteOctober/PagerfantaBundle
 
 
+[CCDNComponentDashboardBundle]
+    git=http://github.com/codeconsortium/DashboardBundle.git
+    target=/bundles/CCDNComponent/DashboardBundle
 
 [CCDNComponentCommonBundle]
     git=http://github.com/codeconsortium/CommonBundle.git

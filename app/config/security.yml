@@ -11,31 +11,31 @@ security:
         fos_userbundle:
             id: fos_user.user_manager
 
-        my_fos_facebook_provider:
-            id: my.facebook.user
+#        my_fos_facebook_provider:
+#            id: my.facebook.user
 
     firewalls:
         main:
             pattern: ^/.*
-            fos_facebook:
-                app_url: "http://apps.facebook.com/%facebook_app_id%/"
-                server_url: "http://%server_host%/facebookApp"
-                login_path: /login
-                check_path: /login_check
-                default_target_path: /
-                provider:       my_fos_facebook_provider
-            logout:
-                handlers: ["fos_facebook.logout_handler"]
+#            fos_facebook:
+#                app_url: "http://apps.facebook.com/%facebook_app_id%/"
+#                server_url: "http://%server_host%/facebookApp"
+#                login_path: /login
+#                check_path: /login_check
+#                default_target_path: /
+#                provider:       my_fos_facebook_provider
+#            logout:
+#                handlers: ["fos_facebook.logout_handler"]
             #anonymous:  true
-            #form_login:
-            #    provider:       fos_userbundle
-            #    login_path:     /login
-            #    use_forward:    false
-            #    check_path:     /login_check
-            #    success_handler: ccdn_user_user.login_success_handler
-            #    failure_path:   null
-            #logout:
-            #    path:   /logout
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /login
+                use_forward:    false
+                check_path:     /login_check
+                success_handler: ccdn_user_user.login_success_handler
+                failure_path:   null
+            logout:
+                path:   /logout
 #                target: /
     access_control:
         - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook

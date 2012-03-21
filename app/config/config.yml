@@ -211,7 +211,7 @@ ccdn_user_profile:
             edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
          
-# for CCDNUser AdminBundle   
+# for CCDNUser AdminBundle
 ccdn_user_admin:
     user:
         profile_route: cc_profile_show_by_id 

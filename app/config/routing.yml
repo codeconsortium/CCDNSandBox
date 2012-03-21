@@ -9,6 +9,8 @@ _security_logout:
 #
 
 # CCDNComponent bundles
+CCDNComponentDashboardBundle:
+    resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
 CCDNComponentAttachmentBundle:
     resource: "@CCDNComponentAttachmentBundle/Resources/config/routing.yml"
     prefix: /
@@ -22,8 +24,8 @@ CCDNUserProfileBundle:
     resource: "@CCDNUserProfileBundle/Resources/config/routing.yml"
     prefix: /
 
-CCDNUserUserAdminBundle:
-    resource: "@CCDNUserUserAdminBundle/Resources/config/routing.yml"
+CCDNUserAdminBundle:
+    resource: "@CCDNUserAdminBundle/Resources/config/routing.yml"
     prefix: /
 
 CCDNUserUserBundle:

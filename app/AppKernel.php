@@ -21,12 +21,13 @@ class AppKernel extends Kernel
 			new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
 			new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
-//			new FOS\FacebookBundle\FOSFacebookBundle(),
+			new FOS\FacebookBundle\FOSFacebookBundle(),
 			
 			new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
 		    new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
 		    new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
 			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
+			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
 			
             new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),	
 
@@ -34,7 +35,7 @@ class AppKernel extends Kernel
             new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
             new CCDNForum\ModeratorBundle\CCDNForumModeratorBundle(),
 
-            new CCDNUser\UserAdminBundle\CCDNUserUserAdminBundle(),
+            new CCDNUser\AdminBundle\CCDNUserAdminBundle(),
             new CCDNUser\UserBundle\CCDNUserUserBundle(),
             new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),
             new CCDNUser\MemberBundle\CCDNUserMemberBundle(),

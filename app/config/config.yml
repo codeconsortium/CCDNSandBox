@@ -130,22 +130,22 @@ fos_user:
 # FOS FACEBOOK
 #
 #
-#fos_facebook:
-#    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
-#    alias:  facebook
-#    app_id: %facebook_app_id%
-#    secret: %facebook_app_secret%
-#    cookie: true
-#    permissions: [email, user_birthday, user_location]
-#   
-#services:
-#    my.facebook.user:
-#        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
-#        arguments:
-#            facebook: "@fos_facebook.api"
-#            userManager: "@fos_user.user_manager"
-#            validator: "@validator"
-#            container: "@service_container"
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: %facebook_app_id%
+    secret: %facebook_app_secret%
+    cookie: true
+    permissions: [email, user_birthday, user_location]
+   
+services:
+    my.facebook.user:
+        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
+        arguments:
+            facebook: "@fos_facebook.api"
+            userManager: "@fos_user.user_manager"
+            validator: "@validator"
+            container: "@service_container"
 
 
 
@@ -169,7 +169,7 @@ ewz_recaptcha:
 #
 
 
-# for CCSNComponent AttachmentBundle
+# for CCDNComponent AttachmentBundle
 ccdn_component_attachment:
     user:
         profile_route: cc_profile_show_by_id
@@ -180,8 +180,8 @@ ccdn_component_attachment:
         dir: %ccdn_attachment_file_store%
     quota_per_user:
         max_files_quantity: 20
-        max_filesize_per_file: 300KiB
-        max_total_quota: 1000KiB
+        max_filesize_per_file: 400KiB
+        max_total_quota: 2000KiB
     attachment:
         layout_templates:
             list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -211,13 +211,13 @@ ccdn_user_profile:
             edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
          
-# for CCDNUser UserAdminBundle   
-ccdn_user_user_admin:
+# for CCDNUser AdminBundle   
+ccdn_user_admin:
     user:
         profile_route: cc_profile_show_by_id 
     template:
         engine: twig
-        theme: CCDNUserUserAdminBundle:Form:fields.html.twig
+        theme: CCDNUserAdminBundle:Form:fields.html.twig
     activation:
         layout_templates:
             show_unactivated_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -239,14 +239,14 @@ ccdn_user_user:
         profile_route: cc_profile_show_by_id 
     template:
         engine: twig
-        theme: CCDNUserProfileBundle:Form:fields.html.twig
+        theme: CCDNUserUserBundle:Form:fields.html.twig
     account:
         layout_templates:
             edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig     
     password:
         layout_templates:
-            change_password:  CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            change_password: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     registration:
         layout_templates:
             check_email: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -270,7 +270,7 @@ ccdn_message_message:
         engine: twig
         theme: CCDNMessageMessageBundle:Form:fields.html.twig
     folder:
-        messages_per_page: 40
+        messages_per_page: 10
         layout_templates:
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     message:
@@ -278,7 +278,7 @@ ccdn_message_message:
             compose: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     quotas:
-        max_messages: 10
+        max_messages: 100
 
 # for CCDNForum ForumBundle    
 ccdn_forum_forum:
@@ -292,11 +292,11 @@ ccdn_forum_forum:
             index: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     board:
-        topics_per_page: 40
+        topics_per_page: 4
         layout_templates:
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     topic:
-        posts_per_page: 10
+        posts_per_page: 5
         layout_templates:
             create: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             reply: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -314,7 +314,7 @@ ccdn_forum_admin:
         profile_route: cc_profile_show_by_id
     template:
         engine: twig
-        theme: CCDNForumAdminBundle:fields.html.twig
+        theme: CCDNForumAdminBundle:Form:fields.html.twig
     category:
         layout_templates:
             create: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -333,7 +333,7 @@ ccdn_forum_moderator:
         profile_route: cc_profile_show_by_id
     template:
         engine: twig
-        theme: CCDNForumModeratorBundle:fields.html.twig
+        theme: CCDNForumModeratorBundle:Form:fields.html.twig
     flag:
         flags_per_page: 40
         layout_templates:

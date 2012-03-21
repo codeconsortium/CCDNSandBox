@@ -28,8 +28,7 @@ class AppKernel extends Kernel
 		    new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
 			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
 			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
-			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
-			
+
             new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),	
 
 			new CCDNForum\ForumBundle\CCDNForumForumBundle(),

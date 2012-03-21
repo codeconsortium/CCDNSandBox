@@ -11,6 +11,8 @@ _security_logout:
 # CCDNComponent bundles
 CCDNComponentDashboardBundle:
     resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
+    prefix: /
+
 CCDNComponentAttachmentBundle:
     resource: "@CCDNComponentAttachmentBundle/Resources/config/routing.yml"
     prefix: /

@@ -1,4 +1,6 @@
 security:
+    factories:
+            - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
 
     encoders:
             "FOS\UserBundle\Model\UserInterface":
@@ -7,26 +9,25 @@ security:
                 iterations: 1
 
     providers:
-
         fos_userbundle:
             id: fos_user.user_manager
 
-#        my_fos_facebook_provider:
-#            id: my.facebook.user
+        my_fos_facebook_provider:
+            id: my.facebook.user
 
     firewalls:
         main:
             pattern: ^/.*
-#            fos_facebook:
-#                app_url: "http://apps.facebook.com/%facebook_app_id%/"
-#                server_url: "http://%server_host%/facebookApp"
-#                login_path: /login
-#                check_path: /login_check
-#                default_target_path: /
-#                provider:       my_fos_facebook_provider
-#            logout:
-#                handlers: ["fos_facebook.logout_handler"]
-            #anonymous:  true
+            fos_facebook:
+                app_url: "http://apps.facebook.com/%facebook_app_id%/"
+                server_url: "http://%server_host%/facebookApp"
+                login_path: /login
+                check_path: /login_check
+                default_target_path: /
+                provider:       my_fos_facebook_provider
+            logout:
+                handlers: ["fos_facebook.logout_handler"]
+            anonymous:  true
             form_login:
                 provider:       fos_userbundle
                 login_path:     /login

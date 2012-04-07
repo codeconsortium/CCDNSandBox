@@ -3,17 +3,8 @@ _security_check:
 _security_logout:
     pattern:  /logout
 
-_facebook_login:
-      pattern:  /login-facebook
-      defaults: { _controller: FOSUserBundle:Security:login }
-
 _facebook_login_check:
-      pattern:  /login_check_facebook
-      defaults: { _controller: FOSUserBundle:Security:check }
-
-_facebook_secured:
-        pattern: /secured/
-        defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
+      pattern:  /login_check/facebook
 
 # CCDNComponent bundles
 CCDNComponentDashboardBundle:

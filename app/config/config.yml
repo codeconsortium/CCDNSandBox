@@ -140,7 +140,7 @@ fos_facebook:
    
 services:
     my.facebook.user:
-        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
+        class: CCDNUser\UserBundle\Security\User\Provider\FacebookProvider
         arguments:
             facebook: "@fos_facebook.api"
             userManager: "@fos_user.user_manager"

@@ -308,6 +308,11 @@ ccdn_forum_forum:
             edit_post: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             edit_topic: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             delete_post: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    draft:
+        drafts_per_page: 2
+        layout_templates:
+            list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
 
 ccdn_forum_admin:
     user:

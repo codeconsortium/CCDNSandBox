@@ -1,4 +1,6 @@
 security:
+    factories:
+            - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
 
     encoders:
             "FOS\UserBundle\Model\UserInterface":
@@ -7,38 +9,34 @@ security:
                 iterations: 1
 
     providers:
-
-        fos_userbundle:
+        chain_provider:
+          providers: [my_fos_facebook_provider, fos_userbundle_provider]
+        fos_userbundle_provider:
             id: fos_user.user_manager
-
-#        my_fos_facebook_provider:
-#            id: my.facebook.user
+        my_fos_facebook_provider:
+            id: my.facebook.user
 
     firewalls:
         main:
             pattern: ^/.*
-#            fos_facebook:
-#                app_url: "http://apps.facebook.com/%facebook_app_id%/"
-#                server_url: "http://%server_host%/facebookApp"
-#                login_path: /login
-#                check_path: /login_check
-#                default_target_path: /
-#                provider:       my_fos_facebook_provider
-#            logout:
-#                handlers: ["fos_facebook.logout_handler"]
-            anonymous:  true
+            fos_facebook:
+                app_url: "http://apps.facebook.com/%facebook_app_id%/"
+                server_url: "http://%server_host%/facebookApp/"
+                login_path: /login
+                check_path: /login_check/facebook
+                use_forward: false
+                provider: my_fos_facebook_provider
             form_login:
-                provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
+                login_path: /login
+                check_path: /login_check
+                use_forward: false
                 success_handler: ccdn_user_user.login_success_handler
-                failure_path:   null
-            logout:
-                path:   /logout
-#                target: /
+                failure_path: null
+                provider: fos_userbundle_provider
+            logout: true
+            anonymous: true
     access_control:
-        - { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
+        - { path: ^/login_check/facebook, role: [ROLE_FACEBOOK] }
         - { path: ^/.*, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
         # The WDT has to be allowed to anonymous users to avoid requiring the login with the AJAX request
         - { path: ^/_wdt/, role: IS_AUTHENTICATED_ANONYMOUSLY }

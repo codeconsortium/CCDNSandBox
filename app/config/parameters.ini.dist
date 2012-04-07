@@ -14,10 +14,11 @@
     locale= "en"
     secret= "changeme"
 
+
     facebook_app_id= "changeme"
     facebook_app_secret= "changeme"
-    server_host= "localhost"
-	
+    server_host= "forum.local"
+
 	ewz_recaptcha_public_key= "changeme"
 	ewz_recaptcha_private_key= "changeme"
 	

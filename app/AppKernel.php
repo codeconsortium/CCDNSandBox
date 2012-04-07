@@ -26,9 +26,9 @@ class AppKernel extends Kernel
 			new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
 		    new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
 		    new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
-			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
 			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
-			
+			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
+
             new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),	
 
 			new CCDNForum\ForumBundle\CCDNForumForumBundle(),

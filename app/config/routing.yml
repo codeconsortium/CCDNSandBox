@@ -1,16 +1,16 @@
 _security_check:
-      pattern:  /login_check/
+      pattern:  /login_check
 _security_logout:
     pattern:  /logout
-#
-#_facebook_secured:
-#        pattern: /secured/
-#        defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
-#
+
+_facebook_login_check:
+      pattern:  /login_check/facebook
 
 # CCDNComponent bundles
 CCDNComponentDashboardBundle:
     resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
+    prefix: /
+
 CCDNComponentAttachmentBundle:
     resource: "@CCDNComponentAttachmentBundle/Resources/config/routing.yml"
     prefix: /

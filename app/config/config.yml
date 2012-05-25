@@ -24,7 +24,7 @@ twig:
         resources:
             - 'CCDNForumForumBundle:Form:fields.html.twig'
 #            - 'CCDNComponentRecaptchaBundle:Form:fields.html.twig'
-
+    
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
@@ -168,8 +168,18 @@ ewz_recaptcha:
 #
 #
 
+#
+# for CCDNComponent CommonBundle
+#
+ccdn_component_common:
+    header_bar_links:
+        - { bundle: CCDNComponentDashboardBundle, label: 'layout.header_links.dashboard', route: 'cc_dashboard_index' }
+        - { bundle: CCDNUserMemberBundle, label: 'layout.header_links.members', route: 'cc_members_index'}
+        - { bundle: CCDNForumForumBundle, label: 'layout.header_links.forum', route: cc_forum_index }
 
+#
 # for CCDNComponent AttachmentBundle
+#
 ccdn_component_attachment:
     user:
         profile_route: cc_profile_show_by_id
@@ -187,7 +197,9 @@ ccdn_component_attachment:
             list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             upload: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
+#
 # for CCDNUser MemberBundle    
+#
 ccdn_user_member:
     user:
         profile_route: cc_profile_show_by_id 
@@ -199,7 +211,9 @@ ccdn_user_member:
         layout_templates:
             list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
+#
 # for CCDNUser ProfileBundle
+#
 ccdn_user_profile:
     user:
         profile_route: cc_profile_show_by_id 
@@ -211,7 +225,9 @@ ccdn_user_profile:
             edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
          
+#
 # for CCDNUser AdminBundle   
+#
 ccdn_user_admin:
     user:
         profile_route: cc_profile_show_by_id 
@@ -233,7 +249,9 @@ ccdn_user_admin:
             show_newest_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show_user: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
+#
 # for CCDNUser UserBundle   
+#
 ccdn_user_user:
     user:
         profile_route: cc_profile_show_by_id 
@@ -261,8 +279,11 @@ ccdn_user_user:
     security:
         layout_templates:
             login: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-        
+        support_facebook: true
+
+#        
 # for CCDNMessage MessageBundle      
+#
 ccdn_message_message:  
     user:
         profile_route: cc_profile_show_by_id
@@ -280,7 +301,9 @@ ccdn_message_message:
     quotas:
         max_messages: 100
 
+#
 # for CCDNForum ForumBundle    
+#
 ccdn_forum_forum:
     user:
         profile_route: cc_profile_show_by_id
@@ -308,6 +331,10 @@ ccdn_forum_forum:
             edit_post: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             edit_topic: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             delete_post: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    draft:
+        drafts_per_page: 10
+        layout_templates:
+            list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
 ccdn_forum_admin:
     user:
@@ -352,3 +379,19 @@ ccdn_forum_moderator:
         layout_templates:
             show_locked: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
+#
+# for CCDNForum KarmaBundle
+#
+ccdn_forum_karma:
+    user:
+        profile_route: cc_profile_show_by_id 
+    template:
+        engine: twig
+        theme: CCDNForumKarmaBundle:Form:fields.html.twig
+    review:
+        reviews_per_page: 40
+        layout_templates:
+            review_all: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+    rate:
+        layout_templates:
+            rate: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig

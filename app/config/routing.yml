@@ -2,6 +2,9 @@ _security_check:
       pattern:  /login_check/
 _security_logout:
     pattern:  /logout
+
+_facebook_login_check:
+      pattern:  /login_check/facebook
 #
 #_facebook_secured:
 #        pattern: /secured/
@@ -9,10 +12,12 @@ _security_logout:
 #
 
 # CCDNComponent bundles
-CCDNComponentDashboardBundle:
-    resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
 CCDNComponentAttachmentBundle:
     resource: "@CCDNComponentAttachmentBundle/Resources/config/routing.yml"
+    prefix: /
+
+CCDNComponentDashboardBundle:
+    resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
     prefix: /
 
 # CCDNUser bundles
@@ -33,16 +38,20 @@ CCDNUserUserBundle:
     prefix: /
 
 # CCDNForum bundles
+CCDNForumForumBundle:
+    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
+    prefix: /
+
+CCDNForumKarmaBundle:
+    resource: "@CCDNForumKarmaBundle/Resources/config/routing.yml"
+    prefix: /
+    
 CCDNForumModeratorBundle:
     resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
     prefix: /
 
 CCDNForumAdminBundle:
     resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
-    prefix: /
-
-CCDNForumForumBundle:
-    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
     prefix: /
 
 # CCDNMessage bundles

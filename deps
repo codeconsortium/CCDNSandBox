@@ -95,6 +95,9 @@
     target=/bundles/WhiteOctober/PagerfantaBundle
 
 
+[CCDNComponentDashboardBundle]
+    git=http://github.com/codeconsortium/DashboardBundle.git
+    target=/bundles/CCDNComponent/DashboardBundle
 
 [CCDNComponentAttachmentBundle]
     git=http://github.com/codeconsortium/AttachmentBundle.git

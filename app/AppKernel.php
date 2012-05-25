@@ -26,9 +26,15 @@ class AppKernel extends Kernel
 			new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
 		    new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
 		    new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
-			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
 			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
+<<<<<<< HEAD
 			
+=======
+			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
+
+            new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),	
+
+>>>>>>> befab0a0398ae92f17a6de1070ecc2f1fd38e824
 			new CCDNForum\ForumBundle\CCDNForumForumBundle(),
             new CCDNForum\ModeratorBundle\CCDNForumModeratorBundle(),
             new CCDNForum\AdminBundle\CCDNForumAdminBundle(),

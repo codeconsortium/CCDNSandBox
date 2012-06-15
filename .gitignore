@@ -1,5 +1,4 @@
 web/bundles/
-app/bootstrap.php.cache
 app/cache/*
 app/logs/*
 build/
@@ -7,5 +6,6 @@ vendor/
 .idea
 todo
 todo.*
+.DS_store
 app/config/parameters.yml
 app/config/parameters.ini

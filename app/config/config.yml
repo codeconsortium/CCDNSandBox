@@ -24,7 +24,7 @@ twig:
         resources:
             - 'CCDNForumForumBundle:Form:fields.html.twig'
 #            - 'CCDNComponentRecaptchaBundle:Form:fields.html.twig'
-    
+
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
@@ -140,7 +140,7 @@ fos_facebook:
    
 services:
     my.facebook.user:
-        class: CCDNUser\UserBundle\Security\User\Provider\FacebookProvider
+        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
         arguments:
             facebook: "@fos_facebook.api"
             userManager: "@fos_user.user_manager"
@@ -168,16 +168,8 @@ ewz_recaptcha:
 #
 #
 
-#
-# for CCDNComponent CommonBundle
-#
-ccdn_component_common:
-    header_bar_links:
-        - { bundle: CCDNComponentDashboardBundle, label: 'layout.header_links.dashboard', route: 'cc_dashboard_index' }
-        - { bundle: CCDNUserMemberBundle, label: 'layout.header_links.members', route: 'cc_members_index'}
-        - { bundle: CCDNForumForumBundle, label: 'layout.header_links.forum', route: cc_forum_index }
-
-#
+    
+#        
 # for CCDNComponent AttachmentBundle
 #
 ccdn_component_attachment:
@@ -224,14 +216,10 @@ ccdn_user_profile:
         layout_templates:
             edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-         
-<<<<<<< HEAD
-#
+ 
+#        
 # for CCDNUser AdminBundle   
 #
-=======
-# for CCDNUser AdminBundle
->>>>>>> befab0a0398ae92f17a6de1070ecc2f1fd38e824
 ccdn_user_admin:
     user:
         profile_route: cc_profile_show_by_id 
@@ -283,9 +271,9 @@ ccdn_user_user:
     security:
         layout_templates:
             login: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-        support_facebook: true
+        support_facebook: false
 
-#        
+#       
 # for CCDNMessage MessageBundle      
 #
 ccdn_message_message:  
@@ -319,11 +307,11 @@ ccdn_forum_forum:
             index: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     board:
-        topics_per_page: 4
+        topics_per_page: 30
         layout_templates:
             show: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     topic:
-        posts_per_page: 5
+        posts_per_page: 20
         layout_templates:
             create: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             reply: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -336,17 +324,13 @@ ccdn_forum_forum:
             edit_topic: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             delete_post: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
     draft:
-<<<<<<< HEAD
         drafts_per_page: 10
         layout_templates:
             list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-=======
-        drafts_per_page: 2
-        layout_templates:
-            list: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
->>>>>>> befab0a0398ae92f17a6de1070ecc2f1fd38e824
-
+#
+# for CCDNForum ForumAdminBundle    
+#
 ccdn_forum_admin:
     user:
         profile_route: cc_profile_show_by_id
@@ -366,6 +350,9 @@ ccdn_forum_admin:
             delete_board: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
             edit: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
+#
+# for CCDNForum ForumModeratorBundle    
+#
 ccdn_forum_moderator:
     user:
         profile_route: cc_profile_show_by_id
@@ -390,8 +377,9 @@ ccdn_forum_moderator:
         layout_templates:
             show_locked: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
 
+
 #
-# for CCDNForum KarmaBundle
+# CCDNForum KarmaBundle
 #
 ccdn_forum_karma:
     user:
@@ -406,3 +394,6 @@ ccdn_forum_karma:
     rate:
         layout_templates:
             rate: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+
+
+

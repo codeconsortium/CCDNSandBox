@@ -1,11 +1,10 @@
 _security_check:
-      pattern:  /login_check
+      pattern:  /login_check/
 _security_logout:
     pattern:  /logout
 
 _facebook_login_check:
       pattern:  /login_check/facebook
-<<<<<<< HEAD
 #
 #_facebook_secured:
 #        pattern: /secured/
@@ -13,14 +12,10 @@ _facebook_login_check:
 #
 
 # CCDNComponent bundles
-=======
-
-# CCDNComponent bundles
-CCDNComponentDashboardBundle:
-    resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
+CCDNComponentCommonBundle:
+    resource: "@CCDNComponentCommonBundle/Resources/config/routing.yml"
     prefix: /
 
->>>>>>> befab0a0398ae92f17a6de1070ecc2f1fd38e824
 CCDNComponentAttachmentBundle:
     resource: "@CCDNComponentAttachmentBundle/Resources/config/routing.yml"
     prefix: /
@@ -47,14 +42,6 @@ CCDNUserUserBundle:
     prefix: /
 
 # CCDNForum bundles
-CCDNForumForumBundle:
-    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
-    prefix: /
-
-CCDNForumKarmaBundle:
-    resource: "@CCDNForumKarmaBundle/Resources/config/routing.yml"
-    prefix: /
-    
 CCDNForumModeratorBundle:
     resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
     prefix: /
@@ -63,6 +50,14 @@ CCDNForumAdminBundle:
     resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
     prefix: /
 
+CCDNForumForumBundle:
+    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
+    prefix: /
+
+CCDNForumKarmaBundle:
+    resource: "@CCDNForumKarmaBundle/Resources/config/routing.yml"
+    prefix: /
+    
 # CCDNMessage bundles
 CCDNMessageMessageBundle:
     resource: "@CCDNMessageMessageBundle/Resources/config/routing.yml"

@@ -100,7 +100,7 @@
 [CCDNComponentAttachmentBundle]
     git=http://github.com/codeconsortium/AttachmentBundle.git
     target=/bundles/CCDNComponent/AttachmentBundle
-	version=origin/v1.0
+	version=v1.1
 
 [lib-geshi]
 	git=http://github.com/codeconsortium/lib-geshi.git
@@ -109,66 +109,66 @@
 [CCDNComponentBBCodeBundle]
     git=http://github.com/codeconsortium/BBCodeBundle.git
     target=/bundles/CCDNComponent/BBCodeBundle
-	version=origin/v1.0
+	version=v1.1
 	
 [CCDNComponentCommonBundle]
     git=http://github.com/codeconsortium/CommonBundle.git
     target=/bundles/CCDNComponent/CommonBundle
-	version=origin/v1.0
+	version=v1.1
 	
 [CCDNComponentCrumbTrailBundle]
     git=http://github.com/codeconsortium/CrumbTrailBundle.git
     target=/bundles/CCDNComponent/CrumbTrailBundle
-	version=origin/v1.0
+	version=v1.1
 	
 [CCDNComponentDashboardBundle]
     git=http://github.com/codeconsortium/DashboardBundle.git
     target=/bundles/CCDNComponent/DashboardBundle
-	version=origin/v1.0
+	version=v1.1
 
 
 [CCDNUser_UserBundle]
     git=http://github.com/codeconsortium/CCDNUserUserBundle.git
     target=/bundles/CCDNUser/UserBundle
-	version=v1.0
+	version=v1.1
 	
 [CCDNUser_ProfileBundle]
     git=http://github.com/codeconsortium/CCDNUserProfileBundle.git
     target=/bundles/CCDNUser/ProfileBundle
-	version=v1.0
+	version=v1.1
 	
 [CCDNUser_MemberBundle]
     git=http://github.com/codeconsortium/CCDNUserMemberBundle.git
     target=/bundles/CCDNUser/MemberBundle
-	version=v1.0
+	version=v1.1
 	
 [CCDNUser_AdminBundle]
     git=http://github.com/codeconsortium/CCDNUserAdminBundle.git
     target=/bundles/CCDNUser/AdminBundle
-	version=v1.0
+	version=v1.1
 
 
 [CCDNForum_ForumBundle]
     git=http://github.com/codeconsortium/CCDNForumForumBundle.git
     target=/bundles/CCDNForum/ForumBundle
-	version=v1.0
+	version=v1.1
 	
 [CCDNForum_KarmaBundle]
     git=http://github.com/codeconsortium/CCDNForumKarmaBundle.git
     target=/bundles/CCDNForum/KarmaBundle
-	version=v1.0
+	version=v1.1
 	
 [CCDNForum_ModeratorBundle]
     git=http://github.com/codeconsortium/CCDNForumModeratorBundle.git
     target=/bundles/CCDNForum/ModeratorBundle
-	version=v1.0
+	version=v1.1
 	
 [CCDNForum_AdminBundle]
     git=http://github.com/codeconsortium/CCDNForumAdminBundle.git
     target=/bundles/CCDNForum/AdminBundle
-	version=v1.0
+	version=v1.1
 
 [CCDNMessage_MessageBundle]
 	git=http://github.com/codeconsortium/CCDNMessageMessageBundle.git
 	target=/bundles/CCDNMessage/MessageBundle
-	version=v1.0
+	version=v1.1

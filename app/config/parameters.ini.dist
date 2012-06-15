@@ -14,12 +14,12 @@
     locale= "en"
     secret= "changeme"
 
-
-    facebook_app_id= "changeme"
-    facebook_app_secret= "changeme"
+    facebook_app_id= "121212"
+    facebook_app_secret= "121212"
     server_host= "forum.local"
 
 	ewz_recaptcha_public_key= "changeme"
 	ewz_recaptcha_private_key= "changeme"
-	
-    ccdn_attachment_file_store= "/directory/to/file/store/from/root/dir/change/me/"
+
+    ccdncomponent_attachmentbundle_file_store= "/directory/to/file/store/from/root/dir/change/me/"
+

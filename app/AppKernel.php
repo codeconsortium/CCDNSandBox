@@ -14,32 +14,34 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
+			new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 
-			new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
 			new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+			new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
 			new FOS\UserBundle\FOSUserBundle(),
 			new FOS\FacebookBundle\FOSFacebookBundle(),
-			
-			new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
+
 		    new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
+			new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
+			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),	
 		    new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
 			new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
-			new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
-			
-			new CCDNForum\ForumBundle\CCDNForumForumBundle(),
-            new CCDNForum\ModeratorBundle\CCDNForumModeratorBundle(),
-            new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
-			new CCDNForum\KarmaBundle\CCDNForumKarmaBundle(),
 
             new CCDNUser\UserBundle\CCDNUserUserBundle(),
+			new CCDNUser\SecurityBundle\CCDNUserSecurityBundle(),
             new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),
             new CCDNUser\MemberBundle\CCDNUserMemberBundle(),
             new CCDNUser\AdminBundle\CCDNUserAdminBundle(),
 
             new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),	
+
+			new CCDNForum\ForumBundle\CCDNForumForumBundle(),
+			new CCDNForum\KarmaBundle\CCDNForumKarmaBundle(),
+            new CCDNForum\ModeratorBundle\CCDNForumModeratorBundle(),
+            new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
 
         );
 

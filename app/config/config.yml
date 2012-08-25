@@ -22,8 +22,6 @@ twig:
     strict_variables: %kernel.debug%
     form:
         resources:
-            - 'CCDNForumForumBundle:Form:fields.html.twig'
-#            - 'CCDNComponentRecaptchaBundle:Form:fields.html.twig'
     
 # Assetic Configuration
 assetic:
@@ -103,7 +101,7 @@ fos_user:
        token_ttl: 86400
        email:
            from_email: 
-               address: reset@codeconsortium.om
+               address: reset@codeconsortium.com
                sender_name: Code Consortium Password Reset
 #            template:   FOSUserBundle:Resetting:email.txt.twig
 #        form:
@@ -168,13 +166,51 @@ ewz_recaptcha:
     locale_key: session.default_locale
 
 
- #################################################################             
+ 
+ 
+
+#################################################################             
 #
 #
 #     CCDN
 #
 #
 #################################################################
+
+
+#################################################################        
+#
+# for CCDNComponent AttachmentBundle
+#
+ccdn_component_attachment:
+    user:
+        profile_route: ccdn_user_profile_show_by_id
+    template:
+        engine: twig
+    store:
+        dir: %ccdncomponent_attachmentbundle_file_store%
+    quota_per_user:
+        max_files_quantity: 20
+        max_filesize_per_file: 400KiB
+        max_total_quota: 2000KiB
+    manage:
+        list:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            attachment_uploaded_datetime_format: "d-m-Y - H:i"
+        upload:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNComponentAttachmentBundle:Form:fields.html.twig
+
+
+#################################################################        
+#
+# for CCDNComponent BBCodeBundle
+#
+ccdn_component_bb_code:
+    editor:
+        enable: false
+    parser:
+        enable: false
 
 
 #################################################################
@@ -186,24 +222,12 @@ ccdn_component_common:
         registration_route: fos_user_registration_register
         login_route: fos_user_security_login
         logout_route: fos_user_security_logout
-        account_route: cc_user_account_show
-        profile_route: cc_profile_show
+        account_route: ccdn_user_user_account_show
+        profile_route: ccdn_user_profile_show
         header_bar_links:
-            - { bundle: CCDNComponentDashboardBundle, label: 'layout.header_links.dashboard', route: 'cc_dashboard_index' }
-            - { bundle: CCDNUserMemberBundle, label: 'layout.header_links.members', route: 'cc_members_index'}
-            - { bundle: CCDNForumForumBundle, label: 'layout.header_links.forum', route: cc_forum_index }
-
-
-#################################################################
-#
-# for CCDNComponent DashboardBundle
-#
-ccdn_component_dashboard:
-    template:
-        engine: twig
-#    dashboard:
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
+            - { bundle: CCDNComponentDashboardBundle, label: 'ccdn_component_dashboard.layout.header_links.dashboard', route: 'ccdn_component_dashboard_index' }
+            - { bundle: CCDNUserMemberBundle, label: 'ccdn_user_member.layout.header_links.members', route: 'ccdn_user_member_index'}
+            - { bundle: CCDNForumForumBundle, label: 'ccdn_forum_forum.layout.header_links.forum', route: ccdn_forum_forum_index }
 
 
 #################################################################
@@ -217,324 +241,18 @@ ccdn_component_crumb_trail:
         last_crumb_truncate: 20
 
 
-#################################################################        
-#
-# for CCDNComponent AttachmentBundle
-#
-ccdn_component_attachment:
-    user:
-        profile_route: cc_profile_show_by_id
-    template:
-        engine: twig
-    store:
-        dir: %ccdncomponent_attachmentbundle_file_store%
-    quota_per_user:
-        max_files_quantity: 20
-        max_filesize_per_file: 400KiB
-        max_total_quota: 2000KiB
-#    manage:
-#        list:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            attachment_uploaded_datetime_format: "d-m-Y - H:i"
-#        upload:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNComponentAttachmentBundle:Form:fields.html.twig
-
-
 #################################################################
 #
-# for CCDNUser UserBundle   
+# for CCDNComponent DashboardBundle
 #
-ccdn_user_user:
-    user:
-        profile_route: cc_profile_show_by_id 
+ccdn_component_dashboard:
     template:
         engine: twig
-#    account:
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig     
-#        edit:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-#    password:
-#        change_password:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-#    registration:
-#        register:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-#        check_email:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#        confirmed:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#    resetting:
-#        request:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#        password_already_requested:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#        check_email:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#        reset:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-    security:
-        login:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            support_facebook: false
-    sidebar:
-        members_route: cc_members_index
-        profile_route: cc_profile_show
-
-
-#################################################################        
-#
-# for CCDNUser ProfileBundle
-#
-ccdn_user_profile:
-    user:
-        profile_route: cc_profile_show_by_id 
-    template:
-        engine: twig
-    profile:
-#        edit:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserProfileBundle:Form:fields.html.twig
+    dashboard:
         show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-            member_since_datetime_format: "d-m-Y - H:i"
-            last_login_datetime_format: "d-m-Y - H:i"
-            requires_login: false
-    sidebar:
-        members_route: cc_members_index
-        account_route: cc_user_account_show
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
 
 
-#################################################################       
-#
-# for CCDNUser MemberBundle    
-#
-ccdn_user_member:
-    user:
-        profile_route: cc_profile_show_by_id 
-    template:
-        engine: twig
-    login_route: fos_user_security_login
-    member:
-        list:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            members_per_page: 50
-#            member_since_datetime_format: "d-m-Y - H:i"     
-            requires_login: false
-    sidebar:
-        account_route: cc_user_account_show
-        profile_route: cc_profile_show
-
-
-#################################################################
-#
-# for CCDNUser AdminBundle   
-#
-ccdn_user_admin:
-    user:
-        profile_route: cc_profile_show_by_id 
-    template:
-        engine: twig
-#    activation:
-#        show_unactivated_users:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            users_per_page: 30
-#            member_since_datetime_format: "d-m-Y - H:i"
-#    ban:
-#        show_banned_users:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            users_per_page: 30
-#            member_since_datetime_format: "d-m-Y - H:i"
-#    role:
-#        set_users_role:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
-#    account:
-#        show_newest_users:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            users_per_page: 30
-#            member_since_datetime_format: "d-m-Y - H:i"
-#        show_user:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            member_since_datetime_format: "d-m-Y - H:i"
-#        edit_user_account:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
-#        edit_user_profile:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
-
-
-#################################################################
-#        
-# for CCDNMessage MessageBundle      
-#
-ccdn_message_message:  
-    user:
-        profile_route: cc_profile_show_by_id
-    template:
-        engine: twig
-#    folder:
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            messages_per_page: 10
-#            subject_truncate: 50
-#            sent_datetime_format: "d-m-Y - H:i"
-#    message:
-#        compose:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNMessageMessageBundle:Form:fields.html.twig
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            sent_datetime_format: "d-m-Y - H:i"
-    quotas:
-        max_messages: 100
-
-
-#################################################################
-#
-# for CCDNForum KarmaBundle
-#
-ccdn_forum_karma:
-    user:
-        profile_route: cc_profile_show_by_id 
-    template:
-        engine: twig
-#    review:
-#        review_all:
-#            reviews_per_page: 40
-#            topic_title_truncate: 70
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            rating_datetime_format: "d-m-Y - H:i"
-#    rate:
-#        rate:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumKarmaBundle:Form:fields.html.twig
-
-
-#################################################################
-#
-# for CCDNForum ForumBundle    
-#
-ccdn_forum_forum:
-    user:
-        profile_route: cc_profile_show_by_id
-    template:
-        engine: twig
-#    category:
-#        last_post_datetime_format: "d-m-Y - H:i"
-#        index:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#    board:
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            topics_per_page: 4
-#            topic_title_truncate: 50
-#            first_post_datetime_format: "d-m-Y - H:i"
-#            last_post_datetime_format: "d-m-Y - H:i"
-#    topic:
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            posts_per_page: 5        
-#            topic_closed_datetime_format: "d-m-Y - H:i"
-#            topic_deleted_datetime_format: "d-m-Y - H:i"
-#        create:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-#        reply:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-#    post:
-#        show:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            topic_closed_datetime_format: "d-m-Y - H:i"
-#            topic_deleted_datetime_format: "d-m-Y - H:i"
-#        flag:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-#        edit_topic:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-#        edit_post:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-#        delete_post:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#    item_post:
-#        post_created_datetime_format: "d-m-Y - H:i"
-#        post_edited_datetime_format: "d-m-Y - H:i"
-#        post_locked_datetime_format: "d-m-Y - H:i"
-#        post_deleted_datetime_format: "d-m-Y - H:i"
-#    draft:
-#        list:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            drafts_per_page: 10
-#            topic_title_truncate: 80
-#            creation_datetime_format: "d-m-Y - H:i"
-#    subscription:
-#        list:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            topics_per_page: 40
-#            topic_title_truncate: 50
-#            first_post_datetime_format: "d-m-Y - H:i"
-#            last_post_datetime_format: "d-m-Y - H:i"
-#    transcript:
-#        post_creation_datetime_format: "d-m-Y - H:i"
-#        post_deleted_datetime_format: "d-m-Y - H:i"
-
-
-#################################################################
-#
-# for CCDNForum ModeratorBundle
-#
-ccdn_forum_moderator:
-    user:
-        profile_route: cc_profile_show_by_id
-    template:
-        engine: twig
-#    flag:
-#        show_flagged:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            flags_per_page: 40
-#            topic_title_truncate: 50
-#            flag_created_datetime_format: 'd-m-Y - H:i'
-#            post_created_datetime_format: 'd-m-Y - H:i'
-#        show_flag:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#        update_flag:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumModeratorBundle:Form:fields.html.twig
-#    item_flag:
-#        flag_created_datetime_format: 'd-m-Y - H:i'
-#        moderated_datetime_format: 'd-m-Y - H:i'
-#    topic:
-#        change_board:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumModeratorBundle:Form:fields.html.twig
-#        show_closed: 
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            topics_per_page: 40
-#            topic_title_truncate: 20
-#            post_created_datetime_format: 'd-m-Y - H:i'
-#            topic_closed_datetime_format: 'd-m-Y - H:i'
-#            topic_deleted_datetime_format: 'd-m-Y - H:i'
-#        delete_topic: 
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#    post:
-#        show_locked:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            posts_per_page: 40
-#            topic_title_truncate: 20
-#            post_created_datetime_format: 'd-m-Y - H:i'
-#            post_locked_datetime_format: 'd-m-Y - H:i'
-#            post_deleted_datetime_format: 'd-m-Y - H:i'
 
 
 #################################################################
@@ -543,44 +261,378 @@ ccdn_forum_moderator:
 #
 ccdn_forum_admin:
     user:
-        profile_route: cc_profile_show_by_id
+        profile_route: ccdn_user_profile_show_by_id
     template:
         engine: twig
-#    category:
-#        index:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            last_post_datetime_format: "d-m-Y - H:i"
-#        create:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
+    category:
+        index:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            last_post_datetime_format: "d-m-Y - H:i"
+        create:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
+        edit:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
+        delete:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig            
+    board:
+        create:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
+        edit:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
+        delete:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig            
+    topic:
+        show_deleted:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            topics_per_page: 40
+            topic_title_truncate: 17
+            topic_created_datetime_format: "d-m-Y - H:i"
+            topic_closed_datetime_format: "d-m-Y - H:i"
+            topic_deleted_datetime_format: "d-m-Y - H:i"
+    post:
+        show_deleted:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            posts_per_page: 40
+            topic_title_truncate: 17
+            post_created_datetime_format: "d-m-Y - H:i"
+            post_locked_datetime_format: "d-m-Y - H:i"
+            post_deleted_datetime_format: "d-m-Y - H:i"
+
+
+#################################################################
+#
+# for CCDNForum ForumBundle    
+#
+ccdn_forum_forum:
+    user:
+        profile_route: ccdn_user_profile_show_by_id
+    template:
+        engine: twig
+    category:
+        last_post_datetime_format: "d-m-Y - H:i"
+        index:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+    board:
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            topics_per_page: 20
+            topic_title_truncate: 50
+            first_post_datetime_format: "d-m-Y - H:i"
+            last_post_datetime_format: "d-m-Y - H:i"
+    topic:
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            posts_per_page: 5        
+            topic_closed_datetime_format: "d-m-Y - H:i"
+            topic_deleted_datetime_format: "d-m-Y - H:i"
+        create:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumForumBundle:Form:fields.html.twig
+        reply:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumForumBundle:Form:fields.html.twig
+    post:
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            topic_closed_datetime_format: "d-m-Y - H:i"
+            topic_deleted_datetime_format: "d-m-Y - H:i"
+        flag:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumForumBundle:Form:fields.html.twig
+        edit_topic:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumForumBundle:Form:fields.html.twig
+        edit_post:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumForumBundle:Form:fields.html.twig
+        delete_post:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+    item_post:
+        post_created_datetime_format: "d-m-Y - H:i"
+        post_edited_datetime_format: "d-m-Y - H:i"
+        post_locked_datetime_format: "d-m-Y - H:i"
+        post_deleted_datetime_format: "d-m-Y - H:i"
+    draft:
+        list:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            drafts_per_page: 10
+            topic_title_truncate: 80
+            creation_datetime_format: "d-m-Y - H:i"
+    subscription:
+        list:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            topics_per_page: 10
+            topic_title_truncate: 50
+            first_post_datetime_format: "d-m-Y - H:i"
+            last_post_datetime_format: "d-m-Y - H:i"
+    transcript:
+        post_creation_datetime_format: "d-m-Y - H:i"
+        post_deleted_datetime_format: "d-m-Y - H:i"
+
+
+#################################################################
+#
+# for CCDNForum KarmaBundle
+#
+ccdn_forum_karma:
+    user:
+        profile_route: ccdn_user_profile_show_by_id 
+    template:
+        engine: twig
+    review:
+        review_all:
+            reviews_per_page: 40
+            topic_title_truncate: 70
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            rating_datetime_format: "d-m-Y - H:i"
+    rate:
+        rate:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumKarmaBundle:Form:fields.html.twig
+
+
+#################################################################
+#
+# for CCDNForum ModeratorBundle
+#
+ccdn_forum_moderator:
+    user:
+        profile_route: ccdn_user_profile_show_by_id
+    template:
+        engine: twig
+    flag:
+        show_flagged:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            flags_per_page: 40
+            topic_title_truncate: 50
+            flag_created_datetime_format: 'd-m-Y - H:i'
+            post_created_datetime_format: 'd-m-Y - H:i'
+        show_flag:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+        update_flag:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumModeratorBundle:Form:fields.html.twig
+    item_flag:
+        flag_created_datetime_format: 'd-m-Y - H:i'
+        moderated_datetime_format: 'd-m-Y - H:i'
+    topic:
+        change_board:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNForumModeratorBundle:Form:fields.html.twig
+        show_closed: 
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            topics_per_page: 40
+            topic_title_truncate: 20
+            post_created_datetime_format: 'd-m-Y - H:i'
+            topic_closed_datetime_format: 'd-m-Y - H:i'
+            topic_deleted_datetime_format: 'd-m-Y - H:i'
+        delete_topic: 
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+    post:
+        show_locked:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            posts_per_page: 40
+            topic_title_truncate: 20
+            post_created_datetime_format: 'd-m-Y - H:i'
+            post_locked_datetime_format: 'd-m-Y - H:i'
+            post_deleted_datetime_format: 'd-m-Y - H:i'
+
+
+
+
+#################################################################
+#        
+# for CCDNMessage MessageBundle      
+#
+ccdn_message_message:  
+    user:
+        profile_route: ccdn_user_profile_show_by_id
+    template:
+        engine: twig
+    folder:
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            messages_per_page: 10
+            subject_truncate: 50
+            sent_datetime_format: "d-m-Y - H:i"
+    message:
+        compose:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNMessageMessageBundle:Form:fields.html.twig
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            sent_datetime_format: "d-m-Y - H:i"
+    quotas:
+        max_messages: 100
+
+
+
+#################################################################        
+#
+# for CCDNUser SecurityBundle
+#
+ccdn_user_security:
+    route_referer:
+        route_ignore_list:
+            - { bundle: 'fosuserbundle', route: 'fos_user_security_login' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_security_check' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_security_logout' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_registration_register' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_registration_check_email' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirm' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirmed' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_request' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_send_email' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_check_email' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_reset' }
+            - { bundle: 'fosuserbundle', route: 'fos_user_change_password' }
+    login_shield:
+        enable_shield: true
+        block_for_minutes: 10
+        limit_failed_login_attempts:
+            before_recover_account: 5
+            before_return_http_500: 10
+        primary_login_route:
+            name: fos_user_security_login
+        recover_account_route:
+            name: fos_user_resetting_request
+        block_routes_when_denied:
+            - fos_user_security_login
+            - fos_user_security_check
+            - fos_user_security_logout
+
+
+#################################################################
+#
+# for CCDNUser UserBundle   
+#
+ccdn_user_user:
+    user:
+        profile_route: ccdn_user_profile_show_by_id 
+    template:
+        engine: twig
+    account:
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig     
+        edit:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserUserBundle:Form:fields.html.twig
+    password:
+        change_password:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserUserBundle:Form:fields.html.twig
+    registration:
+        register:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserUserBundle:Form:fields.html.twig
+        check_email:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+        confirmed:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+    resetting:
+        request:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+        password_already_requested:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+        check_email:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+        reset:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserUserBundle:Form:fields.html.twig
+    security:
+        login:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            support_facebook: false
+    sidebar:
+        members_route: ccdn_user_member_index
+        profile_route: ccdn_user_profile_show
+
+
+#################################################################        
+#
+# for CCDNUser ProfileBundle
+#
+ccdn_user_profile:
+    user:
+        profile_route: ccdn_user_profile_show_by_id 
+    template:
+        engine: twig
+    profile:
 #        edit:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-#        delete:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig            
-#    board:
-#        create:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-#        edit:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-#        delete:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig            
-#    topic:
-#        show_deleted:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            topics_per_page: 40
-#            topic_title_truncate: 17
-#            topic_created_datetime_format: "d-m-Y - H:i"
-#            topic_closed_datetime_format: "d-m-Y - H:i"
-#            topic_deleted_datetime_format: "d-m-Y - H:i"
-#    post:
-#        show_deleted:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
-#            posts_per_page: 40
-#            topic_title_truncate: 17
-#            post_created_datetime_format: "d-m-Y - H:i"
-#            post_locked_datetime_format: "d-m-Y - H:i"
-#            post_deleted_datetime_format: "d-m-Y - H:i"
+#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+#            form_theme: CCDNUserProfileBundle:Form:fields.html.twig
+        show:
+            requires_login: false
+#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+#            member_since_datetime_format: "d-m-Y - H:i"
+#            last_login_datetime_format: "d-m-Y - H:i"
+    sidebar:
+        members_route: ccdn_user_member_index
+        account_route: ccdn_user_user_account_show
+
+
+#################################################################       
+#
+# for CCDNUser MemberBundle    
+#
+ccdn_user_member:
+    user:
+        profile_route: ccdn_user_profile_show_by_id 
+    template:
+        engine: twig
+    login_route: fos_user_security_login
+    member:
+        list:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            members_per_page: 50
+            member_since_datetime_format: "d-m-Y - H:i"     
+            requires_login: false
+    sidebar:
+        account_route: ccdn_user_user_account_show
+        profile_route: ccdn_user_profile_show
+
+
+#################################################################
+#
+# for CCDNUser AdminBundle   
+#
+ccdn_user_admin:
+    user:
+        profile_route: ccdn_user_profile_show_by_id 
+    template:
+        engine: twig
+    activation:
+        show_unactivated_users:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            users_per_page: 30
+            member_since_datetime_format: "d-m-Y - H:i"
+    ban:
+        show_banned_users:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            users_per_page: 30
+            member_since_datetime_format: "d-m-Y - H:i"
+    role:
+        set_users_role:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
+    account:
+        show_newest_users:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            users_per_page: 30
+            member_since_datetime_format: "d-m-Y - H:i"
+        show_user:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            member_since_datetime_format: "d-m-Y - H:i"
+        edit_user_account:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
+        edit_user_profile:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
 

@@ -1,5 +1,8 @@
 security:
-
+    
+    access_decision_manager:
+        strategy: unanimous
+        
     encoders:
             "FOS\UserBundle\Model\UserInterface":
                 algorithm: sha512
@@ -32,10 +35,12 @@ security:
                 login_path:     /login
                 use_forward:    false
                 check_path:     /login_check
-                success_handler: ccdn_user_user.login_success_handler
+                success_handler: ccdn_user_security.component.authentication.handler.login_success_handler
+                failure_handler: ccdn_user_security.component.authentication.handler.login_failure_handler
                 failure_path:   null
             logout:
                 path:   /logout
+                success_handler: ccdn_user_security.component.authentication.handler.logout_success_handler
 #               target: /
 
     access_control:

@@ -41,6 +41,10 @@ CCDNUserUserBundle:
     resource: "@CCDNUserUserBundle/Resources/config/routing.yml"
     prefix: /
 
+CCDNUserSecurityBundle:
+    resource: "@CCDNUserSecurityBundle/Resources/config/routing.yml"
+    prefix: /
+
 # CCDNForum bundles
 CCDNForumModeratorBundle:
     resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
@@ -49,6 +53,11 @@ CCDNForumModeratorBundle:
 CCDNForumAdminBundle:
     resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
     prefix: /
+
+ccdn_forum_forum_home_root:
+    pattern: /
+    defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
+
 
 CCDNForumForumBundle:
     resource: "@CCDNForumForumBundle/Resources/config/routing.yml"

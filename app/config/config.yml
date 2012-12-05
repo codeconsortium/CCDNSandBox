@@ -13,27 +13,25 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     session:
-        default_locale:  %locale%
+        default_locale: %locale%
         auto_start:     true
 
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-    form:
-        resources:
-    
+
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
+    # java: /usr/bin/java
     filters:
         cssrewrite: ~
         # closure:
         #     jar: %kernel.root_dir%/java/compiler.jar
         # yui_css:
         #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
-        
 
 # Doctrine Configuration
 doctrine:
@@ -44,7 +42,6 @@ doctrine:
         dbname:   %database_name%
         user:     %database_user%
         password: %database_password%
-        #unix_socket: /Applications/MAMP/tmp/mysql/mysql.sock 
         charset:  UTF8
 
     orm:
@@ -57,11 +54,16 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-#    spool:     { type: memory }
 
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+
+
+
+
+
 
 #################################################################
 #
@@ -160,14 +162,29 @@ services:
 #
 #
 ewz_recaptcha:
+    enabled: false
     public_key: %ewz_recaptcha_public_key%
     private_key: %ewz_recaptcha_private_key%
     secure: false
     locale_key: session.default_locale
 
+#################################################################
+#
+# FM BbCode bundle
+#
+#
 
- 
- 
+#fm_bbcode:
+#    filter_sets:
+#        forum_post_filter:
+#            locale: en
+#            xhtml: true
+#            filters: [ default ]
+#            whitelist: [ default, b, u, i, list, text, url, email, image, video, quote, code, spoiler ]
+#        signature_filter:
+#            locale: en
+#            xhtml: true
+#            filters: [ default, block, list, quote, code, text, url, video ]
 
 #################################################################             
 #
@@ -176,6 +193,8 @@ ewz_recaptcha:
 #
 #
 #################################################################
+
+
 
 
 #################################################################        
@@ -210,7 +229,7 @@ ccdn_component_bb_code:
     editor:
         enable: false
     parser:
-        enable: false
+        enable: true
 
 
 #################################################################
@@ -225,9 +244,9 @@ ccdn_component_common:
         account_route: ccdn_user_user_account_show
         profile_route: ccdn_user_profile_show
         header_bar_links:
-            - { bundle: CCDNComponentDashboardBundle, label: 'ccdn_component_dashboard.layout.header_links.dashboard', route: 'ccdn_component_dashboard_index' }
-            - { bundle: CCDNUserMemberBundle, label: 'ccdn_user_member.layout.header_links.members', route: 'ccdn_user_member_index'}
-            - { bundle: CCDNForumForumBundle, label: 'ccdn_forum_forum.layout.header_links.forum', route: ccdn_forum_forum_index }
+#            - { bundle: CCDNComponentDashboardBundle, label: 'ccdn_component_dashboard.layout.header_links.dashboard', route: 'ccdn_component_dashboard_index' }
+#            - { bundle: CCDNUserMemberBundle, label: 'ccdn_user_member.layout.header_links.members', route: 'ccdn_user_member_index'}
+#            - { bundle: CCDNForumForumBundle, label: 'ccdn_forum_forum.layout.header_links.forum', route: ccdn_forum_forum_index }
 
 
 #################################################################
@@ -342,9 +361,6 @@ ccdn_forum_forum:
             layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
             topic_closed_datetime_format: "d-m-Y - H:i"
             topic_deleted_datetime_format: "d-m-Y - H:i"
-        flag:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumForumBundle:Form:fields.html.twig
         edit_topic:
             layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
             form_theme: CCDNForumForumBundle:Form:fields.html.twig
@@ -397,54 +413,6 @@ ccdn_forum_karma:
             form_theme: CCDNForumKarmaBundle:Form:fields.html.twig
 
 
-#################################################################
-#
-# for CCDNForum ModeratorBundle
-#
-ccdn_forum_moderator:
-    user:
-        profile_route: ccdn_user_profile_show_by_id
-    template:
-        engine: twig
-    flag:
-        show_flagged:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            flags_per_page: 40
-            topic_title_truncate: 50
-            flag_created_datetime_format: 'd-m-Y - H:i'
-            post_created_datetime_format: 'd-m-Y - H:i'
-        show_flag:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-        update_flag:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumModeratorBundle:Form:fields.html.twig
-    item_flag:
-        flag_created_datetime_format: 'd-m-Y - H:i'
-        moderated_datetime_format: 'd-m-Y - H:i'
-    topic:
-        change_board:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumModeratorBundle:Form:fields.html.twig
-        show_closed: 
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            topics_per_page: 40
-            topic_title_truncate: 20
-            post_created_datetime_format: 'd-m-Y - H:i'
-            topic_closed_datetime_format: 'd-m-Y - H:i'
-            topic_deleted_datetime_format: 'd-m-Y - H:i'
-        delete_topic: 
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-    post:
-        show_locked:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            posts_per_page: 40
-            topic_title_truncate: 20
-            post_created_datetime_format: 'd-m-Y - H:i'
-            post_locked_datetime_format: 'd-m-Y - H:i'
-            post_deleted_datetime_format: 'd-m-Y - H:i'
-
-
-
 
 #################################################################
 #        
@@ -480,21 +448,24 @@ ccdn_message_message:
 ccdn_user_security:
     route_referer:
         route_ignore_list:
-            - { bundle: 'fosuserbundle', route: 'fos_user_security_login' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_security_check' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_security_logout' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_registration_register' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_registration_check_email' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirm' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirmed' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_request' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_send_email' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_check_email' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_reset' }
-            - { bundle: 'fosuserbundle', route: 'fos_user_change_password' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_security_login' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_security_check' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_security_logout' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_register' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_check_email' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirm' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirmed' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_request' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_send_email' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_check_email' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_reset' }
+#            - { bundle: 'fosuserbundle', route: 'fos_user_change_password' }
+#            - { bundle: 'ccdnuseruserbundle', route: 'ccdn_user_user_registration_terms' }
+#            - { bundle: 'ccdncomponentattachmentbundle' route: 'ccdn_component_attachment_download'}
+#            - { bundle: 'ccdncomponentattachmentbundle' route: 'ccdn_component_attachment_thumbnail'}
     login_shield:
-        enable_shield: true
-        block_for_minutes: 10
+        enable_shield: false
+        block_for_minutes: 2
         limit_failed_login_attempts:
             before_recover_account: 5
             before_return_http_500: 10

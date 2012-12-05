@@ -1,9 +1,8 @@
-Symfony Standard Edition
+CodeConsortium Sandbox
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new app. If you want
-to learn more about the features included, see the "What's Inside?" section.
+Welcome to the CodeConsortium sandbox - a fully-functional CodeConsortium
+application that demonstrates the CCDN bundles in action.
 
 This document contains information on how to download and start using Symfony.
 For a more detailed explanation, see the
@@ -32,9 +31,7 @@ But if you still want to use Git, you are on your own.
 
 Run the following commands:
 
-    git clone http://github.com/symfony/symfony-standard.git
-    cd symfony-standard
-    rm -rf .git
+    git clone http://github.com/codeconsortium/CCDNSandBox.git
 
 2) Installation
 ---------------
@@ -53,10 +50,7 @@ If you get any warnings or recommendations, fix these now before moving on.
 
 ### b) Install the Vendor Libraries
 
-If you downloaded the archive "without vendors" or installed via git, then
-you need to download all of the necessary vendor libraries. If you're not
-sure if you need to do this, check to see if you have a ``vendor/`` directory.
-If you don't, or if that directory is empty, run the following:
+You need to download all of the necessary vendor libraries. Run the following:
 
     php bin/vendors install
 
@@ -64,13 +58,37 @@ Note that you **must** have git installed and be able to execute the `git`
 command to execute this script. If you don't have git available, either install
 it or download Symfony with the vendor libraries already included.
 
+### c) Add your Database Credentials.
+
+Copy app/config/parameters.ini.dist to app/config/parameters.ini and add you database login credentials there. You will need to make sure you have already created a database.
+
+### d) Setup your Database.
+
+Run the following:
+
+	php app/console doctrine:schema:update --dump-sql
+
+Note: We dump the SQL so that you can add it manually when applying an update. Assuming that the SQL looks good and you do not have any issues you can use --force in place of --dump-sql and your database will be setup for you.
+
+### e) Symlink your Assets.
+
+Run the following:
+
+	php app/console assets:install --symlink web/
+
+### f) Warm up the Cache.
+
+Run the following:
+
+    php app/console cache:warmup
+
 ### c) Access the Application via the Browser
 
 Congratulations! You're now ready to use Symfony. If you've unzipped Symfony
 in the web root of your computer, then you should be able to access the
 web version of the Symfony requirements check via:
 
-    http://localhost/Symfony/web/config.php
+    http://localhost/CCDNSandbox/web/config.php
 
 If everything looks good, click the "Bypass configuration and go to the Welcome page"
 link to load up your first Symfony page.
@@ -78,28 +96,14 @@ link to load up your first Symfony page.
 You can also use a web-based configurator by clicking on the "Configure your
 Symfony Application online" link of the ``config.php`` page.
 
-To see a real-live Symfony page in action, access the following page:
-
-    web/app_dev.php/demo/hello/Fabien
-
 3) Learn about Symfony!
 -----------------------
 
 This distribution is meant to be the starting point for your application,
 but it also contains some sample code that you can learn from and play with.
 
-A great way to start learning Symfony is via the [Quick Tour](http://symfony.com/doc/current/quick_tour/the_big_picture.html),
-which will take you through all the basic features of Symfony2 and the test
-pages that are available in the standard edition.
-
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book](http://symfony.com/doc/current/).
-
 Using this Edition as the Base of your Application
 --------------------------------------------------
-
-Since the standard edition is fully-configured and comes with some examples,
-you'll need to make a few changes before using it to build your application.
 
 The distribution is configured with the following defaults:
 
@@ -107,14 +111,6 @@ The distribution is configured with the following defaults:
 * Doctrine ORM/DBAL is configured;
 * Swiftmailer is configured;
 * Annotations for everything are enabled.
-
-A default bundle, ``AcmeDemoBundle``, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
-
-* delete the ``src/Acme`` directory;
-* remove the routing entries referencing AcmeBundle in ``app/config/routing_dev.yml``;
-* remove the AcmeBundle from the registered bundles in ``app/AppKernel.php``;
-
 
 What's inside?
 ---------------

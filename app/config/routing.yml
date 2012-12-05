@@ -1,3 +1,8 @@
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal
+
 _security_check:
       pattern:  /login_check/
 _security_logout:
@@ -46,10 +51,6 @@ CCDNUserSecurityBundle:
     prefix: /
 
 # CCDNForum bundles
-CCDNForumModeratorBundle:
-    resource: "@CCDNForumModeratorBundle/Resources/config/routing.yml"
-    prefix: /
-
 CCDNForumAdminBundle:
     resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
     prefix: /
@@ -72,27 +73,3 @@ CCDNMessageMessageBundle:
     resource: "@CCDNMessageMessageBundle/Resources/config/routing.yml"
     prefix:   /
     
-    
-    
-    
-    
-    
-    
-    
-#login:
-#    pattern:    /login
-#    defaults:   { _controller: CCDNUserUserBundle:User:login }
-#
-#login_check:
-#    pattern:    /login_check
-#
-#logout:
-#    pattern:    /logout
-#    defaults:   { _controller: CCDNUserUserBundle:User:logout }
-#
-
-
-# Internal routing configuration to handle ESI
-#_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal

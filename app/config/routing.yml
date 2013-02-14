@@ -1,75 +1,55 @@
 # Internal routing configuration to handle ESI
+# ****** WARNING ******
+# This route should be enabled with caution as it can open a security vulnerability
+# see http://symfony.com/blog/security-release-symfony-2-0-20-and-2-1-5-released for more information
+# ****** WARNING ******
 #_internal:
-#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#   prefix:   /_internal
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-_security_check:
-      pattern:  /login_check/
-_security_logout:
-    pattern:  /logout
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
 
-_facebook_login_check:
-      pattern:  /login_check/facebook
-#
-#_facebook_secured:
-#        pattern: /secured/
-#        defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
-#
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
 
-# CCDNComponent bundles
-CCDNComponentCommonBundle:
-    resource: "@CCDNComponentCommonBundle/Resources/config/routing.yml"
-    prefix: /
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+
 
 CCDNComponentAttachmentBundle:
     resource: "@CCDNComponentAttachmentBundle/Resources/config/routing.yml"
-    prefix: /
 
 CCDNComponentDashboardBundle:
     resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
-    prefix: /
-
-# CCDNUser bundles
-CCDNUserMemberBundle:
-    resource: "@CCDNUserMemberBundle/Resources/config/routing.yml"
-    prefix: /
-
-CCDNUserProfileBundle:
-    resource: "@CCDNUserProfileBundle/Resources/config/routing.yml"
-    prefix: /
-
-CCDNUserAdminBundle:
-    resource: "@CCDNUserAdminBundle/Resources/config/routing.yml"
-    prefix: /
-
-CCDNUserUserBundle:
-    resource: "@CCDNUserUserBundle/Resources/config/routing.yml"
-    prefix: /
 
 CCDNUserSecurityBundle:
     resource: "@CCDNUserSecurityBundle/Resources/config/routing.yml"
-    prefix: /
 
-# CCDNForum bundles
-CCDNForumAdminBundle:
-    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
-    prefix: /
+CCDNUserUserBundle:
+    resource: "@CCDNUserUserBundle/Resources/config/routing.yml"
 
-ccdn_forum_forum_home_root:
-    pattern: /
-    defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
+CCDNUserProfileBundle:
+    resource: "@CCDNUserProfileBundle/Resources/config/routing.yml"
 
+CCDNUserMemberBundle:
+    resource: "@CCDNUserMemberBundle/Resources/config/routing.yml"
+
+CCDNUserAdminBundle:
+    resource: "@CCDNUserAdminBundle/Resources/config/routing.yml"
 
 CCDNForumForumBundle:
     resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
-    prefix: /
 
-CCDNForumKarmaBundle:
-    resource: "@CCDNForumKarmaBundle/Resources/config/routing.yml"
-    prefix: /
-    
-# CCDNMessage bundles
-CCDNMessageMessageBundle:
-    resource: "@CCDNMessageMessageBundle/Resources/config/routing.yml"
-    prefix:   /
-    
+CCDNForumAdminBundle:
+    resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"

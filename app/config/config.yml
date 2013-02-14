@@ -1,609 +1,106 @@
 imports:
-    - { resource: parameters.ini }
+    - { resource: parameters.yml }
     - { resource: security.yml }
 
 framework:
     #esi:             ~
-    translator:      { fallback: %locale% }
-    secret:          %secret%
-    charset:         UTF-8
-    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    #translator:      { fallback: "%locale%" }
+    translator: ~
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    session:
-        default_locale: %locale%
-        auto_start:     true
+    default_locale:  "%locale%"
+    trust_proxy_headers: false # Deprecated in 2.0; will be removed in 2.3 (used trusted_proxies instead)
+    trusted_proxies: ~
+    session:         ~
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
 
 # Assetic Configuration
 assetic:
-    debug:          %kernel.debug%
+    debug:          "%kernel.debug%"
     use_controller: false
-    # java: /usr/bin/java
+    bundles:        [ ]
+    #java: /usr/bin/java
     filters:
         cssrewrite: ~
-        # closure:
-        #     jar: %kernel.root_dir%/java/compiler.jar
-        # yui_css:
-        #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
+        #closure:
+        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        #yui_css:
+        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
 
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   %database_driver%
-        host:     %database_host%
-        port:     %database_port%
-        dbname:   %database_name%
-        user:     %database_user%
-        password: %database_password%
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
         charset:  UTF8
-
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        default_entity_manager: default
+        auto_generate_proxy_classes: "%kernel.debug%"
+        #auto_mapping: true
+        resolve_target_entities:
+            Symfony\Component\Security\Core\User\UserInterface: CCDNUser\UserBundle\Entity\User
+        entity_managers:
+            default:
+                mappings:
+                    FOSUserBundle: ~
+                    CCDNUserUserBundle: ~
+                    CCDNUserSecurityBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNUser\SecurityBundle\Entity
+                        is_bundle:            true
+                    CCDNUserProfileBundle: ~
+                    CCDNComponentCommonBundle: ~
+                    CCDNComponentCrumbTrailBundle: ~
+                    CCDNComponentBBCodeBundle: ~
+                    CCDNComponentDashboardBundle: ~
+                    CCDNComponentAttachmentBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNComponent\AttachmentBundle\Entity
+                        is_bundle:            true
+                    CCDNForumAdminBundle: ~
+                    CCDNForumForumBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNForum\ForumBundle\Entity
+                        is_bundle:            true
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
 
-jms_security_extra:
-    secure_controllers:  true
-    secure_all_services: false
-
-
-
-
-
-
-
-#################################################################
-#
-# for fos_user_bundle
-#
-fos_user:
-   db_driver:      orm
-   firewall_name:  main
-   user_class:     CCDNUser\UserBundle\Entity\User
-   use_listener:   true
-   from_email:
-       address: noreply@codeconsortium.com
-       sender_name: Code Consortium
-   profile:
-       form:
-#            type:               FOS\UserBundle\Form\ProfileFormType
-#            handler:            FOS\UserBundle\Form\ProfileFormHandler
-            name:               fos_user_profile_form
-            validation_groups:  [Profile]
-   change_password:
-       form:
-#            type:               FOS\UserBundle\Form\ChangePasswordFormType
-#            handler:            FOS\UserBundle\Form\ChangePasswordFormHandler
-#            name:               fos_user_change_password_form
-#            validation_groups:  [ChangePassword]
-   registration:
-#        confirmation:
-#            from_email: ~
-#            enabled:    false
-#            template:   FOSUserBundle:Registration:email.txt.twig
-        form:
-            type:               ccdn_user_registration
-#            handler:            FOS\UserBundle\Form\RegistrationFormHandler
-#            name:               fos_user_registration_form
-#            validation_groups:  [Registration]
-   resetting:
-       token_ttl: 86400
-       email:
-           from_email: 
-               address: reset@codeconsortium.com
-               sender_name: Code Consortium Password Reset
-#            template:   FOSUserBundle:Resetting:email.txt.twig
-#        form:
-#            type:               FOS\UserBundle\Form\ResettingFormType
-#            handler:            FOS\UserBundle\Form\ResettingFormHandler
-#            name:               fos_user_resetting_form
-#            validation_groups:  [ResetPassword]
-   service:
-#        mailer:                 fos_user.util.mailer.default
- #      email_canonicalizer:    fos_user.util.email_canonicalizer.default
- #      username_canonicalizer: fos_user.util.username_canonicalizer.default
-       user_manager:           fos_user.user_manager.default
-#    encoder:
-#        algorithm:          sha512
-#        encode_as_base64:   false
-#        iterations:         1
-   template:
-       engine: twig
-       theme:  CCDNUserUserBundle:Form:fields.html.twig
-#    group:
-#        group_class:    ~ # Required when using groups
-#        form:
-#            type:               FOS\UserBundle\Form\GroupFormType
-#            handler:            FOS\UserBundle\Form\GroupHandler
-#            name:               fos_user_group_form
-#            validation_groups:  [Registration]
-
-
-#################################################################
-#
-# FOS FACEBOOK
-#
-#
-fos_facebook:
-    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
-    alias:  facebook
-    app_id: %facebook_app_id%
-    secret: %facebook_app_secret%
-    cookie: true
-    permissions: [email, user_birthday, user_location]
-   
-services:
-    my.facebook.user:
-        class: Acme\MyBundle\Security\User\Provider\FacebookProvider
-        arguments:
-            facebook: "@fos_facebook.api"
-            userManager: "@fos_user.user_manager"
-            validator: "@validator"
-            container: "@service_container"
-
-
-
-#################################################################
-#
-# EWZ Recatpcha bundle
-#
-#
 ewz_recaptcha:
-    enabled: false
-    public_key: %ewz_recaptcha_public_key%
-    private_key: %ewz_recaptcha_private_key%
-    secure: false
-    locale_key: session.default_locale
+    public_key:   here_is_your_public_key
+    private_key:  here_is_your_private_key
+    secure:       false
+    locale_key:   kernel.default_locale
 
-#################################################################
-#
-# FM BbCode bundle
-#
-#
-
-#fm_bbcode:
-#    filter_sets:
-#        forum_post_filter:
-#            locale: en
-#            xhtml: true
-#            filters: [ default ]
-#            whitelist: [ default, b, u, i, list, text, url, email, image, video, quote, code, spoiler ]
-#        signature_filter:
-#            locale: en
-#            xhtml: true
-#            filters: [ default, block, list, quote, code, text, url, video ]
-
-#################################################################             
-#
-#
-#     CCDN
-#
-#
-#################################################################
-
-
-
-
-#################################################################        
-#
-# for CCDNComponent AttachmentBundle
-#
-ccdn_component_attachment:
-    user:
-        profile_route: ccdn_user_profile_show_by_id
-    template:
-        engine: twig
-    store:
-        dir: %ccdncomponent_attachmentbundle_file_store%
-    quota_per_user:
-        max_files_quantity: 20
-        max_filesize_per_file: 400KiB
-        max_total_quota: 2000KiB
-    manage:
-        list:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            attachment_uploaded_datetime_format: "d-m-Y - H:i"
-        upload:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNComponentAttachmentBundle:Form:fields.html.twig
-
-
-#################################################################        
-#
-# for CCDNComponent BBCodeBundle
-#
-ccdn_component_bb_code:
-    editor:
-        enable: false
-    parser:
-        enable: true
-
-
-#################################################################
-#
-# for CCDNComponent CommonBundle
-#
-ccdn_component_common:
-    header:
-        registration_route: fos_user_registration_register
-        login_route: fos_user_security_login
-        logout_route: fos_user_security_logout
-        account_route: ccdn_user_user_account_show
-        profile_route: ccdn_user_profile_show
-        header_bar_links:
-#            - { bundle: CCDNComponentDashboardBundle, label: 'ccdn_component_dashboard.layout.header_links.dashboard', route: 'ccdn_component_dashboard_index' }
-#            - { bundle: CCDNUserMemberBundle, label: 'ccdn_user_member.layout.header_links.members', route: 'ccdn_user_member_index'}
-#            - { bundle: CCDNForumForumBundle, label: 'ccdn_forum_forum.layout.header_links.forum', route: ccdn_forum_forum_index }
-
-
-#################################################################
-#
-# for CCDNComponent CrumbTrailBundle
-#
-ccdn_component_crumb_trail:
-    crumb:
-        first_crumb_truncate: 20
-        mid_crumb_truncate: 20
-        last_crumb_truncate: 20
-
-
-#################################################################
-#
-# for CCDNComponent DashboardBundle
-#
-ccdn_component_dashboard:
-    template:
-        engine: twig
-    dashboard:
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-
-
-
-
-#################################################################
-#
-# for CCDNForum AdminBundle
-#
-ccdn_forum_admin:
-    user:
-        profile_route: ccdn_user_profile_show_by_id
-    template:
-        engine: twig
-    category:
-        index:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            last_post_datetime_format: "d-m-Y - H:i"
-        create:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-        edit:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-        delete:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig            
-    board:
-        create:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-        edit:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumAdminBundle:Form:fields.html.twig
-        delete:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig            
-    topic:
-        show_deleted:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            topics_per_page: 40
-            topic_title_truncate: 17
-            topic_created_datetime_format: "d-m-Y - H:i"
-            topic_closed_datetime_format: "d-m-Y - H:i"
-            topic_deleted_datetime_format: "d-m-Y - H:i"
-    post:
-        show_deleted:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            posts_per_page: 40
-            topic_title_truncate: 17
-            post_created_datetime_format: "d-m-Y - H:i"
-            post_locked_datetime_format: "d-m-Y - H:i"
-            post_deleted_datetime_format: "d-m-Y - H:i"
-
-
-#################################################################
-#
-# for CCDNForum ForumBundle    
-#
-ccdn_forum_forum:
-    user:
-        profile_route: ccdn_user_profile_show_by_id
-    template:
-        engine: twig
-    category:
-        last_post_datetime_format: "d-m-Y - H:i"
-        index:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-    board:
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            topics_per_page: 20
-            topic_title_truncate: 50
-            first_post_datetime_format: "d-m-Y - H:i"
-            last_post_datetime_format: "d-m-Y - H:i"
-    topic:
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            posts_per_page: 5        
-            topic_closed_datetime_format: "d-m-Y - H:i"
-            topic_deleted_datetime_format: "d-m-Y - H:i"
-        create:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-        reply:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-    post:
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            topic_closed_datetime_format: "d-m-Y - H:i"
-            topic_deleted_datetime_format: "d-m-Y - H:i"
-        edit_topic:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-        edit_post:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumForumBundle:Form:fields.html.twig
-        delete_post:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-    item_post:
-        post_created_datetime_format: "d-m-Y - H:i"
-        post_edited_datetime_format: "d-m-Y - H:i"
-        post_locked_datetime_format: "d-m-Y - H:i"
-        post_deleted_datetime_format: "d-m-Y - H:i"
-    draft:
-        list:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            drafts_per_page: 10
-            topic_title_truncate: 80
-            creation_datetime_format: "d-m-Y - H:i"
-    subscription:
-        list:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            topics_per_page: 10
-            topic_title_truncate: 50
-            first_post_datetime_format: "d-m-Y - H:i"
-            last_post_datetime_format: "d-m-Y - H:i"
-    transcript:
-        post_creation_datetime_format: "d-m-Y - H:i"
-        post_deleted_datetime_format: "d-m-Y - H:i"
-
-
-#################################################################
-#
-# for CCDNForum KarmaBundle
-#
-ccdn_forum_karma:
-    user:
-        profile_route: ccdn_user_profile_show_by_id 
-    template:
-        engine: twig
-    review:
-        review_all:
-            reviews_per_page: 40
-            topic_title_truncate: 70
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            rating_datetime_format: "d-m-Y - H:i"
-    rate:
-        rate:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNForumKarmaBundle:Form:fields.html.twig
-
-
-
-#################################################################
-#        
-# for CCDNMessage MessageBundle      
-#
-ccdn_message_message:  
-    user:
-        profile_route: ccdn_user_profile_show_by_id
-    template:
-        engine: twig
-    folder:
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            messages_per_page: 10
-            subject_truncate: 50
-            sent_datetime_format: "d-m-Y - H:i"
-    message:
-        compose:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNMessageMessageBundle:Form:fields.html.twig
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            sent_datetime_format: "d-m-Y - H:i"
-    quotas:
-        max_messages: 100
-
-
-
-#################################################################        
-#
-# for CCDNUser SecurityBundle
-#
-ccdn_user_security:
-    route_referer:
-        route_ignore_list:
-#            - { bundle: 'fosuserbundle', route: 'fos_user_security_login' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_security_check' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_security_logout' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_register' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_check_email' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirm' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_registration_confirmed' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_request' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_send_email' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_check_email' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_resetting_reset' }
-#            - { bundle: 'fosuserbundle', route: 'fos_user_change_password' }
-#            - { bundle: 'ccdnuseruserbundle', route: 'ccdn_user_user_registration_terms' }
-#            - { bundle: 'ccdncomponentattachmentbundle' route: 'ccdn_component_attachment_download'}
-#            - { bundle: 'ccdncomponentattachmentbundle' route: 'ccdn_component_attachment_thumbnail'}
-    login_shield:
-        enable_shield: false
-        block_for_minutes: 2
-        limit_failed_login_attempts:
-            before_recover_account: 5
-            before_return_http_500: 10
-        primary_login_route:
-            name: fos_user_security_login
-        recover_account_route:
-            name: fos_user_resetting_request
-        block_routes_when_denied:
-            - fos_user_security_login
-            - fos_user_security_check
-            - fos_user_security_logout
-
-
-#################################################################
-#
-# for CCDNUser UserBundle   
-#
-ccdn_user_user:
-    user:
-        profile_route: ccdn_user_profile_show_by_id 
-    template:
-        engine: twig
-    account:
-        show:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig     
-        edit:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-    password:
-        change_password:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-    registration:
-        register:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-        check_email:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-        confirmed:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-    resetting:
-        request:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-        password_already_requested:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-        check_email:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-        reset:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserUserBundle:Form:fields.html.twig
-    security:
-        login:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            support_facebook: false
-    sidebar:
-        members_route: ccdn_user_member_index
-        profile_route: ccdn_user_profile_show
-
-
-#################################################################        
-#
-# for CCDNUser ProfileBundle
-#
-ccdn_user_profile:
-    user:
-        profile_route: ccdn_user_profile_show_by_id 
-    template:
-        engine: twig
-    profile:
-#        edit:
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-#            form_theme: CCDNUserProfileBundle:Form:fields.html.twig
-        show:
-            requires_login: false
-#            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-#            member_since_datetime_format: "d-m-Y - H:i"
-#            last_login_datetime_format: "d-m-Y - H:i"
-    sidebar:
-        members_route: ccdn_user_member_index
-        account_route: ccdn_user_user_account_show
-
-
-#################################################################       
-#
-# for CCDNUser MemberBundle    
-#
-ccdn_user_member:
-    user:
-        profile_route: ccdn_user_profile_show_by_id 
-    template:
-        engine: twig
-    login_route: fos_user_security_login
-    member:
-        list:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            members_per_page: 50
-            member_since_datetime_format: "d-m-Y - H:i"     
-            requires_login: false
-    sidebar:
-        account_route: ccdn_user_user_account_show
-        profile_route: ccdn_user_profile_show
-
-
-#################################################################
-#
-# for CCDNUser AdminBundle   
-#
-ccdn_user_admin:
-    user:
-        profile_route: ccdn_user_profile_show_by_id 
-    template:
-        engine: twig
-    activation:
-        show_unactivated_users:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            users_per_page: 30
-            member_since_datetime_format: "d-m-Y - H:i"
-    ban:
-        show_banned_users:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            users_per_page: 30
-            member_since_datetime_format: "d-m-Y - H:i"
-    role:
-        set_users_role:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
-    account:
-        show_newest_users:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            users_per_page: 30
-            member_since_datetime_format: "d-m-Y - H:i"
-        show_user:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            member_since_datetime_format: "d-m-Y - H:i"
-        edit_user_account:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
-        edit_user_profile:
-            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
-            form_theme: CCDNUserAdminBundle:Form:fields.html.twig
-
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: CCDNUser\UserBundle\Entity\User

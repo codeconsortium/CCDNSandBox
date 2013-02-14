@@ -1,144 +1,176 @@
-CodeConsortium Sandbox
+Symfony Standard Edition
 ========================
 
-Welcome to the CodeConsortium sandbox - a fully-functional CodeConsortium
-application that demonstrates the CCDN bundles in action.
+Welcome to the Symfony Standard Edition - a fully-functional Symfony2
+application that you can use as the skeleton for your new applications.
 
-This document contains information on how to download and start using Symfony.
-For a more detailed explanation, see the
-[Installation chapter](http://symfony.com/doc/current/book/installation.html)
-of the Symfony Documentation.
+This document contains information on how to download, install, and start
+using Symfony. For a more detailed explanation, see the [Installation][1]
+chapter of the Symfony Documentation.
 
-1) Download the Standard Edition
---------------------------------
+1) Installing the Standard Edition
+----------------------------------
 
-If you've already downloaded the standard edition, and unpacked it somewhere
-within your web root directory, then move on to the "Installation" section.
+When it comes to installing the Symfony Standard Edition, you have the
+following options.
 
-To download the standard edition, you have two options:
+### Use Composer (*recommended*)
 
-### Download an archive file (*recommended*)
+As Symfony uses [Composer][2] to manage its dependencies, the recommended way
+to create a new project is to use it.
 
-The easiest way to get started is to download an archive of the standard edition
-(http://symfony.com/download). Unpack it somewhere under your web server root
-directory and you're done. The web root is wherever your web server (e.g. Apache)
-looks when you access `http://localhost` in a browser.
+If you don't have Composer yet, download it following the instructions on
+http://getcomposer.org/ or just run the following command:
 
-### Clone the git Repository
+    curl -s https://getcomposer.org/installer | php
 
-We highly recommend that you download the packaged version of this distribution.
-But if you still want to use Git, you are on your own.
+Then, use the `create-project` command to generate a new Symfony application:
 
-Run the following commands:
+    php composer.phar create-project symfony/framework-standard-edition path/to/install 2.1.x-dev
 
-    git clone http://github.com/codeconsortium/CCDNSandBox.git
+For an exact version, replace 2.1.x-dev with the latest Symfony version (e.g. 2.1.1).
 
-2) Installation
----------------
+Composer will install Symfony and all its dependencies under the
+`path/to/install` directory.
 
-Once you've downloaded the standard edition, installation is easy, and basically
-involves making sure your system is ready for Symfony.
+### Download an Archive File
 
-### a) Check your System Configuration
+To quickly test Symfony, you can also download an [archive][3] of the Standard
+Edition and unpack it somewhere under your web server root directory.
 
-Before you begin, make sure that your local system is properly configured
-for Symfony. To do this, execute the following:
+If you downloaded an archive "without vendors", you also need to install all
+the necessary dependencies. Download composer (see above) and run the
+following command:
+
+    php composer.phar install
+
+2) Checking your System Configuration
+-------------------------------------
+
+Before starting coding, make sure that your local system is properly
+configured for Symfony.
+
+Execute the `check.php` script from the command line:
 
     php app/check.php
 
-If you get any warnings or recommendations, fix these now before moving on.
+Access the `config.php` script from a browser:
 
-### b) Install the Vendor Libraries
+    http://localhost/path/to/symfony/app/web/config.php
 
-You need to download all of the necessary vendor libraries. Run the following:
+If you get any warnings or recommendations, fix them before moving on.
 
-    php bin/vendors install
+3) Browsing the Demo Application
+--------------------------------
 
-Note that you **must** have git installed and be able to execute the `git`
-command to execute this script. If you don't have git available, either install
-it or download Symfony with the vendor libraries already included.
+Congratulations! You're now ready to use Symfony.
 
-### c) Add your Database Credentials.
-
-Copy app/config/parameters.ini.dist to app/config/parameters.ini and add you database login credentials there. You will need to make sure you have already created a database.
-
-### d) Setup your Database.
-
-Run the following:
-
-	php app/console doctrine:schema:update --dump-sql
-
-Note: We dump the SQL so that you can add it manually when applying an update. Assuming that the SQL looks good and you do not have any issues you can use --force in place of --dump-sql and your database will be setup for you.
-
-### e) Symlink your Assets.
-
-Run the following:
-
-	php app/console assets:install --symlink web/
-
-### f) Warm up the Cache.
-
-Run the following:
-
-    php app/console cache:warmup
-
-### c) Access the Application via the Browser
-
-Congratulations! You're now ready to use Symfony. If you've unzipped Symfony
-in the web root of your computer, then you should be able to access the
-web version of the Symfony requirements check via:
-
-    http://localhost/CCDNSandbox/web/config.php
-
-If everything looks good, click the "Bypass configuration and go to the Welcome page"
-link to load up your first Symfony page.
+From the `config.php` page, click the "Bypass configuration and go to the
+Welcome page" link to load up your first Symfony page.
 
 You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the ``config.php`` page.
+Symfony Application online" link of the `config.php` page.
 
-3) Learn about Symfony!
------------------------
+To see a real-live Symfony page in action, access the following page:
 
-This distribution is meant to be the starting point for your application,
-but it also contains some sample code that you can learn from and play with.
+    web/app_dev.php/demo/hello/Fabien
 
-Using this Edition as the Base of your Application
---------------------------------------------------
+4) Getting started with Symfony
+-------------------------------
 
-The distribution is configured with the following defaults:
+This distribution is meant to be the starting point for your Symfony
+applications, but it also contains some sample code that you can learn from
+and play with.
 
-* Twig is the only configured template engine;
-* Doctrine ORM/DBAL is configured;
-* Swiftmailer is configured;
-* Annotations for everything are enabled.
+A great way to start learning Symfony is via the [Quick Tour][4], which will
+take you through all the basic features of Symfony2.
+
+Once you're feeling good, you can move onto reading the official
+[Symfony2 book][5].
+
+A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
+playing with it, you can remove it by following these steps:
+
+  * delete the `src/Acme` directory;
+
+  * remove the routing entries referencing AcmeBundle in
+    `app/config/routing_dev.yml`;
+
+  * remove the AcmeBundle from the registered bundles in `app/AppKernel.php`;
+
+  * remove the `web/bundles/acmedemo` directory;
+
+  * remove the `security.providers`, `security.firewalls.login` and
+    `security.firewalls.secured_area` entries in the `security.yml` file or
+    tweak the security configuration to fit your needs.
 
 What's inside?
 ---------------
-The Symfony Standard Edition comes pre-configured with the following bundles:
 
-* **FrameworkBundle** - The core Symfony framework bundle
-* **SensioFrameworkExtraBundle** - Adds several enhancements, including template
-  and routing annotation capability ([documentation](http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html))
-* **DoctrineBundle** - Adds support for the Doctrine ORM
-  ([documentation](http://symfony.com/doc/current/book/doctrine.html))
-* **TwigBundle** - Adds support for the Twig templating engine
-  ([documentation](http://symfony.com/doc/current/book/templating.html))
-* **SecurityBundle** - Adds security by integrating Symfony's security component
-  ([documentation](http://symfony.com/doc/current/book/security.html))
-* **SwiftmailerBundle** - Adds support for Swiftmailer, a library for sending emails
-  ([documentation](http://symfony.com/doc/2.0/cookbook/email.html))
-* **MonologBundle** - Adds support for Monolog, a logging library
-  ([documentation](http://symfony.com/doc/2.0/cookbook/logging/monolog.html))
-* **AsseticBundle** - Adds support for Assetic, an asset processing library
-  ([documentation](http://symfony.com/doc/2.0/cookbook/assetic/asset_management.html))
-* **JMSSecurityExtraBundle** - Allows security to be added via annotations
-  ([documentation](http://symfony.com/doc/current/bundles/JMSSecurityExtraBundle/index.html))
-* **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-  the web debug toolbar
-* **SensioDistributionBundle** (in dev/test env) - Adds functionality for configuring
-  and working with Symfony distributions
-* **SensioGeneratorBundle** (in dev/test env) - Adds code generation capabilities
-  ([documentation](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html))
-* **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example code
+The Symfony Standard Edition is configured with the following defaults:
+
+  * Twig is the only configured template engine;
+
+  * Doctrine ORM/DBAL is configured;
+
+  * Swiftmailer is configured;
+
+  * Annotations for everything are enabled.
+
+It comes pre-configured with the following bundles:
+
+  * **FrameworkBundle** - The core Symfony framework bundle
+
+  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
+    template and routing annotation capability
+
+  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+
+  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+
+  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
+    component
+
+  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
+    sending emails
+
+  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+
+  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
+    library
+
+  * [**JMSSecurityExtraBundle**][13] - Allows security to be added via
+    annotations
+
+  * [**JMSDiExtraBundle**][14] - Adds more powerful dependency injection
+    features
+
+  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
+    the web debug toolbar
+
+  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
+    configuring and working with Symfony distributions
+
+  * [**SensioGeneratorBundle**][15] (in dev/test env) - Adds code generation
+    capabilities
+
+  * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
+    code
 
 Enjoy!
+
+[1]:  http://symfony.com/doc/2.1/book/installation.html
+[2]:  http://getcomposer.org/
+[3]:  http://symfony.com/download
+[4]:  http://symfony.com/doc/2.1/quick_tour/the_big_picture.html
+[5]:  http://symfony.com/doc/2.1/index.html
+[6]:  http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html
+[7]:  http://symfony.com/doc/2.1/book/doctrine.html
+[8]:  http://symfony.com/doc/2.1/book/templating.html
+[9]:  http://symfony.com/doc/2.1/book/security.html
+[10]: http://symfony.com/doc/2.1/cookbook/email.html
+[11]: http://symfony.com/doc/2.1/cookbook/logging/monolog.html
+[12]: http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html
+[13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
+[14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
+[15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html

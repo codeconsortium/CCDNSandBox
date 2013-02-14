@@ -1,0 +1,100 @@
+{% extends ccdn_user_profile.profile.show.bio.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{- asset('bundles/ccdncomponentbbcode/css/bbcode.css') -}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_user_profile.title.profile.show' | trans({ '%user_name%': user.getUsername |title }, 'CCDNUserProfileBundle'), ccdn_user_profile.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+	{{ parent() }}
+
+	{%- include 'CCDNUserProfileBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- include 'CCDNUserProfileBundle:Profile:item_header.html.twig' -%}
+
+	{%- include 'CCDNUserProfileBundle:Profile:item_tabs.html.twig' -%}
+
+	<h3 style="display:inline-block;">{{- 'ccdn_user_profile.profile.show.bio' |trans({}, 'CCDNUserProfileBundle') -}}</h3>
+	{%- if is_granted('ROLE_USER') -%}
+		{%- if user.id == app.user.id or is_granted('ROLE_ADMIN') -%}
+			<a class="btn pull-right" href="{{- path('ccdn_user_profile_edit_bio', {'userId':user.id}) -}}">{{- 'ccdn_user_profile.link.profile.edit' |trans({}, 'CCDNUserProfileBundle') -}}</a><br>
+		{%- endif -%}
+	{%- endif -%}
+
+	<div style="padding:15px;">
+		{%- if user.getProfile.getBio -%}
+			<span class="common_body">
+				{{- BBCode(user.getProfile.getBio | raw, ccdn_user_profile.item_bio.enable_bb_parser) | raw -}}
+				<br>
+			</span>
+		{%- else -%}	
+			{%- if is_granted('ROLE_USER') -%}
+				{%- if user.id == app.user.id -%}
+					<div class="alert alert-warning">
+						{{- 'ccdn_user_profile.profile.show.bio.none.owner' | trans({}, 'CCDNUserProfileBundle') -}}
+					</div>
+				{%- else -%}
+					<div class="center">
+						<h5>{{- 'ccdn_user_profile.profile.show.bio.none' | trans({}, 'CCDNUserProfileBundle') -}}</h5>
+					</div>
+				{%- endif -%}
+			{%- else -%}
+				<div class="center">
+					<h5>{{- 'ccdn_user_profile.profile.show.bio.none' | trans({}, 'CCDNUserProfileBundle') -}}</h5>
+				</div>
+			{%- endif -%}
+		{%- endif -%}
+	</div>
+	<br>
+
+	<hr>
+	<h3 style="display:inline-block;">{{- 'ccdn_user_profile.profile.show.signature' |trans({}, 'CCDNUserProfileBundle') -}}</h3>
+	{%- if is_granted('ROLE_USER') -%}
+		{%- if user.id == app.user.id or is_granted('ROLE_ADMIN') -%}
+			<a class="btn pull-right" href="{{- path('ccdn_user_profile_edit_signature', {'userId':user.id}) -}}">{{- 'ccdn_user_profile.link.profile.edit' |trans({}, 'CCDNUserProfileBundle') -}}</a><br>
+		{%- endif -%}
+	{%- endif -%}
+
+	<div style="padding:15px;">
+		{%- if user.getProfile.getSignature -%}
+			<span class="common_body">
+				{{- BBCode(user.getProfile.getSignature | raw, ccdn_user_profile.item_signature.enable_bb_parser) | raw -}}
+				<br>
+			</span>
+		{%- else -%}
+			{%- if is_granted('ROLE_USER') -%}
+				{%- if user.id == app.user.id -%}
+					<div class="alert alert-warning">
+						{{- 'ccdn_user_profile.profile.show.signature.none.owner' | trans({}, 'CCDNUserProfileBundle') -}}
+					</div>
+				{%- else -%}
+					<div class="center">
+						<h5>{{- 'ccdn_user_profile.profile.show.signature.none' | trans({}, 'CCDNUserProfileBundle') -}}</h5>
+					</div>
+				{%- endif -%}
+			{%- else -%}
+				<div class="center">
+					<h5>{{- 'ccdn_user_profile.profile.show.signature.none' | trans({}, 'CCDNUserProfileBundle') -}}</h5>
+				</div>
+			{%- endif -%}
+		{%- endif -%}
+	</div>
+	<br>
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

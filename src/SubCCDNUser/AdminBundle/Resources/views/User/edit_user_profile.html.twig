@@ -1,0 +1,148 @@
+{% extends ccdn_user_admin.account.edit_user_profile.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{- asset('bundles/ccdnuserprofile/js/jquery.profile.js') -}}" type="text/javascript"></script>
+{% endblock %}
+
+{% block title %}{{- truncDot('title.profile.edit' | trans({ '%user_name%': user.getUsername }, 'CCDNUserProfileBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+	{{ parent() }}
+
+	{%- include 'CCDNUserAdminBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	<h2>{{- 'title.profile.edit' | trans({ '%user_name%': user.getUsername }, 'CCDNUserProfileBundle') -}}</h2>
+
+	{%- form_theme form ccdn_user_admin.account.edit_user_profile.form_theme -%}
+	<form action="{{- path('ccdn_user_admin_profile_edit', {'userId': user.getId}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+		<fieldset>
+
+			{{- form_errors(form) -}}
+
+			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
+
+			<div class="control-group">
+				<label for="username" class="control-label">{{- 'form.label.profile.edit.username' |trans({}, 'CCDNUserProfileBundle') -}}</label>
+				<div class="controls row-fluid">
+					<input type="text" class="input-xlarge span8 disabled" disabled id="username" value="{{- user.getUsername |capitalize -}}">
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.location.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.location, null, { 'label': 'form.label.profile.edit.location' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.location) -}}
+					{{- form_widget(form.location) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.website.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.website, null, { 'label': 'form.label.profile.edit.website' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.website) -}}
+					{{- form_widget(form.website) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.aim.vars.errors|length > 0) ? ' error': '' -}}{{- (form.aim_is_public.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.aim, null, { 'label': 'form.label.profile.edit.aim' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.aim_is_public) -}}
+					{{- form_widget(form.aim_is_public) -}}{{- form_label(form.aim_is_public, null, { 'attr': {'class': 'checkbox_', 'label': 'form.label.profile.edit.aim_is_public' |trans({}, 'CCDNUserProfileBundle') } }) -}}
+					<br>
+					{{- form_errors(form.aim) -}}
+					{{- form_widget(form.aim) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.msn.vars.errors|length > 0) ? ' error': '' -}}{{- (form.msn_is_public.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.msn, null, { 'label': 'form.label.profile.edit.msn' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.msn_is_public) -}}
+					{{- form_widget(form.msn_is_public) -}}{{- form_label(form.msn_is_public, null, { 'attr': {'class': 'checkbox_', 'label': 'form.label.profile.edit.msn_is_public' |trans({}, 'CCDNUserProfileBundle') } }) -}}
+					<br>
+					{{- form_errors(form.msn) -}}
+					{{- form_widget(form.msn) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.icq.vars.errors|length > 0) ? ' error': '' -}}{{- (form.icq_is_public.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.icq, null, { 'label': 'form.label.profile.edit.icq' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.icq_is_public) -}}
+					{{- form_widget(form.icq_is_public) -}}{{- form_label(form.icq_is_public, null, { 'attr': {'class': 'checkbox_', 'label': 'form.label.profile.edit.icq_is_public' |trans({}, 'CCDNUserProfileBundle') } }) -}}
+					<br>
+					{{- form_errors(form.icq) -}}
+					{{- form_widget(form.icq) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.yahoo.vars.errors|length > 0) ? ' error': '' -}}{{- (form.yahoo_is_public.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.yahoo, null, { 'label': 'form.label.profile.edit.yahoo'|trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.yahoo_is_public) -}}
+					{{- form_widget(form.yahoo_is_public) -}}{{- form_label(form.yahoo_is_public, null, { 'attr': {'class': 'checkbox_', 'label': 'form.label.profile.edit.yahoo_is_public' |trans({}, 'CCDNUserProfileBundle') } }) -}}
+					<br>
+					{{- form_errors(form.yahoo) -}}
+					{{- form_widget(form.yahoo) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.bio.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.bio, null, { 'label': 'form.label.profile.edit.bio' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.bio) -}}
+					{%- form_theme form 'CCDNComponentBBCodeBundle:Form:fields.html.twig' -%}
+					{{- form_widget(form.bio) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.avatar.vars.errors|length > 0) ? ' error': '' -}}{{- (form.avatar_is_remote.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.avatar, null, { 'label': 'form.label.profile.edit.avatar' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.avatar_is_remote) -}}
+					{{- form_widget(form.avatar_is_remote) -}}
+					{{- form_label(form.avatar_is_remote, null, { 'attr': { 'class': 'checkbox_', 'label': 'form.label.profile.edit.avatar_is_remote' |trans({}, 'CCDNUserProfileBundle') }}) -}}
+					<br>
+					{{- form_errors(form.avatar) -}}
+					{{- form_widget(form.avatar) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.signature.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.signature, null, { 'label': 'form.label.profile.edit.signature' |trans({}, 'CCDNUserProfileBundle') }) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.signature) -}}
+					{%- form_theme form 'CCDNComponentBBCodeBundle:Form:fields.html.twig' -%}
+					{{- form_widget(form.signature) -}}
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<input type="submit" class="btn btn-danger" value="{{- 'form.button.profile.edit.update' |trans({}, 'CCDNUserProfileBundle') -}}">
+			</div>
+
+		</fieldset>
+	</form>
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

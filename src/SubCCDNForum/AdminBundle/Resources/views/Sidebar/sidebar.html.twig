@@ -1,0 +1,50 @@
+{%- spaceless -%}
+	{%- set route = app.request.attributes.get('_route') -%}
+
+	<li class="nav-header">{{- 'ccdn_forum_admin.sidebar.header.tools' | trans({}, 'CCDNForumAdminBundle') -}}</li>
+
+	{%- if route == 'ccdn_forum_admin_category_index' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_category_index') -}}"><i class="icon-white icon-home"></i>{{- 'ccdn_forum_admin.sidebar.link.manage_boards' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_category_index') -}}"><i class="icon-home"></i>{{- 'ccdn_forum_admin.sidebar.link.manage_boards' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+	{%- if route == 'ccdn_forum_admin_category_create' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_category_create') -}}"><i class="icon-white icon-asterisk"></i>{{- 'ccdn_forum_admin.sidebar.link.category.create' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_category_create') -}}"><i class="icon-asterisk"></i>{{- 'ccdn_forum_admin.sidebar.link.category.create' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+	{%- if route == 'ccdn_forum_admin_board_create' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_board_create') -}}"><i class="icon-white icon-asterisk"></i>{{- 'ccdn_forum_admin.sidebar.link.board.create' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_board_create') -}}"><i class="icon-asterisk"></i>{{- 'ccdn_forum_admin.sidebar.link.board.create' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+	<li class="divider"></li>
+
+	{%- if route == 'ccdn_forum_admin_post_show_all_locked' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_post_show_all_locked', {}) -}}"><i class="icon-white icon-lock"></i>{{- 'ccdn_forum_admin.sidebar.link.post.show_locked' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_post_show_all_locked', {}) -}}"><i class="icon-lock"></i>{{- 'ccdn_forum_admin.sidebar.link.post.show_locked' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+	{%- if route == 'ccdn_forum_admin_topic_show_all_closed' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_topic_show_all_closed', {}) -}}"><i class="icon-white icon-lock"></i>{{- 'ccdn_forum_admin.sidebar.link.topic.show_closed' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_topic_show_all_closed', {}) -}}"><i class="icon-lock"></i>{{- 'ccdn_forum_admin.sidebar.link.topic.show_closed' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+	{%- if route == 'ccdn_forum_admin_topic_deleted_show' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_topic_deleted_show') -}}"><i class="icon-white icon-trash"></i>{{- 'ccdn_forum_admin.sidebar.link.topic.show_deleted' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_topic_deleted_show') -}}"><i class="icon-trash"></i>{{- 'ccdn_forum_admin.sidebar.link.topic.show_deleted' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+	{%- if route == 'ccdn_forum_admin_post_deleted_show' -%}
+		<li class="active"><a href="{{- path('ccdn_forum_admin_post_deleted_show') -}}"><i class="icon-white icon-trash"></i>{{- 'ccdn_forum_admin.sidebar.link.post.show_deleted' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- else -%}
+		<li><a href="{{- path('ccdn_forum_admin_post_deleted_show') -}}"><i class="icon-trash"></i>{{- 'ccdn_forum_admin.sidebar.link.post.show_deleted' | trans({}, 'CCDNForumAdminBundle') -}}</a></li>
+	{%- endif -%}
+
+{%- endspaceless -%}

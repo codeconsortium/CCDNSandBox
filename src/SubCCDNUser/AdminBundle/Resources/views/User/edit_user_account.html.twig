@@ -1,0 +1,79 @@
+{% extends ccdn_user_admin.account.edit_user_account.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_user_admin.title.account.edit' |trans({'%user_name%': user.getUsername}, 'CCDNUserAdminBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+	{{ parent() }}
+
+	{%- include 'CCDNUserAdminBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	<h2>{{- 'ccdn_user_admin.title.account.edit' |trans({'%user_name%': user.getUsername}, 'CCDNUserAdminBundle') -}}</h2>
+
+	{%- form_theme form ccdn_user_admin.account.edit_user_account.form_theme -%}
+	<form action="{{- path('ccdn_user_admin_account_edit', {'userId': user.id}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+		<fieldset>
+
+			{{- form_errors(form) -}}
+
+			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
+
+			<div class="control-group{{- (form.username.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.username, null, { 'label': 'fos_user_profile_form_user_username' |trans({}, 'FOSUserBundle')}) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.username) -}}
+					{{- form_widget(form.username) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.email.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.email, null, { 'label': 'fos_user_profile_form_user_email' |trans({}, 'FOSUserBundle')}) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.email) -}}
+					{{- form_widget(form.email) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.locked.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.locked, null, { 'label': 'ccdn_user_admin.form.label.account.locked' |trans({}, 'CCDNUserAdminBundle')}) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.locked) -}}
+					{{- form_widget(form.locked) -}}
+				</div>
+			</div>
+
+			<div class="control-group{{- (form.enabled.vars.errors|length > 0) ? ' error': '' -}}">
+				{{- form_label(form.enabled, null, { 'label': 'ccdn_user_admin.form.label.account.enabled' |trans({}, 'CCDNUserAdminBundle')}) -}}
+				<div class="controls row-fluid">
+					{{- form_errors(form.enabled) -}}
+					{{- form_widget(form.enabled) -}}
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<input type="submit" class="btn btn-primary" value="{{- 'profile.edit.submit'|trans({}, 'FOSUserBundle') -}}">&nbsp;
+				<a class="btn" href="{{- path('ccdn_user_admin_account_show', {'userId':user.id}) -}}">{{- 'ccdn_user_admin.form.button.cancel' |trans({}, 'CCDNUserAdminBundle') -}}</a>
+			</div>
+
+		</fieldset>
+	</form>
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

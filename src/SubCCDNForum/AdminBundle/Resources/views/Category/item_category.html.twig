@@ -1,0 +1,42 @@
+{%- spaceless -%}
+<div class="btn-toolbar" style="clear:both;">
+	<div class="pull-left">
+		<h2>
+			<i class="icon-folder"></i>
+			<a href="{{- path('ccdn_forum_forum_category_show', {'categoryId': category.id }) -}}">{{- category.name -}}</a>
+		</h2>
+	</div>
+	<div class="pull-right">
+		<a class="btn btn-danger btn-mini" href="{{- path('ccdn_forum_admin_category_edit', {'categoryId': category.getId }) -}}">{{- 'ccdn_forum_admin.link.category.edit' | trans({}, 'CCDNForumAdminBundle') -}}</a>
+		<a class="btn btn-danger btn-mini" href="{{- path('ccdn_forum_admin_category_delete', {'categoryId': category.getId }) -}}">{{- 'ccdn_forum_admin.link.category.delete' | trans({}, 'CCDNForumAdminBundle') -}}</a>
+		<a class="btn btn-danger btn-mini" href="{{- path('ccdn_forum_admin_board_create_on_category', {'categoryId': category.getId }) -}}">{{- 'ccdn_forum_admin.link.board.add' | trans({}, 'CCDNForumAdminBundle') -}}</a>
+		<a class="btn btn-danger btn-mini" href="{{- path('ccdn_forum_admin_category_priority_move_up', {'categoryId': category.getId }) -}}">{{- 'ccdn_forum_admin.link.item.move_up' | trans({}, 'CCDNForumAdminBundle') -}}</a>
+		<a class="btn btn-danger btn-mini" href="{{- path('ccdn_forum_admin_category_priority_move_down', {'categoryId': category.getId }) -}}">{{- 'ccdn_forum_admin.link.item.move_down' | trans({}, 'CCDNForumAdminBundle') -}}</a>
+	</div>
+</div>
+
+<div style="clear:both;">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="center" style="width:34px;"></th>
+				<th class="left">{{- 'ccdn_forum_admin.board.table.head.board' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+				<th class="center" style="width: 80px;">{{- 'ccdn_forum_admin.board.table.head.topic_count' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+				<th class="center" style="width: 80px;">{{- 'ccdn_forum_admin.board.table.head.post_count' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+				<th class="center" style="width: 170px;">{{- 'ccdn_forum_admin.board.table.head.last_post' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{%- for row, board in category.boards -%}
+			{%- include "CCDNForumAdminBundle:Category:item_board.html.twig" -%}
+		{%- else -%}
+			<tr>
+				<td class="center" colspan="5">
+					{{- 'category.table.empty' | trans({}, 'CCDNForumForumBundle') -}}
+				</td>
+			</tr>
+		{%- endfor -%}
+		</tbody>
+	</table>
+</div>
+{%- endspaceless -%}

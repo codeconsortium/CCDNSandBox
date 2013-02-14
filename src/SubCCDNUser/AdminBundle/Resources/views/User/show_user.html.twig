@@ -1,0 +1,77 @@
+{% extends ccdn_user_admin.account.show_user.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_user_admin.title.account.show' |trans({'%user_name%': user.getUsername }, 'CCDNUserAdminBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+	{{ parent() }}
+
+	{%- include 'CCDNUserAdminBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	<h2>{{- 'ccdn_user_admin.title.account.show' |trans({'%user_name%': user.getUsername }, 'CCDNUserAdminBundle') -}}</h2>
+
+	<div class="btn-toolbar">
+	{% if user.enabled %}
+		<a class="btn btn-danger" href="{{- path('ccdn_user_admin_force_reactivation', {'userId': user.getId }) -}}">{{- 'ccdn_user_admin.sidebar.link.user.force_reactivation'|trans({}, 'CCDNUserAdminBundle') -}}</a>&nbsp;
+	{% else %}
+		<a class="btn btn-danger" href="{{- path('ccdn_user_admin_activate', {'userId': user.getId }) -}}">{{- 'ccdn_user_admin.sidebar.link.user.activate'|trans({}, 'CCDNUserAdminBundle') -}}</a>&nbsp;
+	{% endif %}
+	{% if user.locked %}
+		<a class="btn btn-danger" href="{{- path('ccdn_user_admin_unban', {'userId': user.getId }) -}}">{{- 'ccdn_user_admin.sidebar.link.user.unban'|trans({}, 'CCDNUserAdminBundle') -}}</a>&nbsp;
+	{% else %}
+		<a class="btn btn-danger" href="{{- path('ccdn_user_admin_ban', {'userId': user.getId }) -}}">{{- 'ccdn_user_admin.sidebar.link.user.ban'|trans({}, 'CCDNUserAdminBundle') -}}</a>&nbsp;
+	{% endif %}
+		<a class="btn btn-danger" href="{{- path('ccdn_user_admin_set_roles', {'userId': user.getId }) -}}">{{- 'ccdn_user_admin.sidebar.link.user.set_roles'|trans({}, 'CCDNUserAdminBundle') -}}</a>&nbsp;
+		<a class="btn btn-danger" href="{{- path('ccdn_user_admin_account_edit', {'userId': user.getId}) -}}">{{- 'ccdn_user_admin.link.account.edit' |trans({}, 'CCDNUserAdminBundle') -}}</a>&nbsp;
+	{#	<a class="btn btn-danger" href="{{- path('ccdn_user_admin_profile_edit', {'userId': user.getId}) -}}">{{- 'ccdn_user_admin.link.profile.edit' |trans({}, 'CCDNUserAdminBundle') -}}</a>#}
+		<a class="btn" href="{{- path('ccdn_user_profile_show_by_id', {'userId': user.getId}) -}}">{{- 'ccdn_user_admin.link.profile.show' |trans({}, 'CCDNUserAdminBundle') -}}</a>
+	</div>
+
+	<table class="table table-striped table-bordered">
+		<tbody>
+			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
+				<td class="right" style="width: 30%;">{{- 'ccdn_user_admin.account.show.username' |trans({}, 'CCDNUserAdminBundle') -}}</td>
+				<td class="left" style="width: 70%;">{{- user.username |capitalize -}}</td>
+			</tr>
+			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
+				<td class="right">{{- 'ccdn_user_admin.account.show.email'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+				<td class="left">{{- user.email -}}</td>
+			</tr>
+			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
+				<td class="right">{{- 'ccdn_user_admin.account.show.registered_date'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+				<td class="left">{{- user.registeredDate |date(ccdn_user_admin.account.show_user.member_since_datetime_format) -}}</td>
+			</tr>
+			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
+				<td class="right">{{- 'ccdn_user_admin.account.show.role'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+				<td class="left">{{- userRole(user) -}}</td>
+			</tr>			
+			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
+				<td class="right">{{- 'ccdn_user_admin.profile.show.banned'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+				<td class="left">{%- if user.locked -%}Banned{%- else -%}No Bans{%- endif -%}</td>
+			</tr>
+			<tr class="{{- cycler(['row_odd', 'row_even'], 'cycle') -}}">
+				<td class="right">{{- 'ccdn_user_admin.profile.show.activated'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+				<td class="left">{%- if user.enabled -%}Activated{%- else -%}Not Activated{%- endif -%}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

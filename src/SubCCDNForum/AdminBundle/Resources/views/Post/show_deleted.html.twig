@@ -1,0 +1,154 @@
+{% extends ccdn_forum_admin.post.show_deleted.layout_template %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{- asset('bundles/ccdnforumforum/css/generic.css') -}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{- asset('bundles/ccdncomponentcommon/js/ccdn/jquery.checkboxes.js') -}}" type="text/javascript"></script>
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_forum_admin.title.post.show_deleted' | trans({}, 'CCDNForumAdminBundle'), ccdn_forum_admin.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+    {%- include 'CCDNForumAdminBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+{% block body_content %}
+
+    {%- spaceless -%}
+
+    {%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+    {%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+    <h2>{{- 'ccdn_forum_admin.title.post.show_deleted' | trans({}, 'CCDNForumAdminBundle') -}}</h2>
+
+    <form method="POST" action="{{- path('ccdn_forum_admin_post_bulk_action') -}}">
+
+    <div class="btn-toolbar" style="display:block !important;clear:both !important;">
+        <div class="pull-left">
+            <input type="submit" class="btn btn-primary disabled" value="{{- 'ccdn_forum_admin.link.post.lock' |trans({}, 'CCDNForumAdminBundle') -}}" name="submit_lock" disabled data-responds-disabled="posts">
+            <input type="submit" class="btn btn-primary disabled" value="{{- 'ccdn_forum_admin.link.post.unlock' |trans({}, 'CCDNForumAdminBundle') -}}" name="submit_unlock" disabled data-responds-disabled="posts">
+            <input type="submit" class="btn btn-primary disabled" value="{{- 'ccdn_forum_admin.link.post.restore' |trans({}, 'CCDNForumAdminBundle') -}}" name="submit_restore" disabled data-responds-disabled="posts">
+            <input type="submit" class="btn btn-danger disabled" value="{{- 'ccdn_forum_admin.link.post.delete_soft' |trans({}, 'CCDNForumAdminBundle') -}}" name="submit_soft_delete" disabled data-responds-disabled="posts">
+            <input type="submit" class="btn btn-danger disabled" value="{{- 'ccdn_forum_admin.link.post.delete_hard' |trans({}, 'CCDNForumAdminBundle') -}}" name="submit_hard_delete" disabled data-responds-disabled="posts">
+        </div>
+        {%- if pager.haveToPaginate -%}
+            <div class="pull-right">
+                {{- pagerfanta(pager, 'twitter_bootstrap_compact', {'routeName':'ccdn_forum_admin_post_deleted_show_paginated', 'routeParams':{}}) -}}
+            </div>
+        {%- endif -%}
+        <br><br>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="center" style="width:18px;"><input type="checkbox" id="check_all" name="check_all" class="hidden" data-compat='interactive-js-compat' data-action-toggle="posts" data-identifier="posts" data-qualifier="all"></th>
+                <th class="center" style="width:18px;"><i class="icon-lock"></i></th>
+                <th class="center" style="width:18px;"><i class="icon-trash"></i></th>
+                <th class="left">{{- 'ccdn_forum_admin.board.table.head.topic_title' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.post_number' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.created_by' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.created_on' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.locked_by' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.locked_on' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.deleted_by' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+                <th class="center">{{- 'ccdn_forum_admin.board.table.head.deleted_on' | trans({}, 'CCDNForumAdminBundle') -}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%- for row, post in posts -%}
+                <tr class="{{- cycle(['row_odd', 'row_even'], row) -}}">
+                    <td class="center">
+                        <input type="checkbox" id="post_{{- post.id -}}" name="check_{{- post.id -}}" data-check-all-responds="true" data-identifier="posts">
+                    </td>
+                    <td class="center">
+                        {%- if post.isLocked -%}
+                        <i class="icon-lock"></i>
+                        {%- endif -%}
+                    </td>
+                    <td class="center">
+                        {%- if post.isDeleted -%}
+                        <i class="icon-trash"></i>
+                        {%- endif -%}
+                    </td>
+                    <td class="left">
+                        {%- if post.getTopic -%}
+                            <a href="{{- path('ccdn_forum_forum_topic_show', {'topicId': post.getTopic.getId }) -}}" title="{{- post.getTopic.getTitle -}}">{{- truncDot(post.getTopic.getTitle, ccdn_forum_admin.post.show_deleted.topic_title_truncate) -}}</a>
+                        {%- endif -%}
+                    </td>
+                    <td class="center">
+                        <a href="{{- path('ccdn_forum_forum_post_show', {'postId': post.getId }) -}}">#{{- post.getId -}}</a>
+                    </td>
+
+                    <td class="center">
+                        {% set author = create_profile(post.getCreatedBy) %}
+
+                        {{ author.getProfilePath|raw }}
+                    </td>
+                    <td class="center">
+                        {%- if post.getCreatedDate -%}
+                            {{- post.getCreatedDate |date(ccdn_forum_admin.post.show_deleted.post_created_datetime_format) -}}
+                        {%- endif -%}
+                    </td>
+
+                    <td class="center">
+                        {%- if post.isLocked -%}
+                            {% set post_locker = create_profile(post.getLockedBy) %}
+
+                            {{ post_locker.getProfilePath|raw }}
+                        {%- endif -%}
+                    </td>
+                    <td class="center">
+                        {%- if post.getLockedDate -%}
+                            {{- post.getLockedDate |date(ccdn_forum_admin.post.show_deleted.post_locked_datetime_format) -}}
+                        {%- endif -%}
+                    </td>
+
+                    <td class="center">
+                        {%- if post.isDeleted -%}
+                            {% set post_deleter = create_profile(post.getDeletedBy) %}
+
+                            {{ post_deleter.getProfilePath|raw }}
+                        {%- endif -%}
+                    </td>
+                    <td class="center">
+                        {%- if post.getDeletedDate -%}
+                            {{- post.getDeletedDate |date(ccdn_forum_admin.post.show_deleted.post_deleted_datetime_format) -}}
+                        {%- endif -%}
+                    </td>
+                </tr>
+            {%- else -%}
+                <tr>
+                    <td class="center" colspan="11">
+                        {{- 'ccdn_forum_admin.posts.deleted.table.empty' | trans({}, 'CCDNForumAdminBundle') -}}
+                    </td>
+                </tr>
+            {%- endfor -%}
+        </tbody>
+    </table>
+
+    <div class="btn-toolbar" style="display:block !important;clear:both !important;">
+        {%- if pager.haveToPaginate -%}
+            <div class="pull-right">
+                {{- pagerfanta(pager, 'twitter_bootstrap_compact', {'routeName':'ccdn_forum_admin_post_deleted_show_paginated', 'routeParams':{}}) -}}
+            </div>
+        {%- endif -%}
+        <br><br>
+    </div>
+
+    </form>
+
+    {%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+    {%- endspaceless -%}
+
+{% endblock body_content %}

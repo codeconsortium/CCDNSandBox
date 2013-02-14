@@ -1,0 +1,121 @@
+{% extends ccdn_user_member.member.list.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_user_member.title.members' | trans({}, 'CCDNUserMemberBundle'), ccdn_user_member.seo.title_length) -}}{% endblock -%}
+
+{% block sidebar %}
+	{{ parent() }}
+	
+	{%- include 'CCDNUserMemberBundle:Sidebar:sidebar.html.twig' -%}
+	
+{% endblock %}
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	<h2>{{- 'ccdn_user_member.title.members' | trans({}, 'CCDNUserMemberBundle') -}}</h2>
+
+	<br>
+	<div class="btn-toolbar center" style="vertical-align:top;margin-top:0px;">
+		{%- set route = app.request.attributes.get('_route') -%}
+
+		<div class="btn-group">
+			<a class="btn{{- route == 'ccdn_user_member_index' ? ' active':'' -}}" style="display:inline-block;vertical-align:top;margin-top:0px;" href="{{- path('ccdn_user_member_index') -}}">{{- 'ccdn_user_member.member_table.filter.all' |trans({}, 'CCDNUserMemberBundle') -}}</a>
+			{%- for letter in "A".."Z" -%}
+				<a class="btn{%- if alpha is defined -%}{{- (letter == alpha) ? ' active' : '' -}}{%- endif -%}" href="{{- path('ccdn_user_member_alpha_index', {'alpha': letter}) -}}">{{- letter -}}</a>
+			{%- endfor -%}
+		</div>
+	</div>
+
+	<div class="btn-toolbar" style="display:block !important;clear:both !important;">
+		{%- if pager.haveToPaginate -%}
+			<div class="pull-right">
+	    	{{- pagerfanta(pager, 'twitter_bootstrap_compact', {'routeName': pager_route }) -}}
+			</div>
+		{%- endif -%}
+		<br><br>
+	</div>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="left">{{- 'ccdn_user_member.member_table.head.username' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_member.member_table.head.website' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+				{#<th class="center">{{- 'ccdn_user_member.member_table.head.pm' | trans({}, 'CCDNUserMemberBundle') -}}</th>#}
+				<th class="center">{{- 'ccdn_user_member.member_table.head.aim' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_member.member_table.head.msn' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_member.member_table.head.icq' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_member.member_table.head.yahoo' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_member.member_table.head.joined_date' | trans({}, 'CCDNUserMemberBundle') -}}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{%- for row, user in members -%}
+			{%- if not user.locked or not user.enabled -%}
+			<tr class="{{- cycle(['row_odd', 'row_even'], row) }} marked_read">
+				<td class="left">
+					<a href="{{- path(user_profile_route, {'userId': user.getId }) -}}">{{- user.username |title -}}</a>
+				</td>
+				<td class="center">
+					{%- if user.getProfile.website -%}
+					<a href="{{- user.getProfile.website -}}" target="_blank"><i class="icon-globe"></i></a>
+					{%- endif -%}
+				</td>
+				{#
+				<td class="center">
+					<a href="{{- path('ccdn_message_message_mail_compose_to', {'userId': user.getId }) -}}"><i class="icon-envelope"></i></a>
+				</td>
+				#}
+				<td class="center">
+					{%- if user.getProfile.aimIsPublic -%}
+					<a href="{{- (is_granted('ROLE_USER')) ? 'mailto:' ~ user.getProfile.aim : path(ccdn_user_member.login_route) -}}"><i class="icon-envelope"></i></a>
+					{%- endif -%}
+				</td>
+				<td class="center">
+					{%- if user.getProfile.msnIsPublic -%}
+					<a href="{{- (is_granted('ROLE_USER')) ? 'mailto:' ~ user.getProfile.msn : path(ccdn_user_member.login_route) -}}"><i class="icon-envelope"></i></a>
+					{%- endif -%}
+				</td>
+				<td class="center">
+					{%- if user.getProfile.icqIsPublic -%}
+					<a href="{{- (is_granted('ROLE_USER')) ? 'mailto:' ~ user.getProfile.icq : path(ccdn_user_member.login_route) -}}"><i class="icon-envelope"></i></a>
+					{%- endif -%}
+				</td>
+				<td class="center">
+					{%- if user.getProfile.yahooIsPublic -%}
+					<a href="{{- (is_granted('ROLE_USER')) ? 'mailto:' ~ user.getProfile.yahoo : path(ccdn_user_member.login_route) -}}"><i class="icon-envelope"></i></a>
+					{%- endif -%}
+				</td>
+				<td class="center">
+					{{- user.getRegisteredDate |date(ccdn_user_member.member.list.member_since_datetime_format) -}}
+				</td>
+			</tr>
+			{%- endif -%}
+		{%- else -%}
+			<tr>
+				<td class="center" colspan="8">
+					{{- 'ccdn_user_member.member_table.empty' | trans({}, 'CCDNUserMemberBundle') -}}
+				</td>
+			</tr>
+		{%- endfor -%}
+		</tbody>
+	</table>
+
+	<div class="btn-toolbar" style="display:block !important;clear:both !important;">
+		{%- if pager.haveToPaginate -%}
+			<div class="pull-right">
+	    	{{- pagerfanta(pager, 'twitter_bootstrap_compact', {'routeName': pager_route }) -}}
+			</div>
+		{%- endif -%}
+		<br><br>
+	</div>
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

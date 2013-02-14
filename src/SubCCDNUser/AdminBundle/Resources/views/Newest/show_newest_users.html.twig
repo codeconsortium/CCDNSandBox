@@ -1,0 +1,80 @@
+{% extends ccdn_user_admin.account.show_newest_users.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_user_admin.title.users.newest' | trans({}, 'CCDNUserAdminBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+	{{ parent() }}
+
+	{%- include 'CCDNUserAdminBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	<h2>{{- 'ccdn_user_admin.title.users.newest' | trans({}, 'CCDNUserAdminBundle') -}}</h2>
+
+	<div class="btn-toolbar" style="display:block !important;clear:both !important;">
+		<div class="pull-left">
+		</div>
+		{%- if pager.haveToPaginate -%}
+			<div class="pull-right">
+		    	{{- pagerfanta(pager, 'twitter_bootstrap_compact', {'routeName': 'ccdn_user_admin_show_newest_paginated' }) -}}
+			</div>
+		{%- endif -%}
+		<br><br>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="left">{{- 'ccdn_user_admin.users.table.head.username' | trans({}, 'CCDNUserAdminBundle') -}}</th>
+				<th class="left">{{- 'ccdn_user_admin.users.table.head.email' | trans({}, 'CCDNUserAdminBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_admin.users.table.head.joined_date' | trans({}, 'CCDNUserAdminBundle') -}}</th>
+				<th class="center">{{- 'ccdn_user_admin.users.table.head.activation_status' | trans({}, 'CCDNUserAdminBundle') -}}</th>
+			</tr>
+		</thead>
+		<tbody>
+		{%- for row, user in users -%}
+			<tr class="{{- cycle(['row_odd', 'row_even'], row) }} marked_read">
+				<td class="left"><a href="{{- path('ccdn_user_admin_account_show', {'userId': user.getId }) -}}">{{- user.username |capitalize -}}</a></td>
+				<td class="left">{{- user.email -}}</td>
+				<td class="center">{{- user.registeredDate |date(ccdn_user_admin.account.show_newest_users.member_since_datetime_format) -}}</td>
+				<td class="center">{%- if user.enabled -%}Activated{%- else -%}Pending Activation{%- endif -%}</td>
+			</tr>
+		{%- else -%}
+			<tr>
+				<td class="center" colspan="4">
+					{{- 'ccdn_user_admin.users.newest.table.empty' | trans({}, 'CCDNUserAdminBundle') -}}
+				</td>
+			</tr>
+		{%- endfor -%}
+		</tbody>
+	</table>
+
+	<div class="btn-toolbar" style="display:block !important;clear:both !important;">
+		<div class="pull-left">
+		</div>
+		{%- if pager.haveToPaginate -%}
+			<div class="pull-right">
+		    	{{- pagerfanta(pager, 'twitter_bootstrap_compact', {'routeName': 'ccdn_user_admin_show_newest_paginated' }) -}}
+			</div>
+		{%- endif -%}
+		<br><br>
+	</div>
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

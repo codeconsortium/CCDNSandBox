@@ -1,0 +1,25 @@
+{%- spaceless -%}
+
+	<div id="header_bar">
+		<div id="secondary_bar">			
+
+			{%- set header_links = ccdn_component_common.header.header_bar_links -%}
+			{%- for row, link in header_links -%}
+				<a class="nav_link" href="{{- path(link['route']) -}}">{{- link['label'] | trans({}, link['bundle']) -}}</a>
+			{%- endfor -%}
+		</div>
+
+		<div id="primary_bar">
+			<div id="primary_left">
+				<div id="logo"><img class="site_logo" width="212" height="25" src="{{- asset('bundles/ccdncomponentcommon/images/layout/header/logo.png') -}}" alt="site logo"></div>
+				<div id="search">
+				</div>
+			</div>
+			<div id="primary_right">
+				<div class="btn-toolbar form-inline" style="margin-right:10px;">
+				</div>
+			</div>
+		</div>
+
+	</div>
+{%- endspaceless -%}

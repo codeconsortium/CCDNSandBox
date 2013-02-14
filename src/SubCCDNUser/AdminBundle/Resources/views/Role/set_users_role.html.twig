@@ -1,0 +1,55 @@
+{% extends ccdn_user_admin.role.set_users_role.layout_template %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block title %}{{- truncDot('ccdn_user_admin.title.account.set_roles' |trans({'%user_name%':user.username}, 'CCDNUserAdminBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
+
+{% block sidebar %}
+	{{ parent() }}
+
+	{%- include 'CCDNUserAdminBundle:Sidebar:sidebar.html.twig' -%}
+
+{% endblock %}
+
+
+{% block body_content %}
+
+	{%- spaceless -%}
+
+	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	<h2>{{- 'ccdn_user_admin.title.account.set_roles' |trans({'%user_name%':user.username}, 'CCDNUserAdminBundle') -}}</h2>
+
+	{%- form_theme form ccdn_user_admin.role.set_users_role.form_theme -%}
+	<form action="{{- path('ccdn_user_admin_set_roles', {'userId': user.id }) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+		<fieldset>
+
+			{{- form_errors(form) -}}
+
+			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
+
+			<div class="control-group">
+				{{- form_label(form.new_role, null, { 'label': 'ccdn_user_admin.form.label.user.roles' |trans({}, 'CCDNUserAdminBundle')}) -}}</td>
+				<div class="controls row-fluid">
+					{{- form_errors(form.new_role) -}}
+					{{- form_widget(form.new_role) -}}
+				</div>
+			</div>
+
+			<div class="form-actions">
+		        <input type="submit" class="btn btn-danger" value="{{- 'ccdn_user_admin.form.button.user.roles.update'|trans({}, 'CCDNUserAdminBundle') -}}">&nbsp;
+				<a class="btn" href="{{- path('ccdn_user_admin_account_show', {'userId':user.id}) -}}">{{- 'ccdn_user_admin.form.button.user.roles.cancel' |trans({}, 'CCDNUserAdminBundle') -}}</a>
+			</div>
+
+		</fieldset>
+	</form>
+
+	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
+
+	{%- endspaceless -%}
+
+{% endblock body_content %}

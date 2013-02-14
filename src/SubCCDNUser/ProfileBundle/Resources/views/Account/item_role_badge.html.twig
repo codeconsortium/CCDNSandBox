@@ -1,0 +1,19 @@
+{%- spaceless -%}
+
+	{%- if user.isLocked() -%}
+		<span class="label label-important">{{- 'ccdn_user_profile.member_role.banned' |trans({}, 'CCDNUserProfileBundle') -}}</span>
+	{%- else -%}
+		{%- if hasRole(user, 'ROLE_USER') -%}
+			{%- if hasRole(user, 'ROLE_MODERATOR') -%}
+				{%- if hasRole(user, 'ROLE_ADMIN') -%}
+					<span class="label label-success">{{- 'ccdn_user_profile.member_role.administrator' |trans({}, 'CCDNUserProfileBundle') -}}</span>
+				{%- else -%}
+					<span class="label label-info">{{- 'ccdn_user_profile.member_role.moderator' |trans({}, 'CCDNUserProfileBundle') -}}</span>
+				{%- endif -%}
+			{%- else -%}
+				<span class="label label-inverse">{{- 'ccdn_user_profile.member_role.member' |trans({}, 'CCDNUserProfileBundle') -}}</span>
+			{%- endif -%}
+		{%- endif -%}
+	{%- endif -%}
+
+{%- endspaceless -%}

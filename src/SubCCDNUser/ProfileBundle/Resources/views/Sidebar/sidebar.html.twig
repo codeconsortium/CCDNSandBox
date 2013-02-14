@@ -1,0 +1,27 @@
+{%- spaceless -%}
+	{%- set route = app.request.attributes.get('_route') -%}
+
+	<li class="nav-header">{{- 'ccdn_user_profile.sidebar.header.navigation' | trans({}, 'CCDNUserProfileBundle') -}}</li>
+	{#<li><a href="{{- path(ccdn_user_profile.sidebar.members_route) -}}"><i class="icon-th-list"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.members' |trans({}, 'CCDNUserProfileBundle') -}}</a></li>#}
+	<li class="divider"></li>
+	{#
+	{%- if is_granted("ROLE_USER") -%}
+		
+		{%- if app.user.id == user.id -%}
+			<li><a href="{{- path(ccdn_user_profile.sidebar.account_route) -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.account.view' |trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+			<li class="active"><a href="{{- path('ccdn_user_profile_show') -}}"><i class="icon-white icon-user"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.profile.view' |trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+		{%- else -%}
+			{%- if user is defined -%}
+				<li class="active"><a href="{{- path('ccdn_user_profile_show_by_id', {'userId':user.id}) -}}"><i class="icon-white icon-user"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.profile.view_named' |trans({'%user_name%': user.getUsername}, 'CCDNUserProfileBundle') -}}</a></li>
+			{%- endif -%}
+		{%- endif -%}
+		
+	{%- else -%}
+
+		<li><a rel="nofollow" href="{{- path(ccdn_user_profile.sidebar.login_route) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.login' |trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path(ccdn_user_profile.sidebar.registration_route) -}}"><i class="icon-asterisk"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.register' |trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path(ccdn_user_profile.sidebar.reset_route) -}}"><i class="icon-lock"></i>&nbsp;{{- 'ccdn_user_profile.sidebar.link.reset' |trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+
+	{%- endif -%}
+	#}
+{%- endspaceless -%}

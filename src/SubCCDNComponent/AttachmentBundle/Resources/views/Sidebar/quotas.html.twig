@@ -1,0 +1,25 @@
+{%- spaceless -%}
+	{%- if quotas is defined -%}
+		<li class="divider"></li>
+		<li>
+			<span class="pull-left"><i class="icon-hdd"></i>&nbsp;{{- quotas['usedKiBPercent'] -}}&#37;&nbsp;</span>
+			<div class="progress progress-danger">
+				<div class="bar" style="width:{{- quotas['usedKiBPercent'] -}}%;"></div>
+			</div>
+			<hr>
+
+			<span class="label">
+				{{- quotas['usedKiB'] -}}KiB
+				&nbsp;&#47;&nbsp;
+				{{- quotas['maxKiB'] -}}KiB
+			</span>&nbsp;
+
+			<span class="label">
+				{{- quotas['usedQuantity'] -}}
+				&nbsp;&#47;&nbsp;
+				{{- quotas['maxQuantity'] -}}&nbsp;{{- 'ccdn_component_attachment.quota.files' | trans({}, 'CCDNComponentAttachmentBundle') -}}
+			</span>
+		</li>
+	{%- endif -%}
+
+{%- endspaceless -%}

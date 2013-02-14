@@ -6,6 +6,11 @@
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
+
+ccdn_forum_forum_home_root:
+    pattern: /
+    defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

@@ -43,16 +43,16 @@ class AppKernel extends Kernel
             new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
 			
 			// CCDN Child Bundles
-//            new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
-//            new SubCCDNComponent\DashboardBundle\SubCCDNComponentDashboardBundle(),
-//            new SubCCDNComponent\AttachmentBundle\SubCCDNComponentAttachmentBundle(),
-//
-//            new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
-//            new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
-//            new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
-//
-//            new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
-//            new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
+            new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
+            new SubCCDNComponent\DashboardBundle\SubCCDNComponentDashboardBundle(),
+            new SubCCDNComponent\AttachmentBundle\SubCCDNComponentAttachmentBundle(),
+
+            new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
+            new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
+            new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
+
+            new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
+            new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -95,12 +95,91 @@ swiftmailer:
     spool:     { type: memory }
 
 ewz_recaptcha:
-    public_key:   here_is_your_public_key
-    private_key:  here_is_your_private_key
+    enabled:      true
+    public_key:   %ewz_recaptcha_public_key%
+    private_key:  %ewz_recaptcha_private_key%
     secure:       false
     locale_key:   kernel.default_locale
 
-fos_user:
+fos_user:             
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
     user_class: CCDNUser\UserBundle\Entity\User
+    firewall_name: main
+    model_manager_name:   ~ 
+    use_listener:         true 
+    use_username_form_type:  true 
+    from_email:           
+        address:              root@codeconsortium.com 
+        sender_name:          root 
+#    profile:              
+#        form:                 
+#            type:                 fos_user_profile 
+#            handler:              fos_user.profile.form.handler.default 
+#            name:                 fos_user_profile_form 
+#            validation_groups:    
+#
+#                # Defaults:
+#                - Profile
+#                - Default
+#    change_password:      
+#        form:                 
+#            type:                 fos_user_change_password 
+#            handler:              fos_user.change_password.form.handler.default 
+#            name:                 fos_user_change_password_form 
+#            validation_groups:    
+#
+#                # Defaults:
+#                - ChangePassword
+#                - Default
+    registration:         
+        confirmation:         
+            enabled:              false 
+            template:             FOSUserBundle:Registration:email.txt.twig 
+            from_email:           
+                address:              registration@codeconsortium.com
+                sender_name:          CodeConsortium
+        form:                 
+            type:                 ccdn_user_registration 
+            handler:              fos_user.registration.form.handler.default 
+            name:                 fos_user_registration_form 
+            validation_groups:    
+
+                # Defaults:
+                - Registration
+                - Default
+#    resetting:            
+#        token_ttl:            86400 
+#        email:                
+#            template:             FOSUserBundle:Resetting:email.txt.twig 
+#            from_email:           
+#                address:              ~ # Required
+#                sender_name:          ~ # Required
+#        form:                 
+#            type:                 fos_user_resetting 
+#            handler:              fos_user.resetting.form.handler.default 
+#            name:                 fos_user_resetting_form 
+#            validation_groups:    
+#
+#                # Defaults:
+#                - ResetPassword
+#                - Default
+#    service:              
+#        mailer:               fos_user.mailer.default 
+#        email_canonicalizer:  fos_user.util.canonicalizer.default 
+#        token_generator:      fos_user.util.token_generator.default 
+#        username_canonicalizer:  fos_user.util.canonicalizer.default 
+#        user_manager:         fos_user.user_manager.default 
+    template:             
+        engine:               twig 
+#    group:                
+#        group_class:          ~ # Required
+#        group_manager:        fos_user.group_manager.default 
+#        form:                 
+#            type:                 fos_user_group 
+#            handler:              fos_user.group.form.handler.default 
+#            name:                 fos_user_group_form 
+#            validation_groups:    
+#
+#                # Defaults:
+#                - Registration
+#                - Default

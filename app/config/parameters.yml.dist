@@ -15,3 +15,6 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     ccdn_component_attachment_file_store: ../../ccdn_component_attachment_store/
+    
+    ewz_recaptcha_private_key: change_me
+    ewz_recaptcha_public_key: change_me

@@ -4,7 +4,7 @@
 	<div class="btn-toolbar pull-right">
 		{%- if is_granted('ROLE_USER') -%}
 			{%- if app.user.getId != user.getId -%}
-			<a class="btn" href="{{- path('ccdn_message_message_mail_compose_to', {'userId': user.getId }) -}}"><i class="icon-envelope"></i>&nbsp;{{- 'ccdn_user_profile.link.user.message' | trans({}, 'CCDNUserProfileBundle') -}}</a>&nbsp;
+			{#<a class="btn" href="{{- path('ccdn_message_message_mail_compose_to', {'userId': user.getId }) -}}"><i class="icon-envelope"></i>&nbsp;{{- 'ccdn_user_profile.link.user.message' | trans({}, 'CCDNUserProfileBundle') -}}</a>&nbsp;#}
 
 				{%- if is_granted('ROLE_ADMIN') -%}
 				<a class="btn btn-primary" href="{{- path('ccdn_user_admin_account_show', {'userId': user.getId }) -}}">{{- 'ccdn_user_profile.link.user.administrate'|trans({}, 'CCDNUserProfileBundle') -}}</a>&nbsp;

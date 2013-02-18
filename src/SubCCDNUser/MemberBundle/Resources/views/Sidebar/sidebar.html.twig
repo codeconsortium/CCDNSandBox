@@ -4,27 +4,19 @@
 	<li class="nav-header">
 		{{- 'ccdn_user_member.sidebar.header.navigation' | trans({}, 'CCDNUserMemberBundle') -}}
 	</li>
-	<li class="active">
-		<a href="{{- path('ccdn_user_member_index') -}}">
-			<i class="icon-white icon-th-list"></i>&nbsp;
-			{{- 'ccdn_user_member.sidebar.link.members' |trans({}, 'CCDNUserMemberBundle') -}}
-		</a>
-	</li>
-	
-{#	
-	<li class="divider"></li>
+	<li class="active"><a href="{{- path('ccdn_user_member_index') -}}"><i class="icon-white icon-th-list"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.members' |trans({}, 'CCDNUserMemberBundle') -}}</a></li>
 	
 	{%- if is_granted("ROLE_USER") -%}
 
-		<li><a rel="nofollow" href="{{- path(ccdn_user_member.account_route) -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.account.view' |trans({}, 'CCDNUserMemberBundle') -}}</a></li>
-		<li><a rel="nofollow" href="{{- path(ccdn_user_member.profile_route) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.profile.view' | trans({}, 'CCDNUserMemberBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.account.view' |trans({}, 'CCDNUserMemberBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path('ccdn_user_profile_show') -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.profile.view' | trans({}, 'CCDNUserMemberBundle') -}}</a></li>
 
 	{%- else -%}
 
-		<li><a rel="nofollow" href="{{- path(ccdn_user_member.login_route) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.login' |trans({}, 'CCDNUserMemberBundle') -}}</a></li>
-		<li><a rel="nofollow" href="{{- path(ccdn_user_member.registration_route) -}}"><i class="icon-asterisk"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.register' |trans({}, 'CCDNUserMemberBundle') -}}</a></li>
-		<li><a rel="nofollow" href="{{- path(ccdn_user_member.reset_route) -}}"><i class="icon-lock"></i>&nbsp;{{- 'ccdn_user_member.sidebar.link.reset' |trans({}, 'CCDNUserMemberBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path('fos_user_security_login') -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.login' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path('fos_user_registration_register') -}}"><i class="icon-asterisk"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.register' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
+		<li><a rel="nofollow" href="{{- path('fos_user_resetting_request') -}}"><i class="icon-lock"></i>&nbsp;{{- 'ccdn_user_user.sidebar.link.reset' |trans({}, 'CCDNUserUserBundle') -}}</a></li>
 
 	{%- endif -%}
-#}
+
 {%- endspaceless -%}

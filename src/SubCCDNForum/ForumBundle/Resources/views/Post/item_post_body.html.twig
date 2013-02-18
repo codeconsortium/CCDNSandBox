@@ -1,5 +1,20 @@
 {%- spaceless -%}
 
+	{%- if post.getEditedDate -%}
+	    <span class="label">
+	        {% set editor = create_profile(post.getEditedBy) %}
+
+	        {{- 'ccdn_forum_forum.post.edited_by' |trans({}, 'CCDNForumForumBundle') -}}
+	        {{- editor.getProfilePath|raw -}}
+
+	        {{- 'ccdn_forum_forum.generic.actioned_at' |trans({}, 'CCDNForumForumBundle') -}}
+
+	        <abbr class="timestamper" title="{{- post.getEditedDate |date('Y-m-d H:i:s T Z', 'Europe/London') -}}">
+	            {{- post.getEditedDate |date(ccdn_forum_forum.item_post.post_edited_datetime_format) -}}
+	        </abbr>
+	    </span>
+	{%- endif -%}
+
     {%- if post.getIsDeleted -%}
         <span class="alert alert-warning" style="display:block;">
             <i class="icon-trash"></i>&nbsp;
@@ -27,7 +42,7 @@
                         <div class="accordion-inner">
         {%- endif -%}
 
-        {{- BBCode(post.getBody | raw, ccdn_forum_forum.item_post.enable_bb_parser) | raw -}}<br>
+	        {{- BBCode(post.getBody | raw, ccdn_forum_forum.item_post.enable_bb_parser) | raw -}}<br>
 
         {%- if post.getIsDeleted == true -%}
                         </div>

@@ -1,59 +1,70 @@
 {%- spaceless -%}
-
-	<div id="header_bar">
-		<div id="secondary_bar">			
-
-			{%- set header_links = ccdn_component_common.header.header_bar_links -%}
-			{%- for row, link in header_links -%}
-				<a class="nav_link" href="{{- path(link['route']) -}}">{{- link['label'] | trans({}, link['bundle']) -}}</a>
-			{%- endfor -%}
-		</div>
-
-		<div id="primary_bar">
-			<div id="primary_left">
-				<div id="logo"><img class="site_logo" width="212" height="25" src="{{- asset('bundles/ccdncomponentcommon/images/layout/header/logo.png') -}}" alt="site logo"></div>
-				<div id="search">
-				</div>
-			</div>
-			<div id="primary_right">
-				<div class="btn-toolbar form-inline" style="margin-right:10px;">
-
+	<header class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#">Code Consortium</a>
+			
+			    <ul class="nav">
+					{%- set route = app.request.attributes.get('_route') -%}
+					
+					<li{{ route|slice(0,24) == 'ccdn_component_dashboard' ? ' class="active"': ''}}><a href="{{ path('ccdn_component_dashboard_index') }}">Dashboard</a></li>
+					<li{{ route|slice(0,16) == 'ccdn_user_member' ? ' class="active"': ''}}><a href="{{ path('ccdn_user_member_index') }}">Members</a></li>
+					<li{{ route|slice(0,10) == 'ccdn_forum' ? ' class="active"': ''}}><a href="{{ path('ccdn_forum_forum_category_index') }}">Forum</a></li>
+			    </ul>
+			
+			    <ul class="nav pull-right">
 					{%- if is_granted('ROLE_USER') -%}
-					{#
-						{%- set message_count = unreadMessageCount() -%}
-						{%- if message_count > 0 -%}
-							<a rel="nofollow" class="btn btn-danger" style="vertical-align: middle; font-weight: bold;" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">{{- message_count -}}</a>
-						{%- else -%}
-							<a rel="nofollow" class="btn" style="vertical-align: middle;" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">{{- message_count -}}</a>
-						{%- endif -%}
-					#}
-						<div class="btn-group" style="vertical-align: middle; margin-left: 30px; border: 0px;">
-							<a href="#" class="btn dropdown-toggle" style="{#border:0px;background:none;box-shadow:none;vertical-align:middle;#}" data-toggle="dropdown">
-								{%- include 'CCDNUserProfileBundle:Avatar:item_avatar.html.twig' with {'user': app.user, 'scale_x':20, 'scale_y':20, 'rounded':3 } -%}&nbsp;
-								{{- app.user.username |capitalize -}}&nbsp;&nbsp;
-								<span class="caret"></span>
+						{#
+							{%- set message_count = unreadMessageCount() -%}
+							{%- if message_count > 0 -%}
+								<a rel="nofollow" class="btn btn-danger" style="vertical-align: middle; font-weight: bold;" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">{{- message_count -}}</a>
+							{%- else -%}
+								<a rel="nofollow" class="btn" style="vertical-align: middle;" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">{{- message_count -}}</a>
+							{%- endif -%}
+						#}
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								{{- app.user.username |capitalize -}}&nbsp;
+								<b class="caret"></b>
 							</a>
-							<ul class="dropdown-menu pull-right" style="z-index: 20; margin-top:5px;">
-								<li><a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}"><i class="icon-cog"></i>&nbsp;{{- 'ccdn_component_common.layout.header.account' | trans({}, 'CCDNComponentCommonBundle') -}}</a></li>
-								<li><a rel="nofollow" href="{{- path('ccdn_user_profile_show') -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_component_common.layout.header.profile' | trans({}, 'CCDNComponentCommonBundle') -}}</a></li>
+							<ul class="dropdown-menu">
+								<li>
+									<a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}">
+										<i class="icon-cog"></i>
+										{{- 'ccdn_component_common.layout.header.account' | trans({}, 'CCDNComponentCommonBundle') -}}
+									</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="{{- path('ccdn_user_profile_show') -}}">
+										<i class="icon-user"></i>
+										{{- 'ccdn_component_common.layout.header.profile' | trans({}, 'CCDNComponentCommonBundle') -}}
+									</a>
+								</li>
 								<li class="divider"></li>
-								<li><a rel="nofollow" href="{{- path('fos_user_security_logout') -}}"><i class="icon-lock"></i>&nbsp;{{- 'ccdn_component_common.layout.header.logout' |trans({}, 'CCDNComponentCommonBundle') -}}</a></li>
+								<li>
+									<a rel="nofollow" href="{{- path('fos_user_security_logout') -}}">
+										<i class="icon-lock"></i>
+										{{- 'ccdn_component_common.layout.header.logout' |trans({}, 'CCDNComponentCommonBundle') -}}
+									</a>
+								</li>
 							</ul>
-						</div>
+						</li>				
 					{%- else -%}
-						<div class="bar_box">
-							<a rel="nofollow" class="primary_bar" href="{{- path('fos_user_registration_register') -}}" data-tip="bottom" title="Register"><img class="icon16" width="16" height="16" src="{{- asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_sign_up.png') -}}" alt="register">&nbsp;{{- 'ccdn_component_common.layout.header.register' |trans({}, 'CCDNComponentCommonBundle') -}}</a>
-						</div>
-						<div class="bar_box">
-							<a rel="nofollow" class="primary_bar" href="{{- path('fos_user_security_login') -}}" data-tip="bottom" title="Sign in"><img class="icon16" width="16" height="16" src="{{- asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_sign_in.png') -}}" alt="sign in">&nbsp;{{- 'ccdn_component_common.layout.header.login' |trans({}, 'CCDNComponentCommonBundle') -}}</a>
-						</div>
+						<li>
+							<a rel="nofollow" href="{{- path('fos_user_registration_register') -}}" data-tip="bottom" title="Register">
+								<i class="icon-pencil"></i>
+								{{- 'ccdn_component_common.layout.header.register' |trans({}, 'CCDNComponentCommonBundle') -}}
+							</a>
+						</li>
+						<li>
+							<a rel="nofollow" href="{{- path('fos_user_security_login') -}}" data-tip="bottom" title="Sign in">
+								<i class="icon-user"></i>
+								{{- 'ccdn_component_common.layout.header.login' |trans({}, 'CCDNComponentCommonBundle') -}}
+							</a>
+						</li>
 					{%- endif -%}
-				</div>
+			    </ul>
 			</div>
 		</div>
-
-
-
-
-	</div>
+	</header>
 {%- endspaceless -%}

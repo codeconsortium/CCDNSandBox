@@ -4,67 +4,52 @@
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
         <title>{%- block title -%}{%- endblock -%}</title>
 
-		{%- block stylesheets -%}
-		<link href="{{- asset('bundles/ccdncomponentcommon/css/header.css') -}}" rel="stylesheet" type="text/css">
-		<link href="{{- asset('bundles/ccdncomponentcommon/css/layout_body_right.css') -}}" rel="stylesheet" type="text/css">
-		<link href="{{- asset('bundles/ccdncomponentcommon/css/footer.css') -}}" rel="stylesheet" type="text/css">
-
 		<link href="{{- asset('bundles/ccdncomponentcommon/css/common.css') -}}" rel="stylesheet" type="text/css">
-		<link href="{{- asset('bundles/ccdncomponentcommon/css/scrollbars.css') -}}" rel="stylesheet" type="text/css">		
 
 		<link href="{{- asset('bundles/ccdncomponentcommon/css/bootstrap.css') -}}" rel="stylesheet" type="text/css">
 		<link href="{{- asset('bundles/ccdncomponentcommon/css/bootstrap-responsive.css') -}}" rel="stylesheet" type="text/css">
 		
-		<link href="{{- asset('bundles/ccdncomponentcommon/google_prettify/styles/sunburst_custom.css') -}}" rel="stylesheet" type="text/css">
+		{#<link href="{{- asset('bundles/ccdncomponentcommon/google_prettify/styles/sunburst_custom.css') -}}" rel="stylesheet" type="text/css">#}
+		
+		{%- block stylesheets -%}
 		{%- endblock -%}
     </head>
     <body onload="prettyPrint()">
 
 		{%- spaceless -%}
+			
+		<div id="page-wrap">
+			<div id="page-main">
+				{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
+			
+				<div class="container-fluid clear-top">
+					<div class="row-fluid">
+				        <aside class="span2">
+							<ul class="nav nav-pills nav-stacked">
+								{%- include 'CCDNComponentCommonBundle:Layout:sidebar.html.twig' -%}
 
-		{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
+								{%- block sidebar -%}
+					            {%- endblock -%}
+							</ul>
+						</aside>
 
-		<div id="body">
-
-	        <div class="right_column_container">
-				<div class="right_column">
-					<div id="top"></div>
-		            {%- block body_content -%}{%- endblock -%}
-		
-					{%- include 'CCDNComponentCommonBundle:Layout:footer.html.twig' -%}
+				        <div class="span10">
+							<div id="top"></div>
+				            {%- block body_content -%}
+							{%- endblock -%}
+				        </div>
+			        </div>
 				</div>
-	        </div>
-
-	        <div class="left_column_container">
-				<div class="left_column">
-					<div class="well sidebar">
-						<ul class="nav nav-list" style="padding: 5px 15px 10px 15px !important;">
-
-						{%- include 'CCDNComponentCommonBundle:Layout:sidebar.html.twig' -%}
-
-						{%- block sidebar -%}
-
-			            {%- endblock -%}
-						</ul>
-					</div>
-				</div>
-	        </div>
-
+			</div>
 		</div>
 
-		{%- endspaceless -%}
+		{%- include 'CCDNComponentCommonBundle:Layout:footer.html.twig' -%}
 
-		{%- block javascripts -%}	
-			{%- spaceless -%}
-				<script src="{{- asset('bundles/ccdncomponentcommon/js/jquery-1.7.1.min.js') -}}" type="text/javascript"></script>
-			    <script src="{{- asset('bundles/ccdncomponentcommon/js/bootstrap/bootstrap.js') -}}" type="text/javascript"></script>
-				<script src="{{- asset('bundles/ccdncomponentcommon/js/timrwood/moment.min.js') -}}" type="text/javascript"></script>
-				<script src="{{- asset('bundles/ccdncomponentcommon/js/ccdn/jquery.timestamper.js') -}}" type="text/javascript"></script>
-				<script src="{{- asset('bundles/ccdncomponentcommon/google_prettify/src/prettify.js') -}}" type="text/javascript"></script>
-			{%- endspaceless -%}
-		{%- endblock -%}
-
-		{%- spaceless -%}
+		<script src="{{- asset('bundles/ccdncomponentcommon/js/jquery-1.7.1.min.js') -}}" type="text/javascript"></script>
+	    <script src="{{- asset('bundles/ccdncomponentcommon/js/bootstrap/bootstrap.js') -}}" type="text/javascript"></script>
+		<script src="{{- asset('bundles/ccdncomponentcommon/js/timrwood/moment.min.js') -}}" type="text/javascript"></script>
+		<script src="{{- asset('bundles/ccdncomponentcommon/js/ccdn/jquery.timestamper.js') -}}" type="text/javascript"></script>
+		<script src="{{- asset('bundles/ccdncomponentcommon/google_prettify/src/prettify.js') -}}" type="text/javascript"></script>
 		<script type='text/javascript'>
 		<!--
 			$(document).ready(function() {
@@ -80,6 +65,9 @@
 			});
 		//-->
 		</script>
+		{%- block javascripts -%}	
+		{%- endblock -%}
+		
 		{%- endspaceless -%}
     </body>
 </html>

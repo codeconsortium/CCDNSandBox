@@ -31,7 +31,7 @@
 
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
-			<div class="well" id="{{- category_row -}}">
+			<div class="" id="{{- category_row -}}">
 			<h5>{{- category_row -}}</h5>
 			</div>
 			<ul class="thumbnails">
@@ -44,7 +44,7 @@
 		{%- endfor -%}
 	{%- else -%}
 		<div class="center">
-			<div class="well">{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}</div>
+			{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}
 		</div>
 	{%- endfor -%}
 

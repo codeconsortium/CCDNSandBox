@@ -11,9 +11,9 @@
 	{%- endif -%}
 
 	{%- if route == 'ccdn_user_profile_show_bio_by_id' or route == 'ccdn_user_profile_edit_bio' or route == 'ccdn_user_profile_edit_signature' -%}
-		<li class="active"><a href="{{- path(route, {'userId': user.id}) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+		<li class="active"><a href="{{- path(route, {'userId': user.id}) -}}"><i class="icon-book"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
 	{%- else -%}
-		<li><a href="{{- path('ccdn_user_profile_show_bio_by_id', {'userId': user.id}) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
+		<li><a href="{{- path('ccdn_user_profile_show_bio_by_id', {'userId': user.id}) -}}"><i class="icon-book"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
 	{%- endif -%}
 	</ul>
 

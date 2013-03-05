@@ -23,20 +23,23 @@
 				{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
 			
 				<div class="container-fluid clear-top">
+					{%- block tool_bar -%}
+					{%- endblock tool_bar -%}
+					
 					<div class="row-fluid">
-				        <aside class="span2">
+				        <aside class="span2 page-sidebar-left">
 							<ul class="nav nav-pills nav-stacked">
 								{%- include 'CCDNComponentCommonBundle:Layout:sidebar.html.twig' -%}
 
 								{%- block sidebar -%}
-					            {%- endblock -%}
+					            {%- endblock sidebar -%}
 							</ul>
 						</aside>
 
-				        <div class="span10">
+				        <div class="span10 page-body-right">
 							<div id="top"></div>
-				            {%- block body_content -%}
-							{%- endblock -%}
+				            {%- block body -%}
+							{%- endblock body -%}
 				        </div>
 			        </div>
 				</div>

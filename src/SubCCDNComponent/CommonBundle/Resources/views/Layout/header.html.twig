@@ -1,30 +1,31 @@
 {%- spaceless -%}
 	<header class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
+		<nav class="navbar-inner">
 			<div class="container-fluid">
-				<a class="brand" href="#">Code Consortium</a>
+				<a class="brand" href="{{- path('ccdn_homepage') -}}">Code Consortium</a>
 			
 			    <ul class="nav">
 					{%- set route = app.request.attributes.get('_route') -%}
 					
 					<li{{ route|slice(0,24) == 'ccdn_component_dashboard' ? ' class="active"': ''}}><a href="{{ path('ccdn_component_dashboard_index') }}">Dashboard</a></li>
-					<li{{ route|slice(0,16) == 'ccdn_user_member' ? ' class="active"': ''}}><a href="{{ path('ccdn_user_member_index') }}">Members</a></li>
+					<li{{ route|slice(0,9) == 'ccdn_user' ? ' class="active"': ''}}><a href="{{ path('ccdn_user_member_index') }}">Members</a></li>
 					<li{{ route|slice(0,10) == 'ccdn_forum' ? ' class="active"': ''}}><a href="{{ path('ccdn_forum_forum_category_index') }}">Forum</a></li>
 			    </ul>
 			
 			    <ul class="nav pull-right">
 					{%- if is_granted('ROLE_USER') -%}
-						{#
-							{%- set message_count = unreadMessageCount() -%}
-							{%- if message_count > 0 -%}
-								<a rel="nofollow" class="btn btn-danger" style="vertical-align: middle; font-weight: bold;" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">{{- message_count -}}</a>
-							{%- else -%}
-								<a rel="nofollow" class="btn" style="vertical-align: middle;" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">{{- message_count -}}</a>
-							{%- endif -%}
-						#}
+					
+						{%- set message_count = unreadMessageCount() -%}							
+						<li class="{%- if message_count > 0 -%}message-count-unread{%- else -%}message-count{%- endif -%}">
+							<a rel="nofollow" href="{{- path('ccdn_message_message_index') -}}" data-tip="bottom" title="{{- 'ccdn_message_message.message.inbox_status' | trans({'%message_count%': message_count }, 'CCDNMessageMessageBundle') -}}">
+								{{- message_count -}}
+							</a>
+						</li>
+						
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								{{- app.user.username |capitalize -}}&nbsp;
+								<i class="icon-user"></i>
+								<bdi>{{- app.user.username |capitalize -}}</bdi>
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
@@ -65,6 +66,6 @@
 					{%- endif -%}
 			    </ul>
 			</div>
-		</div>
+		</nav>
 	</header>
 {%- endspaceless -%}

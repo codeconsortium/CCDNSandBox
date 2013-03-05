@@ -8,8 +8,8 @@ security:
 
     role_hierarchy:
         ROLE_USER:        ROLE_USER
-        ROLE_MODERATOR:   ROLE_USER
-        ROLE_ADMIN:       ROLE_USER, ROLE_MODERATOR
+        ROLE_MODERATOR:   [ROLE_USER]
+        ROLE_ADMIN:       [ROLE_USER, ROLE_MODERATOR]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
@@ -40,6 +40,9 @@ security:
         #anonymous: ~
         #http_basic:
         #    realm: "Secured Demo Area"
+            remember_me:
+                key: "%secret%"
+                lifetime: 604800
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

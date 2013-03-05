@@ -18,16 +18,23 @@
 
 		{%- spaceless -%}
 
-		{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
-		
-		<div class="container-fluid">
-			<div class="row-fluid">
-		        <div class="span12">
-					<div id="top"></div>
-		            {%- block body_content -%}
-					{%- endblock -%}
-		        </div>
-	        </div>
+		<div id="page-wrap">
+			<div id="page-main">
+				{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
+			
+				<div class="container-fluid clear-top">
+					{%- block tool_bar -%}
+					{%- endblock tool_bar -%}
+					
+					<div class="row-fluid">
+				        <div class="span12">
+							<div id="top"></div>
+				            {%- block body -%}
+							{%- endblock body -%}
+				        </div>
+			        </div>
+				</div>
+			</div>
 		</div>
 		
 		{%- include 'CCDNComponentCommonBundle:Layout:footer.html.twig' -%}

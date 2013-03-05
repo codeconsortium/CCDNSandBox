@@ -23,6 +23,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'CCDNComponentBBCodeBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -76,6 +79,13 @@ doctrine:
                         dir:                  "Resources/config/doctrine"
                         alias:                ~
                         prefix:               CCDNComponent\AttachmentBundle\Entity
+                        is_bundle:            true
+                    CCDNMessageMessageBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNMessage\MessageBundle\Entity
                         is_bundle:            true
                     CCDNForumAdminBundle: ~
                     CCDNForumForumBundle:

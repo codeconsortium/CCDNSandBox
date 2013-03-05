@@ -1,28 +1,37 @@
 {%- spaceless -%}
-	<h2 style="display:inline-block;"><a href="{{- path('ccdn_user_profile_show_by_id', {'userId':user.id}) -}}">{{- user.getUsername |capitalize -}}</a></h2>
-
-	<div class="btn-toolbar pull-right">
-		{%- if is_granted('ROLE_USER') -%}
-			{%- if app.user.getId != user.getId -%}
-			{#<a class="btn" href="{{- path('ccdn_message_message_mail_compose_to', {'userId': user.getId }) -}}"><i class="icon-envelope"></i>&nbsp;{{- 'ccdn_user_profile.link.user.message' | trans({}, 'CCDNUserProfileBundle') -}}</a>&nbsp;#}
-
-				{%- if is_granted('ROLE_ADMIN') -%}
-				<a class="btn btn-primary" href="{{- path('ccdn_user_admin_account_show', {'userId': user.getId }) -}}">{{- 'ccdn_user_profile.link.user.administrate'|trans({}, 'CCDNUserProfileBundle') -}}</a>&nbsp;
-				{%- endif -%}
-			{%- endif -%}
-
-		{%- endif -%}
-	</div>
-
-	<hr>
 
 	{%- if is_granted('ROLE_USER') -%}
-		{%- if user.id == app.user.id or is_granted('ROLE_ADMIN') -%}
-			<a class="btn pull-right" href="{{- path('ccdn_user_profile_edit_avatar', {'userId':user.id}) -}}">{{- 'ccdn_user_profile.link.profile.edit' |trans({}, 'CCDNUserProfileBundle') -}}</a>
+		{%- if app.user.getId != user.getId -%}
+			<section>
+				<header class="row-fluid">
+					<div class="span12 btn-right">
+						{%- if is_granted('ROLE_ADMIN') -%}
+							<a class="btn btn-primary" href="{{- path('ccdn_user_admin_account_show', {'userId': user.getId }) -}}">
+								{{- 'ccdn_user_profile.link.user.administrate'|trans({}, 'CCDNUserProfileBundle') -}}
+							</a>
+						{%- endif -%}
+						{#
+							<a class="btn" href="{{- path('ccdn_message_message_mail_compose_to', {'userId': user.getId }) -}}">
+								<i class="icon-envelope"></i>
+								{{- 'ccdn_user_profile.link.user.message' | trans({}, 'CCDNUserProfileBundle') -}}
+							</a>
+						#}
+					</div>
+				</header>
+			</section>
 		{%- endif -%}
 	{%- endif -%}
-
-	{%- include 'CCDNUserProfileBundle:Avatar:item_avatar.html.twig' with {'user': user, 'scale_x': 150, 'scale_y': 150, 'border': 1, 'padding': 4, } -%}
+		
+	<div class="row-fluid">
+		{%- include 'CCDNUserProfileBundle:Avatar:item_avatar.html.twig' with {'user': user, 'scale_x': 150, 'scale_y': 150, 'border': 1, 'padding': 4, } -%}
 	
-	<br>
+		{%- if is_granted('ROLE_USER') -%}
+			{%- if user.id == app.user.id or is_granted('ROLE_ADMIN') -%}
+				<div class="span2 pull-right btn-right">
+					<a class="btn" href="{{- path('ccdn_user_profile_edit_avatar', {'userId':user.id}) -}}">{{- 'ccdn_user_profile.link.profile.edit' |trans({}, 'CCDNUserProfileBundle') -}}</a>
+				</div>
+			{%- endif -%}
+		{%- endif -%}	
+	</div>
+		
 {%- endspaceless -%}

@@ -36,7 +36,8 @@
         "codeconsortium/ccdn-user-member-bundle": "dev-master",
         "codeconsortium/ccdn-user-admin-bundle": "dev-master",
         "codeconsortium/ccdn-forum-bundle": "dev-master",
-        "codeconsortium/ccdn-forum-admin-bundle": "dev-master"
+        "codeconsortium/ccdn-forum-admin-bundle": "dev-master",
+		"codeconsortium/ccdn-message-bundle": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

@@ -1,130 +1,50 @@
-{% extends ccdn_user_profile.profile.edit.contact.layout_template %}
+{% extends 'CCDNUserProfileBundle::base.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+{% set LayoutTemplate = ccdn_user_profile.profile.edit.contact.layout_template %}
 
-{% block javascripts %}
+{% block javascripts_extra %}
 	{{ parent() }}
 	<script src="{{- asset('bundles/ccdnuserprofile/js/jquery.profile.js') -}}" type="text/javascript"></script>
-{% endblock %}
+{% endblock javascripts_extra %}
 
 {% block title %}{{- truncDot('ccdn_user_profile.title.profile.edit' | trans({ '%user_name%': user.getUsername }, 'CCDNUserProfileBundle'), ccdn_user_profile.seo.title_length) -}}{% endblock %}
 
-{% block sidebar %}
-	{{ parent() }}
-
-	{%- include 'CCDNUserProfileBundle:Sidebar:sidebar.html.twig' -%}
-
+{% block sub_title %}
+	<a href="{{- path('ccdn_user_profile_show_by_id', {'userId':user.id}) -}}">{{- user.getUsername |capitalize -}}</a>
 {% endblock %}
+
 
 {% block body_content %}
 
 	{%- spaceless -%}
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
+	<section>
+		{%- form_theme form ccdn_user_profile.profile.edit.contact.form_theme -%}
+		<form action="{{- path('ccdn_user_profile_edit_contact', {'userId':user.id}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+			<fieldset>
 
-	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
-
-	{%- include 'CCDNUserProfileBundle:Profile:item_header.html.twig' -%}
-
-	{%- include 'CCDNUserProfileBundle:Profile:item_tabs.html.twig' -%}
-
-	<h3 style="display:inline-block;">{{- 'ccdn_user_profile.profile.show.overview.contact' |trans({}, 'CCDNUserProfileBundle') -}}</h3>
-	<br>
-
-	{%- form_theme form ccdn_user_profile.profile.edit.contact.form_theme -%}
-	<form action="{{- path('ccdn_user_profile_edit_contact', {'userId':user.id}) -}}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
-		<fieldset>
-
-			{{- form_errors(form) -}}
-
-			<div class="control-group"><div class="controls row-fluid">{{- form_row(form._token) -}}</div></div>
-
-			<div class="control-group{{- (form.aim.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.aim, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.aim' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.aim) -}}
-					{{- form_widget(form.aim) -}}
+				<div class="control-group form-title">
+					<div class="controls">
+						<h3>{{- 'heading.edit.contact' |trans({}, 'CCDNUserProfileBundle') -}}</h3>
+					</div>
 				</div>
-			</div>
+			
+				{{- form_errors(form) -}}
 
-			<div class="control-group{{- (form.aim_is_public.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.aim_is_public, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.aim_is_public' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.aim_is_public) -}}
-					{{- form_widget(form.aim_is_public) -}}					
+				{{- form_widget(form) -}}
+			
+				<div class="form-actions">
+					<input type="submit" class="btn btn-primary" value="{{- 'ccdn_user_profile.form.button.profile.edit.update' |trans({}, 'CCDNUserProfileBundle') -}}">
+				
+					<a class="btn" href="{{- path('ccdn_user_profile_show_by_id', {'userId':user.id}) -}}">
+						{{- 'ccdn_user_profile.form.button.profile.edit.cancel' |trans({}, 'CCDNUserProfileBundle') -}}
+					</a>
 				</div>
-			</div>
 
-
-
-			<div class="control-group{{- (form.msn.vars.errors|length > 0) ? ' error': '' -}}{{- (form.msn_is_public.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.msn, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.msn' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.msn) -}}
-					{{- form_widget(form.msn) -}}
-				</div>
-			</div>
-
-			<div class="control-group{{- (form.msn_is_public.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.msn_is_public, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.msn_is_public' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.msn_is_public) -}}
-					{{- form_widget(form.msn_is_public) -}}
-				</div>
-			</div>
-
-
-
-
-			<div class="control-group{{- (form.icq.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.icq, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.icq' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.icq) -}}
-					{{- form_widget(form.icq) -}}
-				</div>
-			</div>
-
-			<div class="control-group{{- (form.icq_is_public.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.icq_is_public, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.icq_is_public' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.icq_is_public) -}}
-					{{- form_widget(form.icq_is_public) -}}
-				</div>
-			</div>
-
-
-
-
-			<div class="control-group{{- (form.yahoo.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.yahoo, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.yahoo'|trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">
-					{{- form_errors(form.yahoo) -}}
-					{{- form_widget(form.yahoo) -}}
-				</div>
-			</div>
-
-			<div class="control-group{{- (form.yahoo_is_public.vars.errors|length > 0) ? ' error': '' -}}">
-				{{- form_label(form.yahoo_is_public, null, { 'label': 'ccdn_user_profile.form.label.profile.edit.yahoo_is_public' |trans({}, 'CCDNUserProfileBundle') }) -}}
-				<div class="controls row-fluid">			
-					{{- form_errors(form.yahoo_is_public) -}}
-					{{- form_widget(form.yahoo_is_public) -}}
-				</div>
-			</div>
-
-
-
-			<div class="form-actions">
-				<input type="submit" class="btn btn-primary" value="{{- 'ccdn_user_profile.form.button.profile.edit.update' |trans({}, 'CCDNUserProfileBundle') -}}">&nbsp;
-				<a class="btn" href="{{- path('ccdn_user_profile_show_by_id', {'userId':user.id}) -}}">{{- 'ccdn_user_profile.form.button.profile.edit.cancel' |trans({}, 'CCDNUserProfileBundle') -}}</a>
-			</div>
-
-		</fieldset>
-	</form>
-
-	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
-
+			</fieldset>
+		</form>
+	</section>
+	
 	{%- endspaceless -%}
 
 {% endblock body_content %}

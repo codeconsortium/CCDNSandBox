@@ -7,7 +7,7 @@
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
-ccdn_forum_forum_home_root:
+ccdn_homepage:
     pattern: /
     defaults: { _controller: CCDNForumForumBundle:Category:index, _locale: en }
 
@@ -58,3 +58,6 @@ CCDNForumForumBundle:
 
 CCDNForumAdminBundle:
     resource: "@CCDNForumAdminBundle/Resources/config/routing.yml"
+
+CCDNMessageMessageBundle:
+    resource: "@CCDNMessageMessageBundle/Resources/config/routing.yml"

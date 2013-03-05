@@ -3,18 +3,40 @@
 
 	<br>
 
-	<ul class="nav nav-tabs">
-	{%- if route == 'ccdn_user_profile_show' or route == 'ccdn_user_profile_show_by_id' or route == 'ccdn_user_profile_edit_personal' or route == 'ccdn_user_profile_edit_contact' or route == 'ccdn_user_profile_edit_avatar' -%}
-		<li class="active"><a href="{{- path(route, {'userId': user.id}) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.overview' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
-	{%- else -%}
-		<li><a href="{{- path('ccdn_user_profile_show_by_id', {'userId': user.id}) -}}"><i class="icon-user"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.overview' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
-	{%- endif -%}
+	<nav>
+		<ul class="nav nav-tabs">
+		{%- if route == 'ccdn_user_profile_show' or route == 'ccdn_user_profile_show_by_id' or route == 'ccdn_user_profile_edit_personal' or route == 'ccdn_user_profile_edit_contact' or route == 'ccdn_user_profile_edit_avatar' -%}
+			<li class="active">
+				<a href="{{- path(route, {'userId': user.id}) -}}">
+					<i class="icon-user"></i>
+					{{- 'ccdn_user_profile.link.profile.overview' | trans({}, 'CCDNUserProfileBundle') -}}
+				</a>
+			</li>
+		{%- else -%}
+			<li>
+				<a href="{{- path('ccdn_user_profile_show_by_id', {'userId': user.id}) -}}">
+					<i class="icon-user"></i>
+					{{- 'ccdn_user_profile.link.profile.overview' | trans({}, 'CCDNUserProfileBundle') -}}
+				</a>
+			</li>
+		{%- endif -%}
 
-	{%- if route == 'ccdn_user_profile_show_bio_by_id' or route == 'ccdn_user_profile_edit_bio' or route == 'ccdn_user_profile_edit_signature' -%}
-		<li class="active"><a href="{{- path(route, {'userId': user.id}) -}}"><i class="icon-book"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
-	{%- else -%}
-		<li><a href="{{- path('ccdn_user_profile_show_bio_by_id', {'userId': user.id}) -}}"><i class="icon-book"></i>&nbsp;{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}</a></li>
-	{%- endif -%}
-	</ul>
-
+		{%- if route == 'ccdn_user_profile_show_bio_by_id' or route == 'ccdn_user_profile_edit_bio' or route == 'ccdn_user_profile_edit_signature' -%}
+			<li class="active">
+				<a href="{{- path(route, {'userId': user.id}) -}}">
+					<i class="icon-book"></i>
+					{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}
+				</a>
+			</li>
+		{%- else -%}
+			<li>
+				<a href="{{- path('ccdn_user_profile_show_bio_by_id', {'userId': user.id}) -}}">
+					<i class="icon-book"></i>
+					{{- 'ccdn_user_profile.link.profile.bio' | trans({}, 'CCDNUserProfileBundle') -}}
+				</a>
+			</li>
+		{%- endif -%}
+		</ul>
+	</nav>
+	
 {%- endspaceless -%}

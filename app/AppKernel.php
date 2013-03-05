@@ -42,15 +42,17 @@ class AppKernel extends Kernel
             new CCDNForum\ForumBundle\CCDNForumForumBundle(),
             new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
 			
+			new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),
+			
 			// CCDN Child Bundles
             new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
             new SubCCDNComponent\DashboardBundle\SubCCDNComponentDashboardBundle(),
             new SubCCDNComponent\AttachmentBundle\SubCCDNComponentAttachmentBundle(),
-
+        
             new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
             new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
             new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
-
+        
             new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
             new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
         );

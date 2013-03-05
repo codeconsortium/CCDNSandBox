@@ -17,26 +17,33 @@
     <body onload="prettyPrint()">
 
 		{%- spaceless -%}
+	
+		<div id="page-wrap">
+			<div id="page-main">
+				{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
+			
+				<div class="container-fluid clear-top">
+					{%- block tool_bar -%}
+					{%- endblock tool_bar -%}
+					
+					<div class="row-fluid">
+				        <div class="span10 page-body-left">
+							<div id="top"></div>
+				            {%- block body -%}
+							{%- endblock body -%}
+				        </div>
+						
+				        <aside class="span2 page-sidebar-right">
+							<ul class="nav nav-pills nav-stacked">
+								{%- include 'CCDNComponentCommonBundle:Layout:sidebar.html.twig' -%}
 
-		{%- include 'CCDNComponentCommonBundle:Layout:header.html.twig' -%}
-		
-		<div class="container-fluid">
-			<div class="row-fluid">
-		        <div class="span10">
-					<div id="top"></div>
-		            {%- block body_content -%}
-					{%- endblock -%}
-		        </div>
-				
-		        <div class="span2">
-					<ul class="nav nav-pills nav-stacked">
-						{%- include 'CCDNComponentCommonBundle:Layout:sidebar.html.twig' -%}
-
-						{%- block sidebar -%}
-			            {%- endblock -%}
-					</ul>
+								{%- block sidebar -%}
+					            {%- endblock sidebar -%}
+							</ul>
+						</aside>
+			        </div>
 				</div>
-	        </div>
+			</div>
 		</div>
 		
 		{%- include 'CCDNComponentCommonBundle:Layout:footer.html.twig' -%}

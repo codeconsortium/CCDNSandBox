@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: ccdn/component-common.yml }
 
 framework:
     #esi:             ~
@@ -60,7 +61,20 @@ doctrine:
             default:
                 mappings:
                     FOSUserBundle: ~
-                    CCDNUserUserBundle: ~
+                    CCDNUserUserBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNUser\UserBundle\Entity
+                        is_bundle:            true
+                    CCDNUserProfileBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNUser\ProfileBundle\Entity
+                        is_bundle:            true
                     CCDNUserSecurityBundle:
                         mapping:              true
                         type:                 yml
@@ -68,7 +82,6 @@ doctrine:
                         alias:                ~
                         prefix:               CCDNUser\SecurityBundle\Entity
                         is_bundle:            true
-                    CCDNUserProfileBundle: ~
                     CCDNComponentCommonBundle: ~
                     CCDNComponentCrumbTrailBundle: ~
                     CCDNComponentBBCodeBundle: ~

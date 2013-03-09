@@ -3,6 +3,7 @@ app/config/parameters.ini
 logs/
 cache/
 vendor/
+vendor/*
 web/bundles/
 .idea/
 

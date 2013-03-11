@@ -9,6 +9,38 @@
 					<li class="muted">·</li>
 					<li>
 						<a href="{{- ccdn_component_common.header.brand.route -}}">{{- ccdn_component_common.header.brand.label -}}</a>
+					</li>					
+				</ul>
+				
+				<hr>
+				
+				<ul class="footer-links">
+					<li>
+						<a href="{{- path('ccdn_user_user_legal_copyright_notice') -}}">
+							{{- 'ccdn_user_user.title.legal.copyright_notice' |trans({}, 'CCDNUserUserBundle') -}}
+						</a>
+					</li>
+					<li class="muted">·</li>
+					<li>
+						<a href="{{- path('ccdn_user_user_legal_disclaimer') -}}">
+							{{- 'ccdn_user_user.title.legal.disclaimer' |trans({}, 'CCDNUserUserBundle') -}}
+						</a>
+					</li>
+					<li class="muted">·</li>
+					<li>
+						<a href="{{- path('ccdn_user_user_legal_privacy_policy') -}}">
+							{{- 'ccdn_user_user.title.legal.privacy_policy' |trans({}, 'CCDNUserUserBundle') -}}
+						</a>
+					</li>
+					<li class="muted">·</li>
+					<li>
+						<a href="{{- path('ccdn_user_user_legal_terms_conditions') -}}">
+							{{- 'ccdn_user_user.title.legal.terms_conditions' |trans({}, 'CCDNUserUserBundle') -}}
+						</a>
+					</li>
+					<li class="muted">·</li>
+					<li>
+						Copyright <a target="_blank" href="http://www.codeconsortium.com/">Code Consortium</a> 2011 - {{ 'now'|date("Y") }}.				
 					</li>
 				</ul>
 			</nav>

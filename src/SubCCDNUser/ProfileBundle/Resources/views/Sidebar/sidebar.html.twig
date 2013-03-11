@@ -55,9 +55,9 @@
 				<li class="divider"></li>
 				
 				<li class="active">
-					<a href="{{- path('ccdn_user_profile_show_by_id', {'userId':user.id}) -}}">
+					<a href="{{- path('ccdn_user_profile_show_by_id', {'profileId':profile.id}) -}}">
 						<i class="icon-white icon-user"></i>
-						{{- 'ccdn_user_profile.sidebar.link.profile.view_named' |trans({'%user_name%': user.getUsername |title}, 'CCDNUserProfileBundle') -}}
+						{{- 'ccdn_user_profile.sidebar.link.profile.view_named' |trans({'%user_name%': profile.getUsername |title}, 'CCDNUserProfileBundle') |raw -}}
 					</a>
 				</li>
 			{%- endif -%}

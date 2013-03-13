@@ -26,13 +26,19 @@ security:
             switch_user: true
             pattern: ^/
             form_login:
-                provider: fos_userbundle
-                csrf_provider: form.csrf_provider
+                provider:        fos_userbundle
+                login_path:      /login
+                use_forward:     false
+                check_path:      /login_check
+                success_handler: ccdn_user_security.component.authentication.handler.login_success_handler
+                failure_handler: ccdn_user_security.component.authentication.handler.login_failure_handler
+                failure_path:    null
+                csrf_provider:   form.csrf_provider
                 #success_handler:
             logout:
                 path: /logout
                 target: /
-                #success_handler:
+                success_handler: ccdn_user_security.component.authentication.handler.logout_success_handler
             anonymous: true
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/

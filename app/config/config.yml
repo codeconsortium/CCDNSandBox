@@ -1,7 +1,19 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: ccdn/component-attachment.yml }
+    - { resource: ccdn/component-bb-code.yml }
     - { resource: ccdn/component-common.yml }
+    - { resource: ccdn/component-crumb-trail.yml }
+    - { resource: ccdn/component-dashboard.yml }
+    - { resource: ccdn/forum-admin.yml }
+    - { resource: ccdn/forum-forum.yml }
+    - { resource: ccdn/message-message.yml }
+    - { resource: ccdn/user-admin.yml }
+    - { resource: ccdn/user-member.yml }
+    - { resource: ccdn/user-profile.yml }
+    - { resource: ccdn/user-security.yml }
+    - { resource: ccdn/user-user.yml }
 
 framework:
     #esi:             ~
@@ -123,6 +135,24 @@ ewz_recaptcha:
     private_key:  %ewz_recaptcha_private_key%
     secure:       false
     locale_key:   kernel.default_locale
+
+ccdn_user_security:   
+    route_referer:        
+        route_ignore_list: []
+    login_shield:         
+        enable_shield: true 
+        block_for_minutes: 10 
+        limit_failed_login_attempts:  
+            before_recover_account: 5 
+            before_return_http_500: 10 
+        primary_login_route:
+            name:                 fos_user_security_login 
+            params:               []
+        recover_account_route:  
+            name:                 fos_user_resetting_request 
+            params:               []
+        block_routes_when_denied: []
+
 
 fos_user:             
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

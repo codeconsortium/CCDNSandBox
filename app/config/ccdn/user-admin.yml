@@ -1,1 +1,4 @@
 ccdn_user_admin:
+    entity:
+        user:
+            class: CCDNUser\UserBundle\Entity\User

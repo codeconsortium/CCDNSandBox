@@ -5,8 +5,8 @@ ccdn_user_security:
         enable_shield: true 
         block_for_minutes: 10 
         limit_failed_login_attempts:  
-            before_recover_account: 5 
-            before_return_http_500: 10 
+            before_recover_account: 15
+            before_return_http_500: 25 
         primary_login_route:
             name:                 fos_user_security_login 
             params:               []

@@ -1,1 +1,7 @@
 ccdn_user_member:
+    entity:
+        user:
+            class: CCDNUser\UserBundle\Entity\User
+    member:
+        list:
+            requires_login: false

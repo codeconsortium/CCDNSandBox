@@ -49,6 +49,51 @@
             ]
         },
         {
+            "name": "codeconsortium/ccdn-bb-code-engine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeconsortium/CCDNBBCodeEngine",
+                "reference": "cc5f661feeee4f53b591479933e855cb89bde3ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNBBCodeBundle/zipball/cc5f661feeee4f53b591479933e855cb89bde3ac",
+                "reference": "cc5f661feeee4f53b591479933e855cb89bde3ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+            },
+            "time": "2013-02-13 11:21:21",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "CCDNBBCodeEngine": "/lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "reecefowell",
+                    "email": "reece@codeconsortium.com"
+                }
+            ],
+            "description": "CCDN Component BBCode Engine",
+            "homepage": "http://github.com/codeconsortium/CCDNBBCodeEngine",
+            "keywords": [
+                "BB code",
+                "bulletin code",
+                "ccdn",
+                "codeconsortium",
+                "markup",
+                "parser"
+            ]
+        },
+        {
             "name": "codeconsortium/ccdn-component-bb-code-bundle",
             "version": "dev-master",
             "target-dir": "CCDNComponent/BBCodeBundle",

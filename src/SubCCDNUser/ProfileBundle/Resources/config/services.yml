@@ -1,0 +1,12 @@
+parameters:
+
+    sub_ccdn_user_profile.component.bb_code.acl_integrator.class: SubCCDNUser\ProfileBundle\Component\BBCode\TagACLIntegrator
+
+services:
+
+    sub_ccdn_user_profile.component.bb_code.acl_integrator:
+        class: %sub_ccdn_user_profile.component.bb_code.acl_integrator.class%
+        arguments:
+            - %sub_ccdn_user_profile.bb_parser.acl%
+        tags:
+            - { name: ccdn_component_bb_code.acl }

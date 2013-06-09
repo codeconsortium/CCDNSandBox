@@ -1,0 +1,12 @@
+parameters:
+
+    sub_ccdn_forum_admin.component.bb_code.acl_integrator.class: SubCCDNForum\AdminBundle\Component\BBCode\TagACLIntegrator
+
+services:
+
+    sub_ccdn_forum_admin.component.bb_code.acl_integrator:
+        class: %sub_ccdn_forum_admin.component.bb_code.acl_integrator.class%
+        arguments:
+            - %sub_ccdn_forum_admin.bb_parser.acl%
+        tags:
+            - { name: ccdn_component_bb_code.acl }

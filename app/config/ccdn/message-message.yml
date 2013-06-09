@@ -2,3 +2,7 @@ ccdn_message_message:
     entity:
         user:
             class: CCDNUser\UserBundle\Entity\User
+    form:
+        type:
+            message:
+                class: SubCCDNMessage\MessageBundle\Form\Type\MessageFormType

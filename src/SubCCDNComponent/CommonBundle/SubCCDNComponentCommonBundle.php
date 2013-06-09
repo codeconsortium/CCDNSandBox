@@ -26,5 +26,4 @@ class SubCCDNComponentCommonBundle extends Bundle
     {
         return 'CCDNComponentCommonBundle';
     }
-
 }

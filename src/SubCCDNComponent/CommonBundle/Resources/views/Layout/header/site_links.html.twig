@@ -1,0 +1,15 @@
+{%- spaceless -%}
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<nav class="container-fluid">
+			    <ul class="nav">
+					{%- set route = app.request.attributes.get('_route') -%}
+		
+					<li{{ route|slice(0,24) == 'ccdn_component_dashboard' ? ' class="active"': ''}}><a href="{{ path('ccdn_component_dashboard_index') }}">Dashboard</a></li>
+					<li{{ route|slice(0,9) == 'ccdn_user' ? ' class="active"': ''}}><a href="{{ path('ccdn_user_member_index') }}">Members</a></li>
+					<li{{ route|slice(0,10) == 'ccdn_forum' ? ' class="active"': ''}}><a href="{{ path('ccdn_forum_forum_category_index') }}">Forum</a></li>
+			    </ul>
+			</nav>
+		</div>
+	</div>
+{%- endspaceless -%}

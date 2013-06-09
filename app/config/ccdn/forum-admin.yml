@@ -1,1 +1,7 @@
-ccdn_forum_forum:
+ccdn_forum_admin:
+    form:
+        type:
+            board_create:
+                class: SubCCDNForum\AdminBundle\Form\Type\BoardFormType
+            board_update:
+                class: SubCCDNForum\AdminBundle\Form\Type\BoardFormType

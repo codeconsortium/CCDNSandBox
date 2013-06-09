@@ -2,13 +2,13 @@
 	{%- set route = app.request.attributes.get('_route') -%}
 
 	<li class="nav-header">
-		{{- 'ccdn_user_member.sidebar.header.navigation' | trans({}, 'CCDNUserMemberBundle') -}}
+		{{- 'sidebar.header.navigation' | trans({}, 'CCDNUserMemberBundle') -}}
 	</li>
 	
 	<li class="active">
 		<a href="{{- path('ccdn_user_member_index') -}}">
 			<i class="icon-white icon-th-list"></i>
-			{{- 'ccdn_user_member.sidebar.link.members' |trans({}, 'CCDNUserMemberBundle') -}}
+			{{- 'link.members' |trans({}, 'CCDNUserMemberBundle') -}}
 		</a>
 	</li>
 	
@@ -16,32 +16,32 @@
 		<li>
 			<a rel="nofollow" href="{{- path('ccdn_user_user_account_show') -}}">
 				<i class="icon-cog"></i>
-				{{- 'ccdn_user_member.sidebar.link.account.view' |trans({}, 'CCDNUserMemberBundle') -}}
+				{{- 'link.account.view' |trans({}, 'CCDNUserMemberBundle') -}}
 			</a>
 		</li>
 		<li>
 			<a rel="nofollow" href="{{- path('ccdn_user_profile_show') -}}">
 				<i class="icon-user"></i>
-				{{- 'ccdn_user_member.sidebar.link.profile.view' | trans({}, 'CCDNUserMemberBundle') -}}
+				{{- 'link.profile.view' | trans({}, 'CCDNUserMemberBundle') -}}
 			</a>
 		</li>
 	{%- else -%}
 		<li>
 			<a rel="nofollow" href="{{- path('fos_user_security_login') -}}">
 				<i class="icon-user"></i>
-				{{- 'ccdn_user_user.sidebar.link.login' |trans({}, 'CCDNUserUserBundle') -}}
+				{{- 'link.login' |trans({}, 'CCDNUserUserBundle') -}}
 			</a>
 		</li>
 		<li>
 			<a rel="nofollow" href="{{- path('fos_user_registration_register') -}}">
 				<i class="icon-asterisk"></i>
-				{{- 'ccdn_user_user.sidebar.link.register' |trans({}, 'CCDNUserUserBundle') -}}
+				{{- 'link.register' |trans({}, 'CCDNUserUserBundle') -}}
 			</a>
 		</li>
 		<li>
 			<a rel="nofollow" href="{{- path('fos_user_resetting_request') -}}">
 				<i class="icon-lock"></i>
-				{{- 'ccdn_user_user.sidebar.link.reset' |trans({}, 'CCDNUserUserBundle') -}}
+				{{- 'link.reset' |trans({}, 'CCDNUserUserBundle') -}}
 			</a>
 		</li>
 	{%- endif -%}

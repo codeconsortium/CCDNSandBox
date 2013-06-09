@@ -1,0 +1,10 @@
+sub_ccdn_forum_forum:
+    bb_parser:
+        tag_acl:
+            forum_post:
+                group:
+                    white_list: [*]
+                    black_list: []
+                tag:
+                    white_list: [*]
+                    black_list: []

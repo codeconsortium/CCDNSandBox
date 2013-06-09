@@ -2,7 +2,7 @@
 
 {% set LayoutTemplate = ccdn_user_admin.account.show_user.layout_template %}
 
-{% block title %}{{- truncDot('ccdn_user_admin.title.account.show' |trans({'%user_name%': user.getUsername }, 'CCDNUserAdminBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
+{% block title %}{{- truncDot('title.account.show' |trans({'%name%': user.getUsername }, 'CCDNUserAdminBundle'), ccdn_user_admin.seo.title_length) -}}{% endblock %}
 
 
 {% block body_content %}
@@ -12,59 +12,59 @@
 	{%- set profile = create_profile(user) -%}
 
 	<header>
-		<h3>{{- 'ccdn_user_admin.title.account.show' |trans({'%user_name%': profile.getUsernameBDI}, 'CCDNUserAdminBundle') |raw -}}</h3>
+		<h3>{{- 'title.account.show' |trans({'%name%': profile.getUsernameBDI}, 'CCDNUserAdminBundle') |raw -}}</h3>
 	</header>
 
 	<section>
 		<div class="btn-toolbar">
 			{% if user.enabled %}
 				<a class="btn btn-danger" href="{{- path('ccdn_user_admin_force_reactivation', {'userId': user.getId }) -}}">
-					{{- 'ccdn_user_admin.sidebar.link.user.force_reactivation'|trans({}, 'CCDNUserAdminBundle') -}}
+					{{- 'link.user.force_reactivation'|trans({}, 'CCDNUserAdminBundle') -}}
 				</a>
 			{% else %}
 				<a class="btn btn-danger" href="{{- path('ccdn_user_admin_activate', {'userId': user.getId }) -}}">
-					{{- 'ccdn_user_admin.sidebar.link.user.activate'|trans({}, 'CCDNUserAdminBundle') -}}
+					{{- 'link.user.activate'|trans({}, 'CCDNUserAdminBundle') -}}
 				</a>
 			{% endif %}
 		
 			{% if user.locked %}
 				<a class="btn btn-danger" href="{{- path('ccdn_user_admin_unban', {'userId': user.getId }) -}}">
-					{{- 'ccdn_user_admin.sidebar.link.user.unban'|trans({}, 'CCDNUserAdminBundle') -}}
+					{{- 'link.user.unban'|trans({}, 'CCDNUserAdminBundle') -}}
 				</a>
 			{% else %}
 				<a class="btn btn-danger" href="{{- path('ccdn_user_admin_ban', {'userId': user.getId }) -}}">
-					{{- 'ccdn_user_admin.sidebar.link.user.ban'|trans({}, 'CCDNUserAdminBundle') -}}
+					{{- 'link.user.ban'|trans({}, 'CCDNUserAdminBundle') -}}
 				</a>
 			{% endif %}
 		
 			<a class="btn btn-danger" href="{{- path('ccdn_user_admin_set_roles', {'userId': user.getId }) -}}">
-				{{- 'ccdn_user_admin.sidebar.link.user.set_roles'|trans({}, 'CCDNUserAdminBundle') -}}
+				{{- 'link.user.set_roles'|trans({}, 'CCDNUserAdminBundle') -}}
 			</a>
 			<a class="btn btn-danger" href="{{- path('ccdn_user_admin_account_edit', {'userId': user.getId}) -}}">
-				{{- 'ccdn_user_admin.link.account.edit' |trans({}, 'CCDNUserAdminBundle') -}}
+				{{- 'link.account.edit' |trans({}, 'CCDNUserAdminBundle') -}}
 			</a>
 			
 			<a class="btn" href="{{- path('ccdn_user_profile_show_by_id', {'profileId': profile.getId}) -}}">
-				{{- 'ccdn_user_admin.link.profile.show' |trans({}, 'CCDNUserAdminBundle') -}}
-			</a>			
+				{{- 'link.profile.show' |trans({}, 'CCDNUserAdminBundle') -}}
+			</a>
 		</div>
 
-		<table class="table table-striped table-bordered table-hover table-vertical-labels">
+		<table class="table table-striped table-hover">
 			<tbody>
 				<tr>
-					<td class="right" style="width: 30%;">{{- 'ccdn_user_admin.account.show.username' |trans({}, 'CCDNUserAdminBundle') -}}</td>
+					<td class="right" style="width: 30%;">{{- 'account.show.username' |trans({}, 'CCDNUserAdminBundle') -}}</td>
 					<td class="left" style="width: 70%;">{{- profile.getUsernameBDI |raw -}}</td>
 				</tr>
 				<tr>
-					<td class="right">{{- 'ccdn_user_admin.account.show.email'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+					<td class="right">{{- 'account.show.email'|trans({}, 'CCDNUserAdminBundle') -}}</td>
 					<td class="left">{{- user.email -}}</td>
 				</tr>
 				<tr>
-					<td class="right">{{- 'ccdn_user_admin.account.show.registered_date'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+					<td class="right">{{- 'account.show.registered_date'|trans({}, 'CCDNUserAdminBundle') -}}</td>
 					<td class="left">{{- user.registeredDate |date(ccdn_user_admin.account.show_user.member_since_datetime_format) -}}</td>
 				</tr>
 				<tr>
-					<td class="right">{{- 'ccdn_user_admin.profile.show.banned'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+					<td class="right">{{- 'profile.show.banned'|trans({}, 'CCDNUserAdminBundle') -}}</td>
 					<td class="left">
 						{%- if user.locked -%}
 							Banned
@@ -74,7 +74,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="right">{{- 'ccdn_user_admin.profile.show.activated'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+					<td class="right">{{- 'profile.show.activated'|trans({}, 'CCDNUserAdminBundle') -}}</td>
 					<td class="left">
 						{%- if user.enabled -%}
 							Activated
@@ -84,7 +84,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="right">{{- 'ccdn_user_admin.account.show.role'|trans({}, 'CCDNUserAdminBundle') -}}</td>
+					<td class="right">{{- 'account.show.role'|trans({}, 'CCDNUserAdminBundle') -}}</td>
 					<td class="left">
 						<ul>
 						{%- for role in user.getRoles -%}

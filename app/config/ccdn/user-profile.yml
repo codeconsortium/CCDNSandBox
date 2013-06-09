@@ -1,1 +1,7 @@
 ccdn_user_profile:
+    form:
+        type:
+            bio:
+                class: SubCCDNUser\ProfileBundle\Form\Type\BioFormType
+            signature:
+                class: SubCCDNUser\ProfileBundle\Form\Type\SignatureFormType

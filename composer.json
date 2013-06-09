@@ -4,6 +4,56 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+	"repositories": [
+	    {
+	       "type": "package",
+	       "package": {
+	           "version": "dev-master",
+	           "name": "todc/todc-bootstrap",
+	           "source": {
+	               "url": "https://github.com/todc/todc-bootstrap.git",
+	               "type": "git",
+	               "reference": "master"
+	           },
+	           "dist": {
+	               "url": "https://github.com/todc/todc-bootstrap/zipball/master",
+	               "type": "zip"
+	           }
+	       }
+	    },
+	    {
+	       "type": "package",
+	       "package": {
+	           "version": "dev-master",
+	           "name": "reecefowell/moment",
+	           "source": {
+	               "url": "https://github.com/reecefowell/moment.git",
+	               "type": "git",
+	               "reference": "master"
+	           },
+	           "dist": {
+	               "url": "https://github.com/reecefowell/moment/zipball/master",
+	               "type": "zip"
+	           }
+	       }
+	    },
+	    {
+	       "type": "package",
+	       "package": {
+	           "version": "dev-master",
+	           "name": "isagalaev/highlight",
+	           "source": {
+	               "url": "https://github.com/isagalaev/highlight.js.git",
+	               "type": "git",
+	               "reference": "master"
+	           },
+	           "dist": {
+	               "url": "https://github.com/isagalaev/highlight.js/zipball/master",
+	               "type": "zip"
+	           }
+	       }
+	    }
+	],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -19,30 +69,42 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "kriswallsmith/assetic": "1.1.*@dev",
-        "incenteev/composer-parameter-handler": "1.0.*@dev",
-        "raulfraile/ladybug-bundle": "dev-master",
+        
+        "leafo/lessphp": "*",
+        "twitter/bootstrap": "v2.3.1",
+        "reecefowell/todc-bootstrap": "*",
+        "reecefowell/moment": "*",
+        "reecefowell/jquery-timestamper": "dev-master",
+        "reecefowell/jquery-checkboxes": "dev-master",
+        "isagalaev/highlight": "dev-master",
+        
+        "incenteev/composer-parameter-handler": "v2.0.0",
         "doctrine/data-fixtures": "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "white-october/pagerfanta-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "2.1.*@dev",
         "friendsofsymfony/user-bundle": "1.3.*",
-        "codeconsortium/ccdn-component-common-bundle": "dev-2.x-dev",
-		"codeconsortium/ccdn-component-bb-code": "dev-2.x-dev",
-        "codeconsortium/ccdn-component-bb-code-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-component-dashboard-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-component-attachment-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-component-crumb-trail-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-user-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-user-security-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-user-profile-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-user-member-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-user-admin-bundle": "dev-2.x-dev",
-		"codeconsortium/ccdn-message-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-forum-bundle": "dev-2.x-dev",
-        "codeconsortium/ccdn-forum-admin-bundle": "dev-2.x-dev"
+        
+        "codeconsortium/ccdn-component-common-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-component-bb-code": "2.0.*@dev",
+        "codeconsortium/ccdn-component-bb-code-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-component-dashboard-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-component-attachment-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-component-crumb-trail-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-user-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-user-security-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-user-profile-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-user-member-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-user-admin-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-message-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-forum-bundle": "2.0.*@dev",
+        "codeconsortium/ccdn-forum-admin-bundle": "2.0.*@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
-        "phpunit/php-code-coverage": "1.2.*"
+        "phpunit/php-code-coverage": "1.2.*",
+        "raulfraile/ladybug-bundle": "dev-master",
+        "mdm/translator-checker-bundle": "2.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

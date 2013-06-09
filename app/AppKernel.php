@@ -23,6 +23,8 @@ class AppKernel extends Kernel
 			// CCDN 3rd Pary Dependencies.
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+			new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+			
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
@@ -53,6 +55,7 @@ class AppKernel extends Kernel
             new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
             new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
         
+		    new SubCCDNMessage\MessageBundle\SubCCDNMessageMessageBundle(),
             new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
             new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
         );
@@ -62,6 +65,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
+			$bundles[] = new MDM\TranslatorCheckerBundle\MDMTranslatorCheckerBundle();
         }
 
         return $bundles;

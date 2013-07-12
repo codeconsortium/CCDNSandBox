@@ -18,3 +18,5 @@ parameters:
     
     ewz_recaptcha_private_key: change_me
     ewz_recaptcha_public_key: change_me
+
+#    knp_paginator.template.pagination: CCDNComponentCommonBundle:KnpPaginator:bootstrap.html.twig

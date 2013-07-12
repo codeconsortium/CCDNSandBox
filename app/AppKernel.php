@@ -42,22 +42,22 @@ class AppKernel extends Kernel
             new CCDNUser\AdminBundle\CCDNUserAdminBundle(),
 
             new CCDNForum\ForumBundle\CCDNForumForumBundle(),
-            new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
+            //new CCDNForum\AdminBundle\CCDNForumAdminBundle(),
 			
 			new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),
 			
 			// CCDN Child Bundles
-            new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
-            new SubCCDNComponent\DashboardBundle\SubCCDNComponentDashboardBundle(),
-            new SubCCDNComponent\AttachmentBundle\SubCCDNComponentAttachmentBundle(),
-        
-            new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
-            new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
-            new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
-        
-		    new SubCCDNMessage\MessageBundle\SubCCDNMessageMessageBundle(),
-            new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
-            new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
+            //new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
+            //new SubCCDNComponent\DashboardBundle\SubCCDNComponentDashboardBundle(),
+            //new SubCCDNComponent\AttachmentBundle\SubCCDNComponentAttachmentBundle(),
+            //
+            //new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
+            //new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
+            //new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
+            //
+		    //new SubCCDNMessage\MessageBundle\SubCCDNMessageMessageBundle(),
+            //new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
+            //new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -66,6 +66,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
 			$bundles[] = new MDM\TranslatorCheckerBundle\MDMTranslatorCheckerBundle();
+			$bundles[] = new Elao\WebProfilerExtraBundle\WebProfilerExtraBundle();
         }
 
         return $bundles;

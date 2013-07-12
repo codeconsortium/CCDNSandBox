@@ -1,0 +1,19 @@
+default:
+    context:
+        class: CCDNForum\ForumBundle\features\bootstrap\FeatureContext 
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+            context:
+                path_suffix: features
+                class_suffix: features\bootstrap
+        Behat\MinkExtension\Extension:
+            default_session: 'symfony2'
+            goutte: ~
+            selenium2: ~ 
+            base_url: http://ccdn.local/
+    paths:
+        features: features
+    #context:
+    #    path_suffix: features/
+    #    class_suffix: FeatureContext

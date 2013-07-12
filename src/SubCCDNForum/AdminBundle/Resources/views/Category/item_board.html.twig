@@ -20,7 +20,7 @@
 				</a>
 	        </div>
 
-			<a href="{{- path('ccdn_forum_forum_board_show', {'boardId': board.getId }) -}}">{{- board.getName -}}</a><br>
+			<a href="{{- path('ccdn_forum_user_board_show', {'boardId': board.getId }) -}}">{{- board.getName -}}</a><br>
 
 			{{- BBCode_Parse(board.getDescription | raw, 'forum_board_description') | raw -}}
 		</td>

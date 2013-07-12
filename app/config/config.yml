@@ -7,7 +7,7 @@ imports:
     - { resource: ccdn/component-crumb-trail.yml }
     - { resource: ccdn/component-dashboard.yml }
     - { resource: ccdn/component-attachment.yml }
-    - { resource: ccdn/forum-admin.yml }
+#    - { resource: ccdn/forum-admin.yml }
     - { resource: ccdn/forum-forum.yml }
     - { resource: ccdn/message-message.yml }
     - { resource: ccdn/user-admin.yml }
@@ -16,7 +16,7 @@ imports:
     - { resource: ccdn/user-security.yml }
     - { resource: ccdn/user-user.yml }
     # Sub CCDN Resources
-    - { resource: ccdn/sub/component-common.yml }
+#    - { resource: ccdn/sub/component-common.yml }
 #    - { resource: ccdn/sub/component-attachment.yml }
 #    - { resource: ccdn/sub/component-dashboard.yml }
 #    - { resource: ccdn/sub/forum-admin.yml }
@@ -110,7 +110,7 @@ doctrine:
                         alias:                ~
                         prefix:               CCDNMessage\MessageBundle\Entity
                         is_bundle:            true
-                    CCDNForumAdminBundle: ~
+                    #CCDNForumAdminBundle: ~
                     CCDNForumForumBundle:
                         mapping:              true
                         type:                 yml

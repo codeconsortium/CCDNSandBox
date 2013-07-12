@@ -1,0 +1,137 @@
+{#
+<div data-compat="interactive-non-js-compat">
+	{%- include 'CCDNMessageMessageBundle:Toolbar:folder_actions_no_script.html.twig' -%}
+</div>
+
+<div class="hidden" data-compat="interactive-js-compat">
+	{%- include 'CCDNMessageMessageBundle:Toolbar:folder_actions_scripted.html.twig' -%}
+</div>
+#}
+
+{%- spaceless -%}
+	<a class="btn btn-danger" href="{{- path('ccdn_message_message_mail_compose') -}}">
+		{{- 'link.message.compose' | trans({}, 'CCDNMessageMessageBundle') -}}
+	</a>
+
+
+
+	<div class="btn-group collapse hidden" data-js-compat>
+		<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+			<i class="icon-check"></i>
+			<span class="caret"></span>
+		</a>
+
+		<ul class="dropdown-menu">
+			<li>
+				<a href="#" data-select-none="true">
+					{{- 'link.message.select_none' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+
+			<li class="divider"></li>
+
+			<li>
+				<a href="#" data-qualifier="read">
+					{{- 'link.message.select_all_read' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+			<li>
+				<a href="#" data-qualifier="unread">
+					{{- 'link.message.select_all_unread' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+
+			<li class="divider"></li>
+
+			<li>
+				<a href="#" data-qualifier="draft">
+					{{- 'link.message.select_all_draft' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+			<li>
+				<a href="#" data-qualifier="flagged">
+					{{- 'link.message.select_all_flagged' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+
+			{#
+			<li class="divider"></li>
+
+			<li>
+				<a href="#" data-qualifier="attached">
+					{{- 'link.message.select_all_attached' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+			#}
+		</ul>
+	</div>
+
+
+	<input type="submit" name="submit[mark_as_read]" class="btn" value="{{- 'link.message.mark_as_read' |trans({}, 'CCDNMessageMessageBundle') -}}" data-js-non-compat>
+
+	<input type="submit" name="submit[mark_as_unread]" class="btn" value="{{- 'link.message.mark_as_unread' |trans({}, 'CCDNMessageMessageBundle') -}}" data-js-non-compat>
+
+	<div class="btn-group {#collapse hidden#}" data-js-compat>
+		<a href="#" class="btn dropdown-toggle" data-toggle="dropdown" data-responds='[]'>
+			<i class="icon-eye-close"></i>
+			<span class="caret"></span>
+		</a>
+
+		<ul class="dropdown-menu">
+			<li>
+				<a href="#" data-submit-action="submit[mark_as_read]">
+					{{- 'link.message.mark_as_read' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+			<li>
+				<a href="#" data-submit-action="submit[mark_as_unread]">
+					{{- 'link.message.mark_as_unread' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+	<select name="select_move_to" data-js-non-compat>
+		{%- for row, folder in folders -%}
+			<option value="{{- folder.getId -}}">{{- folder.getName|title -}}</option>
+		{%- endfor -%}
+	</select>
+
+	<input type="submit" name="submit[move_to]" class="btn" value="{{- 'link.message.move_to' |trans({}, 'CCDNMessageMessageBundle') -}}" data-js-non-compat>
+	
+	<div class="btn-group {#collapse hidden#}" data-js-compat>
+		<a href="#" class="btn dropdown-toggle" data-toggle="dropdown" data-responds='[]'>
+			<i class="icon-folder-close"></i>
+			<span class="caret"></span>
+		</a>
+
+		<ul class="dropdown-menu">
+			<li style="padding-left:15px;">
+				<h4>
+					{{- 'link.message.move_to' |trans({}, 'CCDNMessageMessageBundle') -}}
+				</h4>
+			</li>
+
+			<li class="divider"></li>
+
+			{%- for row, folder in folders -%}
+				<li>
+					<a href="#" data-submit-action="submit[move_to]" data-value="{{- folder.getId -}}">
+						{{- folder.getName|title -}}
+					</a>
+				</li>
+			{%- endfor -%}
+		</ul>
+	</div>
+
+	{%- if current_folder.getName == 'drafts' -%}
+		<input type="submit" name="submit[send]" class="btn btn-primary" value="{{- 'link.message.send_draft' |trans({}, 'CCDNMessageMessageBundle') -}}" data-js-compat>
+	{%- endif -%}
+	
+	<button data-submit-action="submit[delete]" class="btn btn-danger" data-responds="[]" data-js-compat>
+		{{- 'link.message.delete' |trans({}, 'CCDNMessageMessageBundle') -}}
+	</button>
+
+{%- endspaceless -%}

@@ -103,8 +103,19 @@
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
         "phpunit/php-code-coverage": "1.2.*",
+        "phpspec/phpspec": "2.0.*@dev",
+        
+        "behat/behat": "2.4.*@stable",
+        "behat/mink": "1.4@stable",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-browserkit-driver": "*",
+        "behat/mink-selenium2-driver": "*",
+        "behat/mink-extension": "*",
+        "behat/symfony2-extension": "*",
+
         "raulfraile/ladybug-bundle": "dev-master",
-        "mdm/translator-checker-bundle": "2.1.*@dev"
+        "mdm/translator-checker-bundle": "2.1.*@dev",
+        "elao/web-profiler-extra-bundle" : "2.1.x-dev"
     },
     "scripts": {
         "post-install-cmd": [

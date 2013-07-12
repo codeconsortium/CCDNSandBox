@@ -5,3 +5,4 @@ ccdn_user_member:
     member:
         list:
             requires_login: false
+            members_per_page: 2

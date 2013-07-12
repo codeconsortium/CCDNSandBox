@@ -1,6 +1,10 @@
 imports:
     - { resource: config_dev.yml }
 
+doctrine:
+    dbal:
+        dbname:   %database_name%_test
+
 framework:
     test: ~
     session:
@@ -12,3 +16,12 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+    spool:
+        type: memory
+
+# simulates authentication
+# http://symfony.com/doc/current/cookbook/testing/http_authentication.html
+security:
+    firewalls:
+        main:
+            http_basic:

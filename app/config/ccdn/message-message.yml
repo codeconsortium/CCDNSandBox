@@ -1,8 +1,37 @@
+#ccdn_message_message:
+#    entity:
+#        user:
+#            class: CCDNUser\UserBundle\Entity\User
+#    form:
+#        type:
+#            message:
+#                class: SubCCDNMessage\MessageBundle\Form\Type\MessageFormType
+#
+
 ccdn_message_message:
     entity:
         user:
             class: CCDNUser\UserBundle\Entity\User
-    form:
-        type:
-            message:
-                class: SubCCDNMessage\MessageBundle\Form\Type\MessageFormType
+    template:
+        engine:                   twig
+        pager_theme:              CCDNMessageMessageBundle:Common:Paginator/twitter_bootstrap.html.twig
+    seo:
+        title_length:             67
+    folder:
+        show:
+            layout_template:      ::base.html.twig
+            messages_per_page:    10
+            subject_truncate:     50
+            sent_datetime_format: d-m-Y - H:i
+    message:
+        flood_control:
+            send_limit:           4
+            block_for_minutes:    1
+        show:
+            layout_template:      ::base.html.twig
+            sent_datetime_format: d-m-Y - H:i
+        compose:
+            layout_template:      ::base.html.twig
+            form_theme:           CCDNMessageMessageBundle:Common:Form/fields.html.twig
+    quotas:
+        max_messages:             200

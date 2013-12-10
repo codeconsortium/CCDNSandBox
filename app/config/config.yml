@@ -7,24 +7,21 @@ imports:
     - { resource: ccdn/component-crumb-trail.yml }
     - { resource: ccdn/component-dashboard.yml }
     - { resource: ccdn/component-attachment.yml }
-#    - { resource: ccdn/forum-admin.yml }
-    - { resource: ccdn/forum-forum.yml }
-    - { resource: ccdn/message-message.yml }
-    - { resource: ccdn/user-admin.yml }
-    - { resource: ccdn/user-member.yml }
-    - { resource: ccdn/user-profile.yml }
     - { resource: ccdn/user-security.yml }
     - { resource: ccdn/user-user.yml }
+    - { resource: ccdn/user-profile.yml }
+    - { resource: ccdn/user-admin.yml }
+    - { resource: ccdn/forum-forum.yml }
+    - { resource: ccdn/message-message.yml }
+
     # Sub CCDN Resources
 #    - { resource: ccdn/sub/component-common.yml }
 #    - { resource: ccdn/sub/component-attachment.yml }
 #    - { resource: ccdn/sub/component-dashboard.yml }
-#    - { resource: ccdn/sub/forum-admin.yml }
 #    - { resource: ccdn/sub/forum-forum.yml }
 #    - { resource: ccdn/sub/message-message.yml }
-#    - { resource: ccdn/sub/user-admin.yml }
-#    - { resource: ccdn/sub/user-member.yml }
 #    - { resource: ccdn/sub/user-profile.yml }
+#    - { resource: ccdn/sub/user-admin.yml }
 
 framework:
     #esi:             ~
@@ -49,7 +46,7 @@ twig:
     strict_variables: "%kernel.debug%"
     form:
         resources:
-            - 'CCDNComponentBBCodeBundle:Form:fields.html.twig'
+#            - 'CCDNComponentBBCodeBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -66,7 +63,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         #auto_mapping: true
         resolve_target_entities:
-            Symfony\Component\Security\Core\User\UserInterface: CCDNUser\UserBundle\Entity\User
+            'Symfony\Component\Security\Core\User\UserInterface': 'CCDNUser\UserBundle\Entity\User'
         entity_managers:
             default:
                 mappings:
@@ -92,10 +89,6 @@ doctrine:
                         alias:                ~
                         prefix:               CCDNUser\SecurityBundle\Entity
                         is_bundle:            true
-                    #CCDNComponentCommonBundle: ~
-                    #CCDNComponentCrumbTrailBundle: ~
-                    #CCDNComponentBBCodeBundle: ~
-                    #CCDNComponentDashboardBundle: ~
                     CCDNComponentAttachmentBundle:
                         mapping:              true
                         type:                 yml
@@ -110,7 +103,6 @@ doctrine:
                         alias:                ~
                         prefix:               CCDNMessage\MessageBundle\Entity
                         is_bundle:            true
-                    #CCDNForumAdminBundle: ~
                     CCDNForumForumBundle:
                         mapping:              true
                         type:                 yml

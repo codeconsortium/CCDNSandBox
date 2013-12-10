@@ -1,8 +1,4 @@
 ccdn_component_common:
-    service:
-        provider:
-            profile_provider:
-                class: CCDNUser\ProfileBundle\Component\Provider\Profile\ProfileProvider
     header:
         brand:
             route: ccdn_homepage

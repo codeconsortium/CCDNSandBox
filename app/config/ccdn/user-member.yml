@@ -1,8 +1,0 @@
-ccdn_user_member:
-    entity:
-        user:
-            class: CCDNUser\UserBundle\Entity\User
-    member:
-        list:
-            requires_login: false
-            members_per_page: 2

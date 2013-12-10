@@ -6,6 +6,11 @@ vendor/
 vendor/*
 web/bundles/
 .idea/
+Propel/om/*
+Propel/map/*
+composer.lock
+Tests/autoload.php
+catalog.xml
 
 
 *.log
@@ -18,4 +23,3 @@ web/bundles/
 Icon?
 ehthumbs.db
 Thumbs.db
-

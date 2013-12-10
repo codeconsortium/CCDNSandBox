@@ -1,7 +1,44 @@
 ccdn_user_profile:
-    form:
-        type:
+    template:
+        engine:                                twig
+        pager_theme:                          CCDNUserProfileBundle:Common:Paginator/twitter_bootstrap.html.twig
+    entity:
+        user:
+            class:                            CCDNUser\UserBundle\Entity\User
+    seo:
+        title_length:                         67
+    member:
+        list:
+            layout_template:                  ::base.html.twig
+            members_per_page:                 50
+            member_since_datetime_format:     d-m-Y - H:i
+            requires_login:                   false
+    profile:
+        fallback_avatar:                      /bundles/ccdnuserprofile/img/avatar_anonymous.gif
+        edit:
+            personal:
+                layout_template:              ::base.html.twig
+                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+            info:
+                layout_template:              ::base.html.twig
+                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+            contact:
+                layout_template:              ::base.html.twig
+                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+            avatar:
+                layout_template:              ::base.html.twig
+                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             bio:
-                class: SubCCDNUser\ProfileBundle\Form\Type\BioFormType
+                layout_template:              ::base.html.twig
+                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             signature:
-                class: SubCCDNUser\ProfileBundle\Form\Type\SignatureFormType
+                layout_template:              ::base.html.twig
+                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+        show:
+            requires_login:                   false
+            overview:
+                layout_template:              ::base.html.twig
+                member_since_datetime_format: d-m-Y - H:i
+                last_login_datetime_format:   d-m-Y - H:i
+            bio:
+                layout_template:              ::base.html.twig

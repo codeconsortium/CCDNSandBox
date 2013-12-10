@@ -1,1 +1,66 @@
 ccdn_user_user:
+    template:
+        engine:                         twig
+    entity:
+        user:
+            class:                      CCDNUser\UserBundle\Entity\User
+    seo:
+        title_length:                   67
+    account:
+        show:
+            layout_template:            ::base.html.twig
+        edit:
+            layout_template:            ::base.html.twig
+            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+    password:
+        change_password:
+            layout_template:            ::base.html.twig
+            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+    registration:
+        register:
+            layout_template:            ::base_column.html.twig
+            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+        terms:
+            layout_template:            ::base_column.html.twig
+        check_email:
+            layout_template:            ::base_column.html.twig
+        confirmed:
+            layout_template:            ::base_column.html.twig
+    resetting:
+        request:
+            layout_template:            ::base_column.html.twig
+        password_already_requested:
+            layout_template:            ::base_column.html.twig
+        check_email:
+            layout_template:            ::base_column.html.twig
+        reset:
+            layout_template:            ::base_column.html.twig
+            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+    security:
+        login:
+            layout_template:            ::base_column.html.twig
+            support_facebook:           false
+    legal:
+        terms_conditions:
+            layout_template:            ::base.html.twig
+            document:                   CCDNUserUserBundle:Legal:terms_conditions.txt.twig
+        copyright_notice:
+            layout_template:            ::base.html.twig
+            document:                   CCDNUserUserBundle:Legal:copyright_notice.txt.twig
+        privacy_policy:
+            layout_template:            ::base.html.twig
+            document:                   CCDNUserUserBundle:Legal:privacy_policy.txt.twig
+        disclaimer:
+            layout_template:            ::base.html.twig
+            document:                   CCDNUserUserBundle:Legal:disclaimer.txt.twig
+    legal_identification:
+        company_name:
+        show_company_name:              false
+        company_address:
+        show_company_address:           false
+        company_registered_number:
+        show_company_registered_number: false
+        company_registered_house:
+        show_company_registered_house:  false
+        copyright_year:
+        show_copyright_year:            false

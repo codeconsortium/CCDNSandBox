@@ -18,7 +18,6 @@
             <directory>../src/*/*Bundle/Tests</directory>
             <directory>../src/*/Bundle/*Bundle/Tests</directory>
             <directory>../vendor/codeconsortium/ccdn-forum-bundle/CCDNForum/ForumBundle/Tests</directory>
-			
         </testsuite>
     </testsuites>
 
@@ -43,6 +42,16 @@
 				<directory>../vendor/codeconsortium/ccdn-forum-bundle/CCDNForum/ForumBundle/Tests</directory>
             </exclude>
         </whitelist>
+	    <blacklist>
+			<directory>cache</directory>
+			<directory>config</directory>
+			<directory>data</directory>
+			<directory>log</directory>
+			<directory>lib/vendor</directory>
+			<directory>plugins</directory>
+			<directory>web</directory>
+			<directory>Resources</directory>
+	    </blacklist>
     </filter>
 
 </phpunit>

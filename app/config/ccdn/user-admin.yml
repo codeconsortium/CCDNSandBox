@@ -10,23 +10,23 @@ ccdn_user_admin:
         title_length:                      67
     account:
         show_newest_users:
-            layout_template:               ::base.html.twig
+            layout_template:               ::Layout/base_sidebar_left.html.twig
             member_since_datetime_format:  d-m-Y - H:i
         show_user:
-            layout_template:               ::base.html.twig
+            layout_template:               ::Layout/base_sidebar_left.html.twig
             member_since_datetime_format:  d-m-Y - H:i
         edit_user_account:
-            layout_template:               ::base.html.twig
+            layout_template:               ::Layout/base_sidebar_left.html.twig
             form_theme:                    CCDNUserAdminBundle:Common:Form/fields.html.twig
     ban:
         show_banned_users:
-            layout_template:               ::base.html.twig
+            layout_template:               ::Layout/base_sidebar_left.html.twig
             member_since_datetime_format:  d-m-Y - H:i
     activation:
         show_unactivated_users:
-            layout_template:               ::base.html.twig
+            layout_template:               ::Layout/base_sidebar_left.html.twig
             member_since_datetime_format:  d-m-Y - H:i
     role:
         set_users_role:
-            layout_template:               ::base.html.twig
+            layout_template:               ::Layout/base_sidebar_left.html.twig
             form_theme:                    CCDNUserAdminBundle:Common:Form/fields.html.twig

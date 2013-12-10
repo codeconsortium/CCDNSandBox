@@ -29,11 +29,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
 
             // CCDN Support Bundles.
-            new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
-            new CCDNComponent\CrumbTrailBundle\CCDNComponentCrumbTrailBundle(),
             new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
             new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
-            new CCDNComponent\AttachmentBundle\CCDNComponentAttachmentBundle(),
 
 			// CCDN Main Bundles.
             new CCDNUser\SecurityBundle\CCDNUserSecurityBundle(),
@@ -45,10 +42,6 @@ class AppKernel extends Kernel
 			new CCDNMessage\MessageBundle\CCDNMessageMessageBundle(),
 			
 			// CCDN Child Bundles
-            //new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
-            //new SubCCDNComponent\DashboardBundle\SubCCDNComponentDashboardBundle(),
-            //new SubCCDNComponent\AttachmentBundle\SubCCDNComponentAttachmentBundle(),
-            //
             //new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
             //new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
             //new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),

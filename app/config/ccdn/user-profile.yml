@@ -9,7 +9,7 @@ ccdn_user_profile:
         title_length:                         67
     member:
         list:
-            layout_template:                  ::base.html.twig
+            layout_template:                  ::Layout/base_single_column.html.twig
             members_per_page:                 50
             member_since_datetime_format:     d-m-Y - H:i
             requires_login:                   false
@@ -17,28 +17,28 @@ ccdn_user_profile:
         fallback_avatar:                      /bundles/ccdnuserprofile/img/avatar_anonymous.gif
         edit:
             personal:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             info:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             contact:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             avatar:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             bio:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
             signature:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
         show:
             requires_login:                   false
             overview:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig
                 member_since_datetime_format: d-m-Y - H:i
                 last_login_datetime_format:   d-m-Y - H:i
             bio:
-                layout_template:              ::base.html.twig
+                layout_template:              ::Layout/base_sidebar_left.html.twig

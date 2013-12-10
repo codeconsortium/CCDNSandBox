@@ -1,5 +1,0 @@
-ccdn_component_common:
-    header:
-        brand:
-            route: ccdn_homepage
-            label: Code Consortium

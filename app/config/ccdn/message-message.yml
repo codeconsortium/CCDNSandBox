@@ -19,7 +19,7 @@ ccdn_message_message:
         title_length:             67
     folder:
         show:
-            layout_template:      ::base.html.twig
+            layout_template:      ::Layout/base_sidebar_left.html.twig
             messages_per_page:    10
             subject_truncate:     50
             sent_datetime_format: d-m-Y - H:i
@@ -28,10 +28,10 @@ ccdn_message_message:
             send_limit:           4
             block_for_minutes:    1
         show:
-            layout_template:      ::base.html.twig
+            layout_template:      ::Layout/base_sidebar_left.html.twig
             sent_datetime_format: d-m-Y - H:i
         compose:
-            layout_template:      ::base.html.twig
+            layout_template:      ::Layout/base_sidebar_left.html.twig
             form_theme:           CCDNMessageMessageBundle:Common:Form/fields.html.twig
     quotas:
         max_messages:             200

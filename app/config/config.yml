@@ -2,11 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: assetic.yml }
-    - { resource: ccdn/component-common.yml }
     - { resource: ccdn/component-bb-code.yml }
-    - { resource: ccdn/component-crumb-trail.yml }
     - { resource: ccdn/component-dashboard.yml }
-    - { resource: ccdn/component-attachment.yml }
     - { resource: ccdn/user-security.yml }
     - { resource: ccdn/user-user.yml }
     - { resource: ccdn/user-profile.yml }
@@ -15,8 +12,6 @@ imports:
     - { resource: ccdn/message-message.yml }
 
     # Sub CCDN Resources
-#    - { resource: ccdn/sub/component-common.yml }
-#    - { resource: ccdn/sub/component-attachment.yml }
 #    - { resource: ccdn/sub/component-dashboard.yml }
 #    - { resource: ccdn/sub/forum-forum.yml }
 #    - { resource: ccdn/sub/message-message.yml }
@@ -88,13 +83,6 @@ doctrine:
                         dir:                  "Resources/config/doctrine"
                         alias:                ~
                         prefix:               CCDNUser\SecurityBundle\Entity
-                        is_bundle:            true
-                    CCDNComponentAttachmentBundle:
-                        mapping:              true
-                        type:                 yml
-                        dir:                  "Resources/config/doctrine"
-                        alias:                ~
-                        prefix:               CCDNComponent\AttachmentBundle\Entity
                         is_bundle:            true
                     CCDNMessageMessageBundle:
                         mapping:              true

@@ -8,50 +8,50 @@ ccdn_user_user:
         title_length:                   67
     account:
         show:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
         edit:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
             form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
     password:
         change_password:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
             form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
     registration:
         register:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
             form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
         terms:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
         check_email:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
         confirmed:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
     resetting:
         request:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
         password_already_requested:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
         check_email:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
         reset:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
             form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
     security:
         login:
-            layout_template:            ::Layout/base_single_column.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_single_column.html.twig
             support_facebook:           false
     legal:
         terms_conditions:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
             document:                   CCDNUserUserBundle:Legal:terms_conditions.txt.twig
         copyright_notice:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
             document:                   CCDNUserUserBundle:Legal:copyright_notice.txt.twig
         privacy_policy:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
             document:                   CCDNUserUserBundle:Legal:privacy_policy.txt.twig
         disclaimer:
-            layout_template:            ::Layout/base_sidebar_left.html.twig
+            layout_template:            CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
             document:                   CCDNUserUserBundle:Legal:disclaimer.txt.twig
     legal_identification:
         company_name:

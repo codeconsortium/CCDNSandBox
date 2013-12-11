@@ -6,54 +6,6 @@
     "hash": "7c8f4ad3e30a9b777b7fd0b930905605",
     "packages": [
         {
-            "name": "codeconsortium/ccdn-component-attachment-bundle",
-            "version": "2.0.x-dev",
-            "target-dir": "CCDNComponent/AttachmentBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeconsortium/CCDNComponentAttachmentBundle.git",
-                "reference": "32c2117d5d82778cddcd147b99b1f2ab1650f950"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentAttachmentBundle/zipball/32c2117d5d82778cddcd147b99b1f2ab1650f950",
-                "reference": "32c2117d5d82778cddcd147b99b1f2ab1650f950",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "*",
-                "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CCDNComponent\\AttachmentBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "reecefowell",
-                    "email": "reece@codeconsortium.com",
-                    "homepage": "http://www.reecefowell.com"
-                }
-            ],
-            "description": "CCDN Component Attachment Bundle",
-            "homepage": "http://github.com/codeconsortium/CCDNComponentAttachmentBundle",
-            "keywords": [
-                "attachment",
-                "ccdn",
-                "codeconsortium",
-                "file",
-                "upload"
-            ],
-            "time": "2013-05-15 11:18:32"
-        },
-        {
             "name": "codeconsortium/ccdn-component-bb-code",
             "version": "2.0.x-dev",
             "source": {
@@ -148,101 +100,6 @@
             "time": "2013-05-04 14:39:53"
         },
         {
-            "name": "codeconsortium/ccdn-component-common-bundle",
-            "version": "2.0.x-dev",
-            "target-dir": "CCDNComponent/CommonBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeconsortium/CCDNComponentCommonBundle.git",
-                "reference": "f4a96e0a9988a7d927b542d939505a1ffec2c6da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentCommonBundle/zipball/f4a96e0a9988a7d927b542d939505a1ffec2c6da",
-                "reference": "f4a96e0a9988a7d927b542d939505a1ffec2c6da",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "*",
-                "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CCDNComponent\\CommonBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "reecefowell",
-                    "email": "reece@codeconsortium.com",
-                    "homepage": "http://www.reecefowell.com"
-                }
-            ],
-            "description": "CCDN Component Common Bundle",
-            "homepage": "http://github.com/codeconsortium/CCDNComponentCommonBundle",
-            "keywords": [
-                "ccdn",
-                "codeconsortium",
-                "common"
-            ],
-            "time": "2013-05-17 05:48:55"
-        },
-        {
-            "name": "codeconsortium/ccdn-component-crumb-trail-bundle",
-            "version": "2.0.x-dev",
-            "target-dir": "CCDNComponent/CrumbTrailBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeconsortium/CCDNComponentCrumbTrailBundle.git",
-                "reference": "be439726eb595f47f0fe03103621c0c49b72fd9a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentCrumbTrailBundle/zipball/be439726eb595f47f0fe03103621c0c49b72fd9a",
-                "reference": "be439726eb595f47f0fe03103621c0c49b72fd9a",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "*",
-                "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CCDNComponent\\CrumbTrailBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "reecefowell",
-                    "email": "reece@codeconsortium.com",
-                    "homepage": "http://www.reecefowell.com"
-                }
-            ],
-            "description": "CCDN Component Crumb Trail Bundle",
-            "homepage": "http://github.com/codeconsortium/CCDNComponentCrumbTrailBundle",
-            "keywords": [
-                "ccdn",
-                "codeconsortium",
-                "crumb",
-                "crumb trail",
-                "navigation",
-                "trail"
-            ],
-            "time": "2013-05-04 16:05:47"
-        },
-        {
             "name": "codeconsortium/ccdn-component-dashboard-bundle",
             "version": "2.0.x-dev",
             "target-dir": "CCDNComponent/DashboardBundle",
@@ -287,55 +144,6 @@
                 "dashboard"
             ],
             "time": "2013-05-15 11:18:57"
-        },
-        {
-            "name": "codeconsortium/ccdn-forum-admin-bundle",
-            "version": "2.0.x-dev",
-            "target-dir": "CCDNForum/AdminBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeconsortium/CCDNForumAdminBundle.git",
-                "reference": "0468b09bc0c8030438722ed9364b6d9859497141"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNForumAdminBundle/zipball/0468b09bc0c8030438722ed9364b6d9859497141",
-                "reference": "0468b09bc0c8030438722ed9364b6d9859497141",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "*",
-                "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CCDNForum\\AdminBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "reecefowell",
-                    "email": "reece@codeconsortium.com",
-                    "homepage": "http://www.reecefowell.com"
-                }
-            ],
-            "description": "CCDN Forum Admin Bundle",
-            "homepage": "http://github.com/codeconsortium/CCDNForumAdminBundle",
-            "keywords": [
-                "admin",
-                "board",
-                "bulletin",
-                "ccdn",
-                "codeconsortium",
-                "forum"
-            ],
-            "time": "2013-05-15 11:19:13"
         },
         {
             "name": "codeconsortium/ccdn-forum-bundle",
@@ -526,52 +334,6 @@
                 "user"
             ],
             "time": "2013-05-15 11:19:46"
-        },
-        {
-            "name": "codeconsortium/ccdn-user-member-bundle",
-            "version": "2.0.x-dev",
-            "target-dir": "CCDNUser/MemberBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codeconsortium/CCDNUserMemberBundle.git",
-                "reference": "17279216749323c51c6b2b9dea8c18ae41f39984"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserMemberBundle/zipball/17279216749323c51c6b2b9dea8c18ae41f39984",
-                "reference": "17279216749323c51c6b2b9dea8c18ae41f39984",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "*",
-                "php": ">=5.3.2",
-                "symfony/symfony": "2.1.*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CCDNUser\\MemberBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "reecefowell",
-                    "email": "reece@codeconsortium.com",
-                    "homepage": "http://www.reecefowell.com"
-                }
-            ],
-            "description": "CCDN User Member Bundle",
-            "homepage": "http://github.com/codeconsortium/CCDNUserMemberBundle",
-            "keywords": [
-                "ccdn",
-                "codeconsortium",
-                "members"
-            ],
-            "time": "2013-05-15 11:18:17"
         },
         {
             "name": "codeconsortium/ccdn-user-profile-bundle",
@@ -2160,68 +1922,6 @@
             "time": "2012-08-29 11:53:20"
         },
         {
-            "name": "pagerfanta/pagerfanta",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "55544f3af5b409d4ee9d618934f4d92ef874672c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/55544f3af5b409d4ee9d618934f4d92ef874672c",
-                "reference": "55544f3af5b409d4ee9d618934f4d92ef874672c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "doctrine/mongodb-odm": "*",
-                "doctrine/orm": "2.*",
-                "mandango/mandango": "*",
-                "propel/propel1": ">=1.6,<2.0",
-                "solarium/solarium": "dev-develop"
-            },
-            "suggest": {
-                "doctrine/mongodb-odm": "To use the DoctrineODMMongoDBAdapter.",
-                "doctrine/orm": "To use the DoctrineORMAdapter.",
-                "mandango/mandango": "To use the MandangoAdapter.",
-                "propel/propel1": "To use the PropelAdapter",
-                "solarium/solarium": "To use the SolariumAdapter."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Pagerfanta\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pablo Díez",
-                    "email": "pablodip@gmail.com",
-                    "homepage": "http://github.com/pablodip"
-                }
-            ],
-            "description": "Pagination for PHP 5.3",
-            "keywords": [
-                "page",
-                "pagination",
-                "paginator",
-                "paging"
-            ],
-            "time": "2013-05-16 12:46:53"
-        },
-        {
             "name": "reecefowell/jquery-checkboxes",
             "version": "dev-master",
             "source": {
@@ -2911,54 +2611,6 @@
                 "css"
             ],
             "time": "2013-03-01 05:24:27"
-        },
-        {
-            "name": "white-october/pagerfanta-bundle",
-            "version": "2.1.x-dev",
-            "target-dir": "WhiteOctober/PagerfantaBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "5d1b9eb262055019a280a0ec48bc0b11fba5bb23"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/5d1b9eb262055019a280a0ec48bc0b11fba5bb23",
-                "reference": "5d1b9eb262055019a280a0ec48bc0b11fba5bb23",
-                "shasum": ""
-            },
-            "require": {
-                "pagerfanta/pagerfanta": "1.0.*",
-                "symfony/framework-bundle": ">=2.1,<3.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "WhiteOctober\\PagerfantaBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pablo Díez",
-                    "email": "pablodip@gmail.com",
-                    "homepage": "http://github.com/pablodip"
-                }
-            ],
-            "description": "Bundle to use Pagerfanta with Symfony2",
-            "keywords": [
-                "page",
-                "paging"
-            ],
-            "time": "2013-03-30 22:08:55"
         }
     ],
     "packages-dev": [
@@ -4464,21 +4116,15 @@
         "doctrine/data-fixtures": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "white-october/pagerfanta-bundle": 20,
-        "codeconsortium/ccdn-component-common-bundle": 20,
         "codeconsortium/ccdn-component-bb-code": 20,
         "codeconsortium/ccdn-component-bb-code-bundle": 20,
         "codeconsortium/ccdn-component-dashboard-bundle": 20,
-        "codeconsortium/ccdn-component-attachment-bundle": 20,
-        "codeconsortium/ccdn-component-crumb-trail-bundle": 20,
         "codeconsortium/ccdn-user-bundle": 20,
         "codeconsortium/ccdn-user-security-bundle": 20,
         "codeconsortium/ccdn-user-profile-bundle": 20,
-        "codeconsortium/ccdn-user-member-bundle": 20,
         "codeconsortium/ccdn-user-admin-bundle": 20,
         "codeconsortium/ccdn-message-bundle": 20,
         "codeconsortium/ccdn-forum-bundle": 20,
-        "codeconsortium/ccdn-forum-admin-bundle": 20,
         "phpspec/phpspec": 20,
         "behat/behat": 0,
         "behat/mink": 0,

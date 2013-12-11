@@ -77,28 +77,23 @@
         "reecefowell/jquery-timestamper": "dev-master",
         "reecefowell/jquery-checkboxes": "dev-master",
         "isagalaev/highlight": "dev-master",
-        
+
         "incenteev/composer-parameter-handler": "v2.0.0",
         "doctrine/data-fixtures": "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "white-october/pagerfanta-bundle": "2.1.*@dev",
         "friendsofsymfony/user-bundle": "1.3.*",
-        
-        "codeconsortium/ccdn-component-common-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-component-bb-code": "2.0.*@dev",
-        "codeconsortium/ccdn-component-bb-code-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-component-dashboard-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-component-attachment-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-component-crumb-trail-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-user-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-user-security-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-user-profile-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-user-member-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-user-admin-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-message-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-forum-bundle": "2.0.*@dev",
-        "codeconsortium/ccdn-forum-admin-bundle": "2.0.*@dev"
+
+        "codeconsortium/ccdn-component-common-bundle": "dev-master",
+        "codeconsortium/ccdn-component-bb-code": "dev-master",
+        "codeconsortium/ccdn-component-bb-code-bundle": "dev-master",
+        "codeconsortium/ccdn-component-dashboard-bundle": "dev-master",
+        "codeconsortium/ccdn-user-bundle": "dev-master",
+        "codeconsortium/ccdn-user-security-bundle": "dev-master",
+        "codeconsortium/ccdn-user-profile-bundle": "dev-master",
+        "codeconsortium/ccdn-user-admin-bundle": "dev-master",
+        "codeconsortium/ccdn-message-bundle": "dev-master",
+        "codeconsortium/ccdn-forum-bundle": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
@@ -114,6 +109,7 @@
         "behat/symfony2-extension": "*",
 
         "raulfraile/ladybug-bundle": "dev-master",
+        "js/mysqlnd-bundle": "dev-master",
         "mdm/translator-checker-bundle": "2.1.*@dev",
         "elao/web-profiler-extra-bundle" : "2.1.x-dev"
     },

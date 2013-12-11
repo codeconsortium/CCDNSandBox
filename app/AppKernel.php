@@ -22,13 +22,12 @@ class AppKernel extends Kernel
 
 			// CCDN 3rd Pary Dependencies.
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 			new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-			
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
             // CCDN Support Bundles.
+            new CCDNComponent\CommonBundle\CCDNComponentCommonBundle(),
             new CCDNComponent\BBCodeBundle\CCDNComponentBBCodeBundle(),
             new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
 
@@ -43,12 +42,9 @@ class AppKernel extends Kernel
 			
 			// CCDN Child Bundles
             //new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
-            //new SubCCDNUser\MemberBundle\SubCCDNUserMemberBundle(),
             //new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
-            //
 		    //new SubCCDNMessage\MessageBundle\SubCCDNMessageMessageBundle(),
             //new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
-            //new SubCCDNForum\AdminBundle\SubCCDNForumAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -58,6 +54,7 @@ class AppKernel extends Kernel
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
 			$bundles[] = new MDM\TranslatorCheckerBundle\MDMTranslatorCheckerBundle();
 			$bundles[] = new Elao\WebProfilerExtraBundle\WebProfilerExtraBundle();
+			//$bundles[] = new JS\MysqlndBundle\JSMysqlndBundle();
         }
 
         return $bundles;

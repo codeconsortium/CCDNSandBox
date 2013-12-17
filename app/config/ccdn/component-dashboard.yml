@@ -1,1 +1,6 @@
 ccdn_component_dashboard:
+    template:
+        engine:              twig
+    dashboard:
+        show:
+            layout_template: CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig

@@ -82,10 +82,8 @@
         "doctrine/data-fixtures": "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "1.3.*",
 
         "codeconsortium/ccdn-component-common-bundle": "dev-master",
-        "codeconsortium/ccdn-component-bb-code": "dev-master",
         "codeconsortium/ccdn-component-bb-code-bundle": "dev-master",
         "codeconsortium/ccdn-component-dashboard-bundle": "dev-master",
         "codeconsortium/ccdn-user-bundle": "dev-master",
@@ -108,10 +106,11 @@
         "behat/mink-extension": "*",
         "behat/symfony2-extension": "*",
 
+        "elao/web-profiler-extra-bundle" : "2.1.x-dev",
         "raulfraile/ladybug-bundle": "dev-master",
         "js/mysqlnd-bundle": "dev-master",
         "mdm/translator-checker-bundle": "2.1.*@dev",
-        "elao/web-profiler-extra-bundle" : "2.1.x-dev"
+        "sensiolabs/security-checker": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -119,14 +118,16 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "bin/security-checker security:check"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "bin/security-checker security:check"
         ]
     },
     "config": {

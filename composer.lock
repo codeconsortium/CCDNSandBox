@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bd00978b2999088834a7ac20dca39a8b",
+    "hash": "fc2ce3d0d21d816a55bcf2182db9bda6",
     "packages": [
         {
             "name": "codeconsortium/ccdn-component-bb-code",
@@ -4727,6 +4727,54 @@
             "time": "2013-07-23 04:42:59"
         },
         {
+            "name": "psecio/versionscan",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/psecio/versionscan.git",
+                "reference": "8f3b9fdef77af08803b67bbaea1061b0135c78b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/psecio/versionscan/zipball/8f3b9fdef77af08803b67bbaea1061b0135c78b9",
+                "reference": "8f3b9fdef77af08803b67bbaea1061b0135c78b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/console": "~2.1"
+            },
+            "bin": [
+                "bin/versionscan"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psecio": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Cornutt",
+                    "email": "ccornutt@phpdeveloper.org",
+                    "homepage": "http://www.phpdeveloper.org/"
+                }
+            ],
+            "description": "A PHP version scanner for reporting possible vulnerabilities",
+            "homepage": "https://github.com/psecio/versionscan.git",
+            "keywords": [
+                "scanner",
+                "security",
+                "version",
+                "vulnerability"
+            ],
+            "time": "2013-12-17 21:01:27"
+        },
+        {
             "name": "ptachoire/cssembed",
             "version": "v1.0.2",
             "source": {
@@ -5178,11 +5226,12 @@
         "phpspec/phpspec": 20,
         "behat/behat": 0,
         "behat/mink": 0,
+        "elao/web-profiler-extra-bundle": 20,
         "raulfraile/ladybug-bundle": 20,
         "js/mysqlnd-bundle": 20,
         "mdm/translator-checker-bundle": 20,
-        "elao/web-profiler-extra-bundle": 20,
-        "sensiolabs/security-checker": 20
+        "sensiolabs/security-checker": 20,
+        "psecio/versionscan": 20
     },
     "platform": {
         "php": ">=5.3.3"

@@ -97,7 +97,7 @@
         "phpunit/phpunit": "3.7.*",
         "phpunit/php-code-coverage": "1.2.*",
         "phpspec/phpspec": "2.0.*@dev",
-        
+
         "behat/behat": "2.4.*@stable",
         "behat/mink": "1.4@stable",
         "behat/mink-goutte-driver": "*",
@@ -110,7 +110,8 @@
         "raulfraile/ladybug-bundle": "dev-master",
         "js/mysqlnd-bundle": "dev-master",
         "mdm/translator-checker-bundle": "2.1.*@dev",
-        "sensiolabs/security-checker": "dev-master"
+        "sensiolabs/security-checker": "dev-master",
+        "psecio/versionscan": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -119,7 +120,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "bin/security-checker security:check"
+            "bin/security-checker security:check",
+            "bin/versionscan scan"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -127,7 +129,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "bin/security-checker security:check"
+            "bin/security-checker security:check",
+            "bin/versionscan scan"
         ]
     },
     "config": {

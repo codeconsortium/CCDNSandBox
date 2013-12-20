@@ -48,7 +48,7 @@ security:
         #    realm: "Secured Demo Area"
             remember_me:
                 key: "%secret%"
-                lifetime: 604800
+                lifetime: 31536000 # 365 days in seconds
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

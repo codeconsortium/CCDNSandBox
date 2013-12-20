@@ -3,7 +3,7 @@ ccdn_user_security:
         user:
             class: CCDNUser\UserBundle\Entity\User
     route_referer:
-        enabled: false
+        enabled: true
         route_ignore_list:
             - fos_user_security_login
             - fos_user_security_check

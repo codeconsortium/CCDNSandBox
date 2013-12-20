@@ -4,7 +4,6 @@ imports:
     - { resource: assetic.yml }
     - { resource: ccdn/component-bb-code.yml }
     - { resource: ccdn/component-dashboard.yml }
-    - { resource: ccdn/user-security.yml }
     - { resource: ccdn/user-user.yml }
     - { resource: ccdn/user-profile.yml }
     - { resource: ccdn/user-admin.yml }

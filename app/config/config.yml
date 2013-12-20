@@ -15,8 +15,8 @@ imports:
 #    - { resource: ccdn/sub/component-dashboard.yml }
 #    - { resource: ccdn/sub/forum-forum.yml }
 #    - { resource: ccdn/sub/message-message.yml }
-#    - { resource: ccdn/sub/user-profile.yml }
 #    - { resource: ccdn/sub/user-admin.yml }
+#    - { resource: ccdn/sub/user-profile.yml }
 
 framework:
     #esi:             ~
@@ -41,7 +41,7 @@ twig:
     strict_variables: "%kernel.debug%"
     form:
         resources:
-#            - 'CCDNComponentBBCodeBundle:Form:fields.html.twig'
+            - 'CCDNComponentBBCodeBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:

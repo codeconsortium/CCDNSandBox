@@ -1,6 +1,16 @@
 ccdn_forum_forum:
     seo:
         title_length:                       67
+    form:
+        type:
+            board_create:
+                class:                      SubCCDNForum\ForumBundle\Form\Type\Admin\Board\BoardCreateFormType
+            board_update:
+                class:                      SubCCDNForum\ForumBundle\Form\Type\Admin\Board\BoardUpdateFormType
+            post_create:
+                class:                      SubCCDNForum\ForumBundle\Form\Type\User\Post\PostCreateFormType
+            post_update:
+                class:                      SubCCDNForum\ForumBundle\Form\Type\User\Post\PostUpdateFormType
     forum:
         admin:
             create:

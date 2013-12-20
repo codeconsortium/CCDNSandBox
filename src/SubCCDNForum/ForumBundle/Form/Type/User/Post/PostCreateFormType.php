@@ -11,12 +11,10 @@
  * file that was distributed with this source code.
  */
 
-namespace SubCCDNForum\ForumBundle\Form\Type;
+namespace SubCCDNForum\ForumBundle\Form\Type\User\Post;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-
-use CCDNForum\ForumBundle\Entity\Post;
 
 /**
  *
@@ -41,7 +39,7 @@ class PostCreateFormType extends AbstractType
     /**
      *
      * @access public
-     * @var string $postClass
+     * @param string $postClass
      */
     public function __construct($postClass)
     {
@@ -51,18 +49,30 @@ class PostCreateFormType extends AbstractType
     /**
      *
      * @access public
-     * @param FormBuilderInterface $builder, array $options
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('body', 'bb_editor',
                 array(
-                    'label'              => 'form.label.post.body',
+                    'label'              => 'post.body-label',
                     'translation_domain' => 'CCDNForumForumBundle',
 					'attr'               => array(
 						'acl_group'      => 'forum_post_body',
 					),
+                )
+            )
+            ->add('subscribe', 'checkbox',
+                array(
+                    'mapped'             => false,
+                    'required'           => false,
+                    'label'              => 'post.subscribe-label',
+                    'translation_domain' => 'CCDNForumForumBundle',
+                    'attr'     => array(
+                        'checked' => 'checked'
+                    )
                 )
             )
         ;
@@ -81,8 +91,8 @@ class PostCreateFormType extends AbstractType
             'csrf_protection'     => true,
             'csrf_field_name'     => '_token',
             // a unique key to help generate the secret token
-            'intention'           => 'post_item',
-            'validation_groups'   => array('post_create'),
+            'intention'           => 'forum_post_create_item',
+            'validation_groups'   => array('forum_post_create'),
             'cascade_validation'  => true,
         );
     }

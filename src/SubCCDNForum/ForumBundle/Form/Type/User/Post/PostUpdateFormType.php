@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the CCDNForum AdminBundle
+ * This file is part of the CCDNForum ForumBundle
  *
  * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/>
  *
@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SubCCDNForum\ForumBundle\Form\Type;
+namespace SubCCDNForum\ForumBundle\Form\Type\User\Post;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,40 +27,41 @@ use Symfony\Component\Form\FormBuilderInterface;
  * @link     https://github.com/codeconsortium/CCDNForumForumBundle
  *
  */
-class TopicChangeBoardFormType extends AbstractType
+class PostUpdateFormType extends AbstractType
 {
     /**
      *
      * @access protected
-     * @var string $topicClass
+     * @var string $postClass
      */
-    protected $topicClass;
+    protected $postClass;
 
     /**
      *
      * @access public
-     * @var string $topicClass
+     * @param string $postClass
      */
-    public function __construct($topicClass)
+    public function __construct($postClass)
     {
-        $this->topicClass = $topicClass;
+        $this->postClass = $postClass;
     }
 
     /**
      *
      * @access public
-     * @param FormBuilderInterface $builder, array $options
+     * @param FormBuilderInterface $builder
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('board', 'entity',
+            ->add('body', 'bb_editor',
                 array(
-                    'property'           => 'name',
-                    'class'              => 'CCDNForumForumBundle:Board',
-                    'choices'            => $options['boards'],
-                    'label'              => 'form.label.board',
+                    'label'              => 'post.body-label',
                     'translation_domain' => 'CCDNForumForumBundle',
+					'attr'               => array(
+						'acl_group'      => 'forum_post_body',
+					),
                 )
             )
         ;
@@ -69,18 +70,19 @@ class TopicChangeBoardFormType extends AbstractType
     /**
      *
      * @access public
-     * @param array $options
+     * @param  array $options
+     * @return array
      */
     public function getDefaultOptions(array $options)
     {
         return array(
-            'data_class'         => $this->topicClass,
-            'csrf_protection'    => true,
-            'csrf_field_name'    => '_token',
+            'data_class'          => $this->postClass,
+            'csrf_protection'     => true,
+            'csrf_field_name'     => '_token',
             // a unique key to help generate the secret token
-            'intention'          => 'topic_change_board',
-            'validation_groups'  => array('topic_update'),
-            'boards'             => array(),
+            'intention'           => 'forum_post_update_item',
+            'validation_groups'   => array('forum_post_update'),
+            'cascade_validation'  => true,
         );
     }
 
@@ -91,6 +93,6 @@ class TopicChangeBoardFormType extends AbstractType
      */
     public function getName()
     {
-        return 'TopicChangeBoard';
+        return 'Post';
     }
 }

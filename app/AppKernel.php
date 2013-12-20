@@ -43,8 +43,7 @@ class AppKernel extends Kernel
 			// CCDN Child Bundles
             //new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
             //new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
-		    //new SubCCDNMessage\MessageBundle\SubCCDNMessageMessageBundle(),
-            //new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
+            new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

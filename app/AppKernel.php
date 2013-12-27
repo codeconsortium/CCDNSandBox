@@ -44,6 +44,7 @@ class AppKernel extends Kernel
             //new SubCCDNUser\ProfileBundle\SubCCDNUserProfileBundle(),
             //new SubCCDNUser\AdminBundle\SubCCDNUserAdminBundle(),
             new SubCCDNForum\ForumBundle\SubCCDNForumForumBundle(),
+            new SubCCDNComponent\CommonBundle\SubCCDNComponentCommonBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -53,7 +54,7 @@ class AppKernel extends Kernel
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
 			$bundles[] = new MDM\TranslatorCheckerBundle\MDMTranslatorCheckerBundle();
 			$bundles[] = new Elao\WebProfilerExtraBundle\WebProfilerExtraBundle();
-			//$bundles[] = new JS\MysqlndBundle\JSMysqlndBundle();
+			$bundles[] = new JS\MysqlndBundle\JSMysqlndBundle();
         }
 
         return $bundles;

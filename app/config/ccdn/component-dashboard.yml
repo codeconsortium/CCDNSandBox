@@ -3,4 +3,4 @@ ccdn_component_dashboard:
         engine:              twig
     dashboard:
         show:
-            layout_template: CCDNComponentCommonBundle::Layout/base_sidebar_left.html.twig
+            layout_template: CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig

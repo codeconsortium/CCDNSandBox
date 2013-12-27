@@ -15,7 +15,7 @@ vagrantfile-local:
                 modifyvm:
                     name: cc-vm-box
                     natdnshostresolver1: on
-                    memory: '512'
+                    memory: '1024'
                 setextradata:
                     VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
         provision:
@@ -28,8 +28,8 @@ vagrantfile-local:
         synced_folder:
             FFGuQiEmxDXN:
                 id: vagrant-root
-                source: ./
-                target: /var/www
+                source: ./../
+                target: /var/www/codeconsortium.dev/www/public
                 nfs: 'false'
         usable_port_range: 2200..2250
     ssh:
@@ -52,17 +52,36 @@ server:
             bash_aliases: null
     _prevent_empty: ''
 nginx:
+    access_log: off
+    worker_processes: 2
+    
+    open_file_cache: max=1000 inactive=20s
+    open_file_cache_valid: 30s
+    open_file_cache_min_uses: 2
+    open_file_cache_errors: on
+    multi_accept: on
+    keepalive_requests: 100000
     vhosts:
-        V6ixTsMyLxtj:
-            server_name: codeconsortium.dev
+        codeconsortium-prod:
+            server_name: codeconsortium.prod
             server_aliases:
-                - www.codeconsortium.dev
-            www_root: /var/www/codeconsortium.dev
+                - 'www.codeconsortium.prod'
+                - 'codeconsortium.prod'
+            www_root: /var/www/codeconsortium.dev/www/public/web
             listen_port: '80'
             index_files:
-                - index.html
-                - index.htm
-                - index.php
+                - app.php
+            envvars:
+                - 'APP_ENV prod'
+        codeconsortium-dev:
+            server_name: codeconsortium.dev
+            server_aliases:
+                - 'www.codeconsortium.dev'
+                - 'codeconsortium.dev'
+            www_root: /var/www/codeconsortium.dev/www/public/web
+            listen_port: '80'
+            index_files:
+                - app_dev.php
             envvars:
                 - 'APP_ENV dev'
 php:
@@ -76,20 +95,30 @@ php:
         pear: {  }
         pecl:
             - pecl_http
+            - mysqlnd_qc
     ini:
         display_errors: On
         error_reporting: '-1'
-        session.save_path: /var/lib/php/session
+        session.save_path: '/var/lib/php/session'
+        session.cookie_httponly: '1'
+        session.referer_check: 'codeconsortium.com'
+        expose_php: Off
+        #open_basedir: '/var/www/'
+        #disable_functions: 'getmyuid, getmypid, passthru, leak, listen, diskfreespace, tmpfile, link, ignore_user_abord, shell_exec, dl, exec, highlight_file, source, show_source, fpaththru, virtual, posix_ctermid, posix_getcwd, posix_getegid, posix_geteuid, posix_getgid, posix_getgrgid, posix_getgrnam, posix_getgroups, posix_getlogin, posix_getpgid, posix_getpgrp, posix_getpid, posix, _getppid, posix_getpwnam, posix_getpwuid, posix_getsid, posix_getuid, posix_kill, posix_setegid, posix_seteuid, posix_setgid, posix_setpgid, posix_setsid, posix_setuid, posix_times, posix_ttyname, posix_uname, phpinfo'
     timezone: Europe/London
 xdebug:
     install: '1'
     settings:
-        xdebug.default_enable: '1'
+        xdebug.default_enable: '0'
         xdebug.remote_autostart: '0'
         xdebug.remote_connect_back: '1'
         xdebug.remote_enable: '1'
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9000'
+        xdebug.max_nesting_level: 250
+        xdebug.cli_color: 2
+        xdebug.profiler_enable: 0
+        xdebug.profiler_enable_trigger: 0
 xhprof:
     install: '1'
     location: /var/www/xhprof
@@ -97,10 +126,26 @@ mysql:
     root_password: root
     phpmyadmin: '1'
     databases:
-        V0da2MQksNvg:
+        ccdn_prod:
             grant:
                 - ALL
-            name: ccdn
+            name: ccdn_prod
+            host: localhost
+            user: ccdnroot
+            password: root
+            sql_file: ''
+        ccdn_dev:
+            grant:
+                - ALL
+            name: ccdn_dev
+            host: localhost
+            user: ccdnroot
+            password: root
+            sql_file: ''
+        ccdn_test:
+            grant:
+                - ALL
+            name: ccdn_test
             host: localhost
             user: ccdnroot
             password: root

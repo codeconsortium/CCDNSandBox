@@ -25,3 +25,7 @@ ehthumbs.db
 Thumbs.db
 
 bin/
+Vagrant/.vagrant/
+Vagrant/.vagrant/*
+web/assetic/
+web/css/

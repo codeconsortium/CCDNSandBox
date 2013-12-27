@@ -1,10 +1,10 @@
 assetic:
     java: /usr/bin/java
     filters:
-        cssembed:
-            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
-        yui_js:
-            jar: %kernel.root_dir%/Resources/java/yuicompressor.jar
+#        cssembed:
+#            jar: %kernel.root_dir%/Resources/java/cssembed-0.4.5.jar
+#        yui_js:
+#            jar: %kernel.root_dir%/Resources/java/yuicompressor.jar
         lessphp:
             file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
             apply_to: "\.less$"
@@ -13,47 +13,45 @@ assetic:
 #            inputs:
 #                - '%kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less'
 #            filters: [lessphp,cssembed]
-        bbcode_less:
+        theme:
             inputs:
+                - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-common-bundle/CCDNComponent/CommonBundle/Resources/public/css/theme.css'
                 - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-bb-code/src/CCDNComponent/BBCode/Resources/public/css/default.css'
-            filters: [lessphp,cssembed]
-        highlight_less:
-            inputs:
                 - '%kernel.root_dir%/../vendor/isagalaev/highlight/src/styles/sunburst.css'
-            filters: [lessphp,cssembed]
-        jquery_js:
-            inputs:
-                - '%kernel.root_dir%/Resources/public/js/vendor/jquery-1.7.1.min.js'
-            filters: [?yui_js]
-#        bootstrap_js:
+            filters: [lessphp]
+#        jquery_js:
 #            inputs:
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-transition.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-alert.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-modal.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-dropdown.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-scrollspy.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tab.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tooltip.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-popover.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-button.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-collapse.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-carousel.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-typeahead.js'
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-affix.js'
+#                - '%kernel.root_dir%/Resources/public/js/vendor/jquery-1.7.1.min.js'
 #            filters: [?yui_js]
-        bbcode_editor_js:
-            inputs:
-                - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-bb-code/src/CCDNComponent/BBCode/Resources/public/js/jquery.bbeditor.js'
-            filters: [?yui_js]
-        checkboxes_js:
-            inputs:
-                - '%kernel.root_dir%/../vendor/reecefowell/jquery-checkboxes/jquery.checkboxes.js'
-            filters: [?yui_js]
-        moment_js:
-            inputs:
-                - '%kernel.root_dir%/../vendor/reecefowell/moment/moment.js'
-            filters: [?yui_js]
-        timestamper_js:
-            inputs:
-                - '%kernel.root_dir%/../vendor/reecefowell/jquery-timestamper/jquery.timestamper.js'
-            filters: [?yui_js]
+##        bootstrap_js:
+##            inputs:
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-transition.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-alert.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-modal.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-dropdown.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-scrollspy.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tab.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-tooltip.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-popover.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-button.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-collapse.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-carousel.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-typeahead.js'
+##                - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/bootstrap-affix.js'
+##            filters: [?yui_js]
+#        bbcode_editor_js:
+#            inputs:
+#                - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-bb-code/src/CCDNComponent/BBCode/Resources/public/js/jquery.bbeditor.js'
+#            filters: [?yui_js]
+#        checkboxes_js:
+#            inputs:
+#                - '%kernel.root_dir%/../vendor/reecefowell/jquery-checkboxes/jquery.checkboxes.js'
+#            filters: [?yui_js]
+#        moment_js:
+#            inputs:
+#                - '%kernel.root_dir%/../vendor/reecefowell/moment/moment.js'
+#            filters: [?yui_js]
+#        timestamper_js:
+#            inputs:
+#                - '%kernel.root_dir%/../vendor/reecefowell/jquery-timestamper/jquery.timestamper.js'
+#            filters: [?yui_js]

@@ -1,0 +1,71 @@
+{%- spaceless -%}
+	{%- set route = app.request.attributes.get('_route') -%}
+	<header class="navbar navbar-default navbar-fixed-top clearfix" role="navigation">
+		<a target="_blank" class="navbar-brand" href="http://www.codeconsortium.com/">Code Consortium</a>
+
+		<ul class="nav navbar-nav">
+			<li {%- if route|slice(0, 24) == 'ccdn_component_dashboard' %} class="active"{%- endif -%}>
+				<a href="{{- path('ccdn_component_dashboard_index') -}}">
+					Dashboard
+				</a>
+			</li>
+			<li {%- if route|slice(0, 10) == 'ccdn_forum' %} class="active"{%- endif -%}>
+				<a href="{{- path('ccdn_forum_user_category_index') -}}">
+					Forum
+				</a>
+			</li>
+			<li {%- if route|slice(0, 9) == 'ccdn_user' or route|slice(0, 8) == 'fos_user' %} class="active"{%- endif -%}>
+				<a href="{{ path('ccdn_user_profile_member_index') -}}">
+					Members
+				</a>
+			</li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			{%- if is_granted('ROLE_USER') -%}
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="glyphicon glyphicon-user"></i>
+						{%- if app.user -%}
+							{{- app.user.email -}}
+						{%- endif -%}
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="{{- path('ccdn_user_user_account_show') -}}">
+								Account
+							</a>
+						</li>
+						<li>
+							<a href="{{- path('ccdn_user_profile_show') -}}">
+								Profile
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="{{- path('fos_user_security_logout') -}}">
+								Logout
+							</a>
+						</li>
+					</ul>
+				</li>
+			{%- else -%}
+				<li>
+					<a href="{{- path('fos_user_security_login') -}}">
+						Login
+					</a>
+				</li>
+			{%- endif -%}
+		</ul>
+
+		{%- if is_granted('ROLE_USER') -%}
+			{%- set message_registry = get_user_message_registry() -%}
+			{%- set message_count = message_registry.getCachedUnreadMessageCount() -%}
+				<a href="{{- path('ccdn_message_message_user_index') -}}"
+				 class="btn btn-{%- if message_count > 0 -%}danger{%- else -%}default{%- endif %} navbar-btn navbar-right">
+					{{- message_registry.getCachedUnreadMessageCount() -}}
+				</a>
+		{%- endif -%}
+	</header>
+{%- endspaceless -%}

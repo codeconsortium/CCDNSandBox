@@ -34,3 +34,4 @@ if [[ "$OS" == 'ubuntu' && ("$CODENAME" == 'lucid' || "$CODENAME" == 'precise') 
 
     touch /.puphpet-stuff/ubuntu-required-libraries
 fi
+

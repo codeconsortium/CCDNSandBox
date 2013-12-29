@@ -2,14 +2,17 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos64-x64-vbox43-1383512148"
   config.vm.box_url = "http://box.puphpet.com/centos64-x64-vbox43.box"
 
+  config.vm.hostname = "vagrant.codeconsortium.com"
+
   config.vm.network "private_network", ip: "192.168.56.101"
 
   config.vm.network "forwarded_port", guest: 80, host: 4657
 
-  config.vm.synced_folder "./../", "/var/www/codeconsortium.dev/www/public", user: "vagrant", group: "nginx", id: "root", :nfs => false, mount_options: ["dmode=777", "fmode=777"]
-  #config.vm.synced_folder "./../", "/var/www/codeconsortium.dev/www/public", id: "root", :nfs => false
-  #config.vm.synced_folder "./../", "/var/www/codeconsortium.dev/www/public", id: "root", :nfs => true
-  #config.vm.synced_folder "./../", "/var/www/codeconsortium.dev/www/public", id: "root", :nfs => true, mount_options: ["dmode=777", "fmode=777"]
+  config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false, mount_options: ["dmode=777", "fmode=777"]
+  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false
+  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "vagrant-root", :nfs => false
+  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "root", :nfs => true
+  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "root", :nfs => true, mount_options: ["dmode=777", "fmode=777"]
   
   config.vm.usable_port_range = (2200..2250)
   config.vm.provider :virtualbox do |virtualbox|
@@ -42,12 +45,14 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = false
   config.ssh.forward_x11 = false
   config.vagrant.host = :detect
+  
 
 #  config.vm.provider "virtualbox" do |v|
 #    v.memory = 1024
 #    v.gui = false
 #  end
 
+  config.vm.provision :shell, :path => "shell/setup-phpunit.sh"
   config.vm.provision :shell, :path => "shell/setup-database.sh"
 
 end

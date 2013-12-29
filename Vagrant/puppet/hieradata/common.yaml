@@ -3,7 +3,7 @@ vagrantfile-local:
     vm:
         box: centos64-x64-vbox43-1383512148
         box_url: 'http://box.puphpet.com/centos64-x64-vbox43.box'
-        hostname: null
+        hostname: vagrant.codeconsortium.com
         network:
             private_network: 192.168.56.101
             forwarded_port:
@@ -29,7 +29,7 @@ vagrantfile-local:
             FFGuQiEmxDXN:
                 id: vagrant-root
                 source: ./../
-                target: /var/www/codeconsortium.dev/www/public
+                target: /var/www/codeconsortium.com/public
                 nfs: 'false'
         usable_port_range: 2200..2250
     ssh:
@@ -54,7 +54,6 @@ server:
 nginx:
     access_log: off
     worker_processes: 2
-    
     open_file_cache: max=1000 inactive=20s
     open_file_cache_valid: 30s
     open_file_cache_min_uses: 2
@@ -62,12 +61,23 @@ nginx:
     multi_accept: on
     keepalive_requests: 100000
     vhosts:
-        codeconsortium-prod:
+        codeconsortium-prod-live:
+            server_name: codeconsortium.com
+            server_aliases:
+                - 'www.codeconsortium.com'
+                - 'codeconsortium.com'
+            www_root: /var/www/codeconsortium.com/public/web
+            listen_port: '80'
+            index_files:
+                - app.php
+            envvars:
+                - 'APP_ENV prod'
+        codeconsortium-prod-stage:
             server_name: codeconsortium.prod
             server_aliases:
                 - 'www.codeconsortium.prod'
                 - 'codeconsortium.prod'
-            www_root: /var/www/codeconsortium.dev/www/public/web
+            www_root: /var/www/codeconsortium.com/public/web
             listen_port: '80'
             index_files:
                 - app.php
@@ -78,7 +88,7 @@ nginx:
             server_aliases:
                 - 'www.codeconsortium.dev'
                 - 'codeconsortium.dev'
-            www_root: /var/www/codeconsortium.dev/www/public/web
+            www_root: /var/www/codeconsortium.com/public/web
             listen_port: '80'
             index_files:
                 - app_dev.php

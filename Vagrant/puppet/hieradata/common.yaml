@@ -3,7 +3,7 @@ vagrantfile-local:
     vm:
         box: centos64-x64-vbox43-1383512148
         box_url: 'http://box.puphpet.com/centos64-x64-vbox43.box'
-        hostname: vagrant.codeconsortium.com
+        hostname: codeconsortium.com
         network:
             private_network: 192.168.56.101
             forwarded_port:
@@ -109,9 +109,9 @@ php:
     ini:
         display_errors: On
         error_reporting: '-1'
-        session.save_path: '/var/lib/php/session'
-        session.cookie_httponly: '1'
-        session.referer_check: 'codeconsortium.com'
+        #session.save_path: '/var/lib/php/session'
+        #session.cookie_httponly: '1'
+        #session.referer_check: 'codeconsortium.com'
         expose_php: Off
         #open_basedir: '/var/www/'
         #disable_functions: 'getmyuid, getmypid, passthru, leak, listen, diskfreespace, tmpfile, link, ignore_user_abord, shell_exec, dl, exec, highlight_file, source, show_source, fpaththru, virtual, posix_ctermid, posix_getcwd, posix_getegid, posix_geteuid, posix_getgid, posix_getgrgid, posix_getgrnam, posix_getgroups, posix_getlogin, posix_getpgid, posix_getpgrp, posix_getpid, posix, _getppid, posix_getpwnam, posix_getpwuid, posix_getsid, posix_getuid, posix_kill, posix_setegid, posix_seteuid, posix_setgid, posix_setpgid, posix_setsid, posix_setuid, posix_times, posix_ttyname, posix_uname, phpinfo'

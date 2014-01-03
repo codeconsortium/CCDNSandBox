@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fc2ce3d0d21d816a55bcf2182db9bda6",
+    "hash": "e2dec59bab84d112b9d12f16d28adc5f",
     "packages": [
         {
             "name": "codeconsortium/ccdn-component-bb-code",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNComponentBBCode.git",
-                "reference": "ce132fb083a9ac6feffa34ff8005da834d8d2631"
+                "reference": "f3297ac0011b76b8a5d4ef6ebf7eed7dad3857e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentBBCode/zipball/ce132fb083a9ac6feffa34ff8005da834d8d2631",
-                "reference": "ce132fb083a9ac6feffa34ff8005da834d8d2631",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentBBCode/zipball/f3297ac0011b76b8a5d4ef6ebf7eed7dad3857e6",
+                "reference": "f3297ac0011b76b8a5d4ef6ebf7eed7dad3857e6",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "markdown",
                 "markup"
             ],
-            "time": "2013-12-17 16:27:48"
+            "time": "2013-12-20 04:31:02"
         },
         {
             "name": "codeconsortium/ccdn-component-bb-code-bundle",
@@ -57,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNComponentBBCodeBundle.git",
-                "reference": "5eff67f0c3fd82c8acb25993ba968f50dfc49433"
+                "reference": "bd0fbcc84c3cf18c9ab5c50e1a39974af637f0fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentBBCodeBundle/zipball/5eff67f0c3fd82c8acb25993ba968f50dfc49433",
-                "reference": "5eff67f0c3fd82c8acb25993ba968f50dfc49433",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentBBCodeBundle/zipball/bd0fbcc84c3cf18c9ab5c50e1a39974af637f0fa",
+                "reference": "bd0fbcc84c3cf18c9ab5c50e1a39974af637f0fa",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "markup",
                 "parser"
             ],
-            "time": "2013-12-17 16:43:26"
+            "time": "2013-12-20 12:40:24"
         },
         {
             "name": "codeconsortium/ccdn-component-common-bundle",
@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNComponentCommonBundle.git",
-                "reference": "b377b5d304c41b5eef80b17771595f832e16201b"
+                "reference": "6d355653c7bb4390fcc58da4cc4959d7b611c353"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentCommonBundle/zipball/b377b5d304c41b5eef80b17771595f832e16201b",
-                "reference": "b377b5d304c41b5eef80b17771595f832e16201b",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentCommonBundle/zipball/6d355653c7bb4390fcc58da4cc4959d7b611c353",
+                "reference": "6d355653c7bb4390fcc58da4cc4959d7b611c353",
                 "shasum": ""
             },
             "require": {
@@ -144,7 +144,7 @@
                 "codeconsortium",
                 "common"
             ],
-            "time": "2013-12-17 14:31:36"
+            "time": "2013-12-29 14:39:04"
         },
         {
             "name": "codeconsortium/ccdn-component-dashboard-bundle",
@@ -153,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNComponentDashboardBundle.git",
-                "reference": "8fbb651009ba220980634483d5afc834308d6d30"
+                "reference": "094157f8c335e4fceda3b29db2b500fc956f943d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentDashboardBundle/zipball/8fbb651009ba220980634483d5afc834308d6d30",
-                "reference": "8fbb651009ba220980634483d5afc834308d6d30",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentDashboardBundle/zipball/094157f8c335e4fceda3b29db2b500fc956f943d",
+                "reference": "094157f8c335e4fceda3b29db2b500fc956f943d",
                 "shasum": ""
             },
             "require": {
@@ -190,7 +190,7 @@
                 "codeconsortium",
                 "dashboard"
             ],
-            "time": "2013-12-17 14:31:14"
+            "time": "2013-12-29 14:36:41"
         },
         {
             "name": "codeconsortium/ccdn-forum-bundle",
@@ -199,12 +199,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNForumForumBundle.git",
-                "reference": "d9e28045a1cbc667f75a272a0e89c93f31ec0272"
+                "reference": "45516232b7382ec5677e47e2806c863c0a534fab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNForumForumBundle/zipball/d9e28045a1cbc667f75a272a0e89c93f31ec0272",
-                "reference": "d9e28045a1cbc667f75a272a0e89c93f31ec0272",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNForumForumBundle/zipball/45516232b7382ec5677e47e2806c863c0a534fab",
+                "reference": "45516232b7382ec5677e47e2806c863c0a534fab",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
                 "codeconsortium",
                 "forum"
             ],
-            "time": "2013-12-17 15:27:45"
+            "time": "2013-12-27 10:53:37"
         },
         {
             "name": "codeconsortium/ccdn-message-bundle",
@@ -272,12 +272,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNMessageMessageBundle.git",
-                "reference": "7acf4d5c965918368513e3d56d66e7f2f87160df"
+                "reference": "5184a88d44f121405c44ae71448517ab4c929f78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNMessageMessageBundle/zipball/7acf4d5c965918368513e3d56d66e7f2f87160df",
-                "reference": "7acf4d5c965918368513e3d56d66e7f2f87160df",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNMessageMessageBundle/zipball/5184a88d44f121405c44ae71448517ab4c929f78",
+                "reference": "5184a88d44f121405c44ae71448517ab4c929f78",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +337,7 @@
                 "mail",
                 "message"
             ],
-            "time": "2013-12-17 15:28:03"
+            "time": "2013-12-27 11:08:49"
         },
         {
             "name": "codeconsortium/ccdn-user-admin-bundle",
@@ -346,12 +346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserAdminBundle.git",
-                "reference": "2ff6e8b60f6c82bdb4d4c759ab27bcd51cc4ef11"
+                "reference": "9bff734ec0cda0b55de5cc7eed3b24af9510bf38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserAdminBundle/zipball/2ff6e8b60f6c82bdb4d4c759ab27bcd51cc4ef11",
-                "reference": "2ff6e8b60f6c82bdb4d4c759ab27bcd51cc4ef11",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserAdminBundle/zipball/9bff734ec0cda0b55de5cc7eed3b24af9510bf38",
+                "reference": "9bff734ec0cda0b55de5cc7eed3b24af9510bf38",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                 "codeconsortium",
                 "user"
             ],
-            "time": "2013-12-17 15:28:29"
+            "time": "2013-12-27 11:08:39"
         },
         {
             "name": "codeconsortium/ccdn-user-bundle",
@@ -420,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserUserBundle.git",
-                "reference": "5b74b47d633cc0f6bf8efa77d065447c02f8df52"
+                "reference": "602db447b0c0d04e8c290e89fd0c868e74018024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserUserBundle/zipball/5b74b47d633cc0f6bf8efa77d065447c02f8df52",
-                "reference": "5b74b47d633cc0f6bf8efa77d065447c02f8df52",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserUserBundle/zipball/602db447b0c0d04e8c290e89fd0c868e74018024",
+                "reference": "602db447b0c0d04e8c290e89fd0c868e74018024",
                 "shasum": ""
             },
             "require": {
@@ -463,7 +463,7 @@
                 "codeconsortium",
                 "user"
             ],
-            "time": "2013-12-17 14:33:28"
+            "time": "2013-12-20 12:42:43"
         },
         {
             "name": "codeconsortium/ccdn-user-profile-bundle",
@@ -472,12 +472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserProfileBundle.git",
-                "reference": "06a6c96595e92176763a0f7e28e55029c2b17569"
+                "reference": "65fd1e0c470a016ac276d7d0c78e966975cfb9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserProfileBundle/zipball/06a6c96595e92176763a0f7e28e55029c2b17569",
-                "reference": "06a6c96595e92176763a0f7e28e55029c2b17569",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserProfileBundle/zipball/65fd1e0c470a016ac276d7d0c78e966975cfb9e5",
+                "reference": "65fd1e0c470a016ac276d7d0c78e966975cfb9e5",
                 "shasum": ""
             },
             "require": {
@@ -537,7 +537,7 @@
                 "profile",
                 "user"
             ],
-            "time": "2013-12-17 15:28:54"
+            "time": "2013-12-27 11:08:28"
         },
         {
             "name": "codeconsortium/ccdn-user-security-bundle",
@@ -546,12 +546,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserSecurityBundle.git",
-                "reference": "ec0f254b28fd864007268bd84c34d7580041d609"
+                "reference": "8082d941892a9dd8db96b3ff9419575752c4028e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserSecurityBundle/zipball/ec0f254b28fd864007268bd84c34d7580041d609",
-                "reference": "ec0f254b28fd864007268bd84c34d7580041d609",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserSecurityBundle/zipball/8082d941892a9dd8db96b3ff9419575752c4028e",
+                "reference": "8082d941892a9dd8db96b3ff9419575752c4028e",
                 "shasum": ""
             },
             "require": {
@@ -609,7 +609,7 @@
                 "security",
                 "user"
             ],
-            "time": "2013-12-17 15:29:06"
+            "time": "2013-12-27 11:08:13"
         },
         {
             "name": "doctrine/annotations",
@@ -617,12 +617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "97b4a00c5a40c42d8c0b789dabc04b3332c788ab"
+                "reference": "a11349d39d85bef75a71bd69bd604ac4fb993f03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/97b4a00c5a40c42d8c0b789dabc04b3332c788ab",
-                "reference": "97b4a00c5a40c42d8c0b789dabc04b3332c788ab",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/a11349d39d85bef75a71bd69bd604ac4fb993f03",
+                "reference": "a11349d39d85bef75a71bd69bd604ac4fb993f03",
                 "shasum": ""
             },
             "require": {
@@ -681,7 +681,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2013-12-13 21:02:36"
+            "time": "2013-12-20 21:39:07"
         },
         {
             "name": "doctrine/cache",
@@ -689,12 +689,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "ff36d4216fef8242c3d8ee97fceee977e3c9b9a6"
+                "reference": "36c4eee5051629524389da376ba270f15765e49f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/ff36d4216fef8242c3d8ee97fceee977e3c9b9a6",
-                "reference": "ff36d4216fef8242c3d8ee97fceee977e3c9b9a6",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/36c4eee5051629524389da376ba270f15765e49f",
+                "reference": "36c4eee5051629524389da376ba270f15765e49f",
                 "shasum": ""
             },
             "require": {
@@ -724,7 +724,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -755,7 +755,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2013-11-23 16:10:06"
+            "time": "2013-12-18 17:21:03"
         },
         {
             "name": "doctrine/collections",
@@ -763,12 +763,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "bcb53776a096a0c64579cc8d8ec0db62f1109fbc"
+                "reference": "819871759a4d41dab244d358507bd27d0e8b1e33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/bcb53776a096a0c64579cc8d8ec0db62f1109fbc",
-                "reference": "bcb53776a096a0c64579cc8d8ec0db62f1109fbc",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/819871759a4d41dab244d358507bd27d0e8b1e33",
+                "reference": "819871759a4d41dab244d358507bd27d0e8b1e33",
                 "shasum": ""
             },
             "require": {
@@ -791,7 +791,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -823,7 +823,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2013-08-29 16:56:45"
+            "time": "2013-12-21 19:19:27"
         },
         {
             "name": "doctrine/common",
@@ -962,12 +962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "69e91a3ea72c120f2516cf7983df6e9b550d00ea"
+                "reference": "907f30dec77a9e83fdba8705fc642fd7815cbc11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/69e91a3ea72c120f2516cf7983df6e9b550d00ea",
-                "reference": "69e91a3ea72c120f2516cf7983df6e9b550d00ea",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/907f30dec77a9e83fdba8705fc642fd7815cbc11",
+                "reference": "907f30dec77a9e83fdba8705fc642fd7815cbc11",
                 "shasum": ""
             },
             "require": {
@@ -1018,7 +1018,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-11-13 00:02:59"
+            "time": "2013-12-29 16:24:37"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1153,12 +1153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "8b4b3ccec7aafc596e2fc1e593c9f2e78f939c8c"
+                "reference": "a81c334f2764b09e2f13a55cfd8fe3233946f728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/8b4b3ccec7aafc596e2fc1e593c9f2e78f939c8c",
-                "reference": "8b4b3ccec7aafc596e2fc1e593c9f2e78f939c8c",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/a81c334f2764b09e2f13a55cfd8fe3233946f728",
+                "reference": "a81c334f2764b09e2f13a55cfd8fe3233946f728",
                 "shasum": ""
             },
             "require": {
@@ -1214,7 +1214,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2013-04-10 16:14:30"
+            "time": "2013-12-21 19:19:50"
         },
         {
             "name": "doctrine/lexer",
@@ -1222,12 +1222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "57d5a024b48709c56ce5bb93072948359220f36c"
+                "reference": "f12a5f74e5f4a9e3f558f3288504e121edfad891"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/57d5a024b48709c56ce5bb93072948359220f36c",
-                "reference": "57d5a024b48709c56ce5bb93072948359220f36c",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/f12a5f74e5f4a9e3f558f3288504e121edfad891",
+                "reference": "f12a5f74e5f4a9e3f558f3288504e121edfad891",
                 "shasum": ""
             },
             "require": {
@@ -1271,7 +1271,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2013-11-19 06:15:26"
+            "time": "2013-12-20 21:39:00"
         },
         {
             "name": "doctrine/orm",
@@ -1393,12 +1393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "6596b9d754b6cb094e10470967ed7b51e2aa9e12"
+                "reference": "a02f6fe3553391a84041ca11f02b781b2560b05b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/6596b9d754b6cb094e10470967ed7b51e2aa9e12",
-                "reference": "6596b9d754b6cb094e10470967ed7b51e2aa9e12",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a02f6fe3553391a84041ca11f02b781b2560b05b",
+                "reference": "a02f6fe3553391a84041ca11f02b781b2560b05b",
                 "shasum": ""
             },
             "require": {
@@ -1453,7 +1453,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-12-16 16:36:36"
+            "time": "2013-12-26 16:09:25"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1574,24 +1574,29 @@
         },
         {
             "name": "jms/aop-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "target-dir": "JMS/AopBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSAopBundle.git",
-                "reference": "8ef7db0043188f58da18f931937008f95b308921"
+                "reference": "93f41ab85ed409430bc3bab2e0b7c7677f152aa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/8ef7db0043188f58da18f931937008f95b308921",
-                "reference": "8ef7db0043188f58da18f931937008f95b308921",
+                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/93f41ab85ed409430bc3bab2e0b7c7677f152aa8",
+                "reference": "93f41ab85ed409430bc3bab2e0b7c7677f152aa8",
                 "shasum": ""
             },
             "require": {
-                "jms/cg": "1.0.0",
+                "jms/cg": "1.*",
                 "symfony/framework-bundle": "2.*"
             },
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "JMS\\AopBundle": ""
@@ -1614,26 +1619,31 @@
                 "annotations",
                 "aop"
             ],
-            "time": "2012-01-02 20:50:26"
+            "time": "2013-07-29 09:34:26"
         },
         {
             "name": "jms/cg",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/cg-library.git",
-                "reference": "ce8ef43dd6bfe6ce54e5e9844ab71be2343bf2fc"
+                "reference": "3d2881f2faec15a632b2c7ad9646f836dd71ba21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/cg-library/zipball/ce8ef43dd6bfe6ce54e5e9844ab71be2343bf2fc",
-                "reference": "ce8ef43dd6bfe6ce54e5e9844ab71be2343bf2fc",
+                "url": "https://api.github.com/repos/schmittjoh/cg-library/zipball/3d2881f2faec15a632b2c7ad9646f836dd71ba21",
+                "reference": "3d2881f2faec15a632b2c7ad9646f836dd71ba21",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "CG\\": "src/"
@@ -1641,7 +1651,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache"
+                "Apache2"
             ],
             "authors": [
                 {
@@ -1655,7 +1665,7 @@
             "keywords": [
                 "code generation"
             ],
-            "time": "2012-01-02 20:40:52"
+            "time": "2013-12-26 12:09:20"
         },
         {
             "name": "jms/di-extra-bundle",
@@ -1833,12 +1843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/knp-components.git",
-                "reference": "1045b0b1a2bec9695515fdef68a0dd9285d29816"
+                "reference": "ae454fb43473127a7bdc0a777f962f64f94e2795"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/1045b0b1a2bec9695515fdef68a0dd9285d29816",
-                "reference": "1045b0b1a2bec9695515fdef68a0dd9285d29816",
+                "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/ae454fb43473127a7bdc0a777f962f64f94e2795",
+                "reference": "ae454fb43473127a7bdc0a777f962f64f94e2795",
                 "shasum": ""
             },
             "require": {
@@ -1886,7 +1896,7 @@
                 "pager",
                 "paginator"
             ],
-            "time": "2013-12-12 00:33:39"
+            "time": "2013-12-23 13:48:48"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -1895,12 +1905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "769b83d01b3f76b011522599bd48e5e202d94ff4"
+                "reference": "e817cbddfa13cb9a72bf1ddcaf6a36b99cda5c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/769b83d01b3f76b011522599bd48e5e202d94ff4",
-                "reference": "769b83d01b3f76b011522599bd48e5e202d94ff4",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/e817cbddfa13cb9a72bf1ddcaf6a36b99cda5c2d",
+                "reference": "e817cbddfa13cb9a72bf1ddcaf6a36b99cda5c2d",
                 "shasum": ""
             },
             "require": {
@@ -1945,7 +1955,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2013-09-23 09:04:09"
+            "time": "2013-12-19 09:14:09"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2736,12 +2746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "6387fc457792f38189bdd5729b500772bbddfa4d"
+                "reference": "27f3e0fc1efd1dbaf6d10598d148d7ec3070b51d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/6387fc457792f38189bdd5729b500772bbddfa4d",
-                "reference": "6387fc457792f38189bdd5729b500772bbddfa4d",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/27f3e0fc1efd1dbaf6d10598d148d7ec3070b51d",
+                "reference": "27f3e0fc1efd1dbaf6d10598d148d7ec3070b51d",
                 "shasum": ""
             },
             "require": {
@@ -2777,7 +2787,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-12-10 10:23:00"
+            "time": "2013-12-27 14:37:02"
         },
         {
             "name": "twitter/bootstrap",
@@ -4233,18 +4243,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "39624e966b8cfdfb5c6e7213e04328327699b7eb"
+                "reference": "6795ee70e02be0e00e7bc806609279002b72801d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/39624e966b8cfdfb5c6e7213e04328327699b7eb",
-                "reference": "39624e966b8cfdfb5c6e7213e04328327699b7eb",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6795ee70e02be0e00e7bc806609279002b72801d",
+                "reference": "6795ee70e02be0e00e7bc806609279002b72801d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "phpspec/php-diff": "~1.0.0",
-                "phpspec/prophecy": "~1.0.2",
+                "phpspec/prophecy": "~1.0.5@dev",
                 "symfony/console": "~2.1",
                 "symfony/event-dispatcher": "~2.1",
                 "symfony/finder": "~2.1",
@@ -4293,7 +4303,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2013-12-13 15:32:32"
+            "time": "2013-12-27 16:44:47"
         },
         {
             "name": "phpspec/prophecy",
@@ -4301,12 +4311,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "6075effd01567b6211c79d8898d2d5fc1f31e40b"
+                "reference": "611ef9fa862e3232d40c4cc7545537c7026b7a42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/6075effd01567b6211c79d8898d2d5fc1f31e40b",
-                "reference": "6075effd01567b6211c79d8898d2d5fc1f31e40b",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/611ef9fa862e3232d40c4cc7545537c7026b7a42",
+                "reference": "611ef9fa862e3232d40c4cc7545537c7026b7a42",
                 "shasum": ""
             },
             "require-dev": {
@@ -4348,7 +4358,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2013-12-11 10:13:46"
+            "time": "2013-12-23 16:15:01"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4600,12 +4610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "aa4789d63dc5fd8f2036e5867b94e481b201c807"
+                "reference": "92e8faf88773fa173b0ab2425ba4ade434c58c5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/aa4789d63dc5fd8f2036e5867b94e481b201c807",
-                "reference": "aa4789d63dc5fd8f2036e5867b94e481b201c807",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/92e8faf88773fa173b0ab2425ba4ade434c58c5d",
+                "reference": "92e8faf88773fa173b0ab2425ba4ade434c58c5d",
                 "shasum": ""
             },
             "require": {
@@ -4666,7 +4676,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-12-13 21:26:49"
+            "time": "2013-12-29 07:28:17"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

@@ -3,17 +3,24 @@ jms_security_extra:
     expressions: true
 
 security:
-    encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
-
     role_hierarchy:
         ROLE_USER:        ROLE_USER
         ROLE_MODERATOR:   [ROLE_USER]
         ROLE_ADMIN:       [ROLE_USER, ROLE_MODERATOR]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
+    access_decision_manager:
+        strategy: unanimous
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface:
+            algorithm: sha512
+            encode_as_base64: false
+            iterations: 1
+
     providers:
         fos_userbundle:
+            #id: fos_user.user_manager
             id: fos_user.user_provider.username_email
 #        in_memory:
 #            memory:
@@ -40,6 +47,9 @@ security:
                 target: /
                 success_handler: ccdn_user_security.component.authentication.handler.logout_success_handler
             anonymous: true
+            remember_me:
+                key: "%secret%"
+                lifetime: 31536000 # 365 days in seconds
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false

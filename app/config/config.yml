@@ -122,15 +122,15 @@ fos_user:
     use_listener:               true
     use_username_form_type:     true
     from_email:
-        address:                root@codeconsortium.com
-        sender_name:            root
+        address:                noreply@codeconsortium.com
+        sender_name:            Code Consortium
     registration:
         confirmation:
             enabled:            false
             template:           FOSUserBundle:Registration:email.txt.twig
             from_email:
-                address:        registration@codeconsortium.com
-                sender_name:    CodeConsortium
+                address:        noreply@codeconsortium.com
+                sender_name:    Code Consortium
         form:
             type:               ccdn_user_registration
             name:               fos_user_registration_form
@@ -142,14 +142,14 @@ fos_user:
         email:
             template:           FOSUserBundle:Resetting:email.txt.twig 
             from_email:
-                address:        resetting@codeconsortium.com
+                address:        noreply@codeconsortium.com
                 sender_name:    Code Consortium
     service:
-        mailer:                 fos_user.mailer.default 
-        email_canonicalizer:    fos_user.util.canonicalizer.default 
-        token_generator:        fos_user.util.token_generator.default 
-        username_canonicalizer: fos_user.util.canonicalizer.default 
-        user_manager:           fos_user.user_manager.default 
+        mailer:                 fos_user.mailer.default
+        email_canonicalizer:    fos_user.util.canonicalizer.default
+        token_generator:        fos_user.util.token_generator.default
+        username_canonicalizer: fos_user.util.canonicalizer.default
+        user_manager:           fos_user.user_manager.default
     template:
         engine:                 twig
 

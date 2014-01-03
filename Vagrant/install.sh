@@ -18,6 +18,24 @@ baseurl=http://tmz.fedorapeople.org/repo/puppet/epel/5/x86_64/
 enabled=1
 gpgcheck=0" > /etc/yum.repos.d/epel-puppet.repo
 
+sudo echo "[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Debug
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-6&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+failovermethod=priority
+priority=16" > /etc/yum.repos.d/epel-debuginfo.repo
+
+sudo echo "[epel-source]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Source
+mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=epel-source-6&arch=$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+failovermethod=priority
+priority=16" > /etc/yum.repos.d/epel-source.repo
+
 sudo echo "[puppetlabs-products]
 name=Puppet Labs Products El 6 - $basearch
 baseurl=http://yum.puppetlabs.com/el/6/products/$basearch
@@ -68,6 +86,31 @@ enabled=1
 gpgcheck=1
 gpgkey=http://nginx.org/keys/nginx_signing.key
 priority=1" > /etc/yum.repos.d/nginx-release.repo
+
+
+sudo echo "[remi-php55]
+name=Les RPM de remi pour Enterpise Linux $releasever - $basearch - PHP 5.5
+mirrorlist=http://rpms.famillecollet.com/enterprise/$releasever/php55/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=1" > /etc/yum.repos.d/remi-php55.repo
+
+sudo echo "[remi]
+name=Les RPM de remi pour Enterpise Linux $releasever - $basearch
+mirrorlist=http://rpms.famillecollet.com/enterprise/$releasever/remi/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=1" > /etc/yum.repos.d/remi.repo
+
+sudo echo "[remi-test]
+name=Les RPM de remi pour Enterpise Linux $releasever - $basearch - Test
+mirrorlist=http://rpms.famillecollet.com/enterprise/$releasever/test/mirror
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+priority=1" > /etc/yum.repos.d/remi-test.repo
 
 sudo yum install ruby --enablerepo=puppetdeps --assumeyes
 sudo yum install ruby-rgen --enablerepo=puppetdeps --assumeyes

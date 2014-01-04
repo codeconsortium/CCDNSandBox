@@ -91,7 +91,10 @@
         "codeconsortium/ccdn-user-profile-bundle": "dev-master",
         "codeconsortium/ccdn-user-admin-bundle": "dev-master",
         "codeconsortium/ccdn-message-bundle": "dev-master",
-        "codeconsortium/ccdn-forum-bundle": "dev-master"
+        "codeconsortium/ccdn-forum-bundle": "dev-master",
+
+        "psecio/versionscan": "dev-master",
+        "sensiolabs/security-checker": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
@@ -109,9 +112,7 @@
         "elao/web-profiler-extra-bundle" : "2.1.x-dev",
         "raulfraile/ladybug-bundle": "dev-master",
         "js/mysqlnd-bundle": "dev-master",
-        "mdm/translator-checker-bundle": "2.1.*@dev",
-        "sensiolabs/security-checker": "dev-master",
-        "psecio/versionscan": "dev-master"
+        "mdm/translator-checker-bundle": "2.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

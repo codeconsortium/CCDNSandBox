@@ -8,6 +8,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "forwarded_port", guest: 80, host: 4657
 
+  #nfs_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
+  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "vagrant-root", :nfs => nfs_setting
+
   config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false, mount_options: ["dmode=777", "fmode=777"]
   #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false
   #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "vagrant-root", :nfs => false

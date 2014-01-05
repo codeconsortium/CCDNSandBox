@@ -9,18 +9,25 @@ sudo /vagrant/shell/update-puppet.sh
 sudo /vagrant/shell/librarian-puppet-vagrant.sh
  
 sudo puppet apply /CCDNSandBox/Vagrant/puppet/manifests/default.pp --hiera_config=/CCDNSandBox/Vagrant/hiera.yaml --verbose --parser=future
- 
+
+sudo yum install mlocate --assume-yes
+sudo yum install nano --assume-yes
+
 mkdir /var/www/codeconsortium.com/
 mkdir /var/www/codeconsortium.com/public
 mv /CCDNSandBox/* /var/www/codeconsortium.com/public
- 
+
+
+sudo chown -R root:www-data /var/www
+sudo chmod -R 0755 /var/www
+
 cd /var/www/codeconsortium.com/public
- 
+
 mkdir app/cache app/logs
 chmod 777 app/cache app/logs
- 
+
 composer install --dev --prefer-dist -o
- 
+
 php /var/www/codeconsortium.com/public/app/console --env=dev doctrine:database:create
 
 

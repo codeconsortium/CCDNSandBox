@@ -1,122 +1,109 @@
 {
-    "name": "CCDN/Sandbox",
-    "description": "The \"CodeConsortium Standard Edition\" distribution",
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/" }
     },
-	"repositories": [
-	    {
-	       "type": "package",
-	       "package": {
-	           "version": "dev-master",
-	           "name": "todc/todc-bootstrap",
-	           "source": {
-	               "url": "https://github.com/todc/todc-bootstrap.git",
-	               "type": "git",
-	               "reference": "master"
-	           },
-	           "dist": {
-	               "url": "https://github.com/todc/todc-bootstrap/zipball/master",
-	               "type": "zip"
-	           }
-	       }
-	    },
-	    {
-	       "type": "package",
-	       "package": {
-	           "version": "dev-master",
-	           "name": "reecefowell/moment",
-	           "source": {
-	               "url": "https://github.com/reecefowell/moment.git",
-	               "type": "git",
-	               "reference": "master"
-	           },
-	           "dist": {
-	               "url": "https://github.com/reecefowell/moment/zipball/master",
-	               "type": "zip"
-	           }
-	       }
-	    },
-	    {
-	       "type": "package",
-	       "package": {
-	           "version": "dev-master",
-	           "name": "isagalaev/highlight",
-	           "source": {
-	               "url": "https://github.com/isagalaev/highlight.js.git",
-	               "type": "git",
-	               "reference": "master"
-	           },
-	           "dist": {
-	               "url": "https://github.com/isagalaev/highlight.js/zipball/master",
-	               "type": "zip"
-	           }
-	       }
-	    }
-	],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+           "type": "package",
+           "package": {
+               "version": "dev-master",
+               "name": "todc/todc-bootstrap",
+               "source": {
+                   "url": "https://github.com/todc/todc-bootstrap.git",
+                   "type": "git",
+                   "reference": "master"
+               },
+               "dist": {
+                   "url": "https://github.com/todc/todc-bootstrap/zipball/master",
+                   "type": "zip"
+               }
+           }
+        },
+        {
+           "type": "package",
+           "package": {
+               "version": "dev-master",
+               "name": "reecefowell/moment",
+               "source": {
+                   "url": "https://github.com/reecefowell/moment.git",
+                   "type": "git",
+                   "reference": "master"
+               },
+               "dist": {
+                   "url": "https://github.com/reecefowell/moment/zipball/master",
+                   "type": "zip"
+               }
+           }
+        },
+        {
+           "type": "package",
+           "package": {
+               "version": "dev-master",
+               "name": "isagalaev/highlight",
+               "source": {
+                   "url": "https://github.com/isagalaev/highlight.js.git",
+                   "type": "git",
+                   "reference": "master"
+               },
+               "dist": {
+                   "url": "https://github.com/isagalaev/highlight.js/zipball/master",
+                   "type": "zip"
+               }
+           }
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.1.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.1.*",
-        "twig/extensions": "1.0.*@dev",
+        "symfony/symfony": "2.2.*",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "1.2.*",
+        "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.1.*",
-        "symfony/swiftmailer-bundle": "2.1.*",
-        "symfony/monolog-bundle": "2.1.*",
-        "sensio/distribution-bundle": "2.1.*",
-        "sensio/framework-extra-bundle": "2.1.*",
-        "sensio/generator-bundle": "2.1.*",
-        "jms/security-extra-bundle": "1.2.*",
-        "jms/di-extra-bundle": "1.1.*",
-        "kriswallsmith/assetic": "1.1.*@dev",
-        
-        "leafo/lessphp": "*",
-        "twitter/bootstrap": "v2.3.1",
-        "reecefowell/todc-bootstrap": "*",
-        "reecefowell/moment": "*",
-        "reecefowell/jquery-timestamper": "dev-master",
-        "reecefowell/jquery-checkboxes": "dev-master",
-        "isagalaev/highlight": "dev-master",
+        "symfony/swiftmailer-bundle": "2.2.*",
+        "symfony/monolog-bundle": "2.2.*",
+        "sensio/distribution-bundle": "2.2.*",
+        "sensio/framework-extra-bundle": "2.2.*",
+        "sensio/generator-bundle": "2.2.*",
+        "jms/security-extra-bundle": "1.4.*",
+        "jms/di-extra-bundle": "1.3.*",
 
-        "incenteev/composer-parameter-handler": "v2.0.0",
+        "kriswallsmith/assetic": "1.1.*@dev",
+
+        "psecio/versionscan": "dev-master",
+        "sensiolabs/security-checker": "dev-master",
+
+        "incenteev/composer-parameter-handler": "v2.1.0",
         "doctrine/data-fixtures": "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
+        
+        "leafo/lessphp": "*",
+        "twitter/bootstrap": "v2.3.1",
+        "isagalaev/highlight": "dev-master",
 
-        "codeconsortium/ccdn-component-common-bundle": "v2.0",
-        "codeconsortium/ccdn-component-bb-code-bundle": "v2.0",
-        "codeconsortium/ccdn-component-dashboard-bundle": "v2.0",
-        "codeconsortium/ccdn-user-bundle": "v2.0",
-        "codeconsortium/ccdn-user-security-bundle": "v2.0",
-        "codeconsortium/ccdn-user-profile-bundle": "v2.0",
-        "codeconsortium/ccdn-user-admin-bundle": "v2.0",
-        "codeconsortium/ccdn-message-bundle": "v2.0",
-        "codeconsortium/ccdn-forum-bundle": "v2.0",
-
-        "psecio/versionscan": "dev-master",
-        "sensiolabs/security-checker": "dev-master"
+        "codeconsortium/ccdn-component-common-bundle": "dev-master",
+        "codeconsortium/ccdn-component-bb-code-bundle": "dev-master",
+        "codeconsortium/ccdn-component-dashboard-bundle": "dev-master",
+        "codeconsortium/ccdn-user-bundle": "dev-master",
+        "codeconsortium/ccdn-user-security-bundle": "dev-master",
+        "codeconsortium/ccdn-user-profile-bundle": "dev-master",
+        "codeconsortium/ccdn-user-admin-bundle": "dev-master",
+        "codeconsortium/ccdn-message-bundle": "dev-master",
+        "codeconsortium/ccdn-forum-bundle": "dev-master"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "phpunit/php-code-coverage": "1.2.*",
-        "phpspec/phpspec": "2.0.*@dev",
-
-        "behat/behat": "2.4.*@stable",
-        "behat/mink": "1.4@stable",
-        "behat/mink-goutte-driver": "*",
-        "behat/mink-browserkit-driver": "*",
-        "behat/mink-selenium2-driver": "*",
-        "behat/mink-extension": "*",
-        "behat/symfony2-extension": "*",
-
         "elao/web-profiler-extra-bundle" : "2.1.x-dev",
         "raulfraile/ladybug-bundle": "dev-master",
         "js/mysqlnd-bundle": "dev-master",
-        "mdm/translator-checker-bundle": "2.1.*@dev"
+        "mdm/translator-checker-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -125,7 +112,6 @@
             "bin/versionscan scan"
         ],
         "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -137,13 +123,12 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "symfony-assets-install": "symlink",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+        "branch-alias": {
+            "dev-master": "2.2-dev"
         }
     }
 }

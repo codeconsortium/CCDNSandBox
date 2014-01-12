@@ -2,13 +2,16 @@ imports:
     - { resource: config.yml }
     - { resource: ccdn/user-security.yml }
 
+framework:
+    router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
+    #profiler: { only_exceptions: false }
+    profiler:
+        enabled: true
+        only_exceptions: false
+
 doctrine:
    dbal:
        dbname:   %database_name%_dev
-
-framework:
-    router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
-    profiler: { only_exceptions: false }
 
 web_profiler:
     toolbar: true
@@ -23,13 +26,12 @@ monolog:
         firephp:
             type:  firephp
             level: info
+        chromephp:
+            type:  chromephp
+            level: info
 
 assetic:
     use_controller: true
-
-#swiftmailer:
-#    delivery_address: me@example.com
-
 
 web_profiler_extra:
     routing:
@@ -44,6 +46,17 @@ web_profiler_extra:
     twig:
         enabled:        true
         display_in_wdt: true
+
+#swiftmailer:
+#    delivery_address: me@example.com
+
+
+ewz_recaptcha:
+    enabled:      false
+    public_key:   %ewz_recaptcha_public_key%
+    private_key:  %ewz_recaptcha_private_key%
+    secure:       false
+    locale_key:   kernel.default_locale
 
 ccdn_user_security:
    login_shield:

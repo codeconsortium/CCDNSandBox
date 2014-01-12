@@ -15,6 +15,7 @@ namespace SubCCDNForum\ForumBundle\Form\Type\User\Post;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  *
@@ -67,15 +68,14 @@ class PostUpdateFormType extends AbstractType
         ;
     }
 
-    /**
-     *
-     * @access public
-     * @param  array $options
-     * @return array
-     */
-    public function getDefaultOptions(array $options)
+	/**
+	 * 
+	 * @access public
+	 * @param  \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+	 */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+	    $resolver->setDefaults(array(
             'data_class'          => $this->postClass,
             'csrf_protection'     => true,
             'csrf_field_name'     => '_token',
@@ -83,7 +83,7 @@ class PostUpdateFormType extends AbstractType
             'intention'           => 'forum_post_update_item',
             'validation_groups'   => array('forum_post_update'),
             'cascade_validation'  => true,
-        );
+        ));
     }
 
     /**

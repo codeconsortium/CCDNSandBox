@@ -22,13 +22,11 @@ to create a new project is to use it.
 If you don't have Composer yet, download it following the instructions on
 http://getcomposer.org/ or just run the following command:
 
-    curl -s https://getcomposer.org/installer | php
+    curl -s http://getcomposer.org/installer | php
 
 Then, use the `create-project` command to generate a new Symfony application:
 
-    php composer.phar create-project symfony/framework-standard-edition path/to/install 2.1.x-dev
-
-For an exact version, replace 2.1.x-dev with the latest Symfony version (e.g. 2.1.1).
+    php composer.phar create-project symfony/framework-standard-edition path/to/install
 
 Composer will install Symfony and all its dependencies under the
 `path/to/install` directory.
@@ -159,18 +157,18 @@ It comes pre-configured with the following bundles:
 
 Enjoy!
 
-[1]:  http://symfony.com/doc/2.1/book/installation.html
+[1]:  http://symfony.com/doc/2.2/book/installation.html
 [2]:  http://getcomposer.org/
 [3]:  http://symfony.com/download
-[4]:  http://symfony.com/doc/2.1/quick_tour/the_big_picture.html
-[5]:  http://symfony.com/doc/2.1/index.html
-[6]:  http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.1/book/doctrine.html
-[8]:  http://symfony.com/doc/2.1/book/templating.html
-[9]:  http://symfony.com/doc/2.1/book/security.html
-[10]: http://symfony.com/doc/2.1/cookbook/email.html
-[11]: http://symfony.com/doc/2.1/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html
+[4]:  http://symfony.com/doc/2.2/quick_tour/the_big_picture.html
+[5]:  http://symfony.com/doc/2.2/index.html
+[6]:  http://symfony.com/doc/2.2/bundles/SensioFrameworkExtraBundle/index.html
+[7]:  http://symfony.com/doc/2.2/book/doctrine.html
+[8]:  http://symfony.com/doc/2.2/book/templating.html
+[9]:  http://symfony.com/doc/2.2/book/security.html
+[10]: http://symfony.com/doc/2.2/cookbook/email.html
+[11]: http://symfony.com/doc/2.2/cookbook/logging/monolog.html
+[12]: http://symfony.com/doc/2.2/cookbook/assetic/asset_management.html
 [13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
 [14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
-[15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
+[15]: http://symfony.com/doc/2.2/bundles/SensioGeneratorBundle/index.html

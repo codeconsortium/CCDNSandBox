@@ -81,6 +81,11 @@ a link cannot be generated):
         router:
             strict_requirements: "%kernel.debug%"
 
+You can even disable the requirements check on production with `null` as you should
+know that the parameters for URL generation always pass the requirements, e.g. by
+validating them beforehand. This additionally enhances performance. See
+[config_prod.yml](https://github.com/symfony/symfony-standard/blob/master/app/config/config_prod.yml).
+
 The `default_locale` parameter is now a setting of the main `framework`
 configuration (it was under the `framework.session` in 2.0):
 
@@ -208,8 +213,9 @@ The default `web/app.php` file now reads as follows:
 
     $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 
-    // Use APC for autoloading to improve performance
-    // Change 'sf2' by the prefix you want in order to prevent key conflict with another application
+    // Use APC for autoloading to improve performance.
+    // Change 'sf2' to a unique prefix in order to prevent cache key conflicts
+    // with other applications also using APC.
     /*
     $loader = new ApcClassLoader('sf2', $loader);
     $loader->register(true);

@@ -9,8 +9,8 @@ default:
                 class_suffix: features\bootstrap
         Behat\MinkExtension\Extension:
             default_session: 'symfony2'
-            goutte: ~
-            selenium2: ~ 
+            #goutte: ~
+            #selenium2: ~ 
             base_url: http://ccdn.local/
     paths:
         features: features

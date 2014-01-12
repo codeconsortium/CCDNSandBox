@@ -1,21 +1,28 @@
 imports:
-    - { resource: config.yml }
+    - { resource: config_dev.yml }
     - { resource: ccdn/user-security.yml }
-
-doctrine:
-   dbal:
-       dbname:   %database_name%_test
 
 framework:
     test: ~
     session:
         storage_id: session.storage.mock_file
     router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
-    profiler: { only_exceptions: false }
+    profiler:
+        enabled: false
+        only_exceptions: false
+
+doctrine:
+   dbal:
+       dbname:   %database_name%_test
 
 web_profiler:
     toolbar: false
     intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+    spool:
+        type: memory
 
 monolog:
     handlers:
@@ -29,11 +36,6 @@ monolog:
 
 assetic:
     use_controller: true
-
-swiftmailer:
-    disable_delivery: true
-    spool:
-        type: memory
 
 web_profiler_extra:
     routing:
@@ -55,37 +57,3 @@ security:
     firewalls:
         main:
             http_basic:
-
-#imports:
-#    - { resource: config_dev.yml }
-#
-#doctrine:
-#    dbal:
-#        dbname:   %database_name%_test
-#
-#framework:
-#    test: ~
-#    session:
-#        storage_id: session.storage.mock_file
-#
-#web_profiler:
-#    toolbar: false
-#    intercept_redirects: false
-#
-#
-#swiftmailer:
-#    disable_delivery: true
-#    spool:
-#        type: memory
-#
-## simulates authentication
-## http://symfony.com/doc/current/cookbook/testing/http_authentication.html
-#security:
-#    firewalls:
-#        main:
-#            http_basic:
-#
-#
-#
-#
-#

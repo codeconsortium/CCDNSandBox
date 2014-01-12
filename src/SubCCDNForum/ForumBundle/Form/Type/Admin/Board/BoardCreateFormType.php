@@ -15,6 +15,7 @@ namespace SubCCDNForum\ForumBundle\Form\Type\Admin\Board;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -141,15 +142,14 @@ class BoardCreateFormType extends AbstractType
         ;
     }
 
-    /**
-     *
-     * @access public
-     * @param  array $options
-     * @return array
-     */
-    public function getDefaultOptions(array $options)
+	/**
+	 * 
+	 * @access public
+	 * @param  \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
+	 */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array(
+	    $resolver->setDefaults(array(
             'data_class'          => $this->boardClass,
             'csrf_protection'     => true,
             'csrf_field_name'     => '_token',
@@ -159,7 +159,7 @@ class BoardCreateFormType extends AbstractType
             'cascade_validation'  => true,
             'available_roles'     => $this->roleHelper->getRoleHierarchy(),
             'default_category'    => null
-        );
+        ));
     }
 
     /**

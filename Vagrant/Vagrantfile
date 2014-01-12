@@ -11,15 +11,15 @@ Vagrant.configure("2") do |config|
   #nfs_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
   #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "vagrant-root", :nfs => nfs_setting
 
-  config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false, mount_options: ["dmode=777", "fmode=777"]
+  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false, mount_options: ["dmode=777", "fmode=777"]
   #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", user: "vagrant", group: "nginx", id: "vagrant-root", :nfs => false
-  #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "vagrant-root", :nfs => false
+  config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "vagrant-root", :nfs => false
   #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "root", :nfs => true
   #config.vm.synced_folder "./../", "/var/www/codeconsortium.com/public", id: "root", :nfs => true, mount_options: ["dmode=777", "fmode=777"]
   
   config.vm.usable_port_range = (2200..2250)
   config.vm.provider :virtualbox do |virtualbox|
-    virtualbox.customize ["modifyvm", :id, "--name", "cc-vm-box"]
+    virtualbox.customize ["modifyvm", :id, "--name", "codeconsortium.com-2_0_0-sf_2_2_11"]
     virtualbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     virtualbox.customize ["modifyvm", :id, "--memory", "1024"]
     virtualbox.customize ["setextradata", :id, "--VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]

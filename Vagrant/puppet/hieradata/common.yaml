@@ -13,7 +13,7 @@ vagrantfile-local:
         provider:
             virtualbox:
                 modifyvm:
-                    name: cc-vm-box
+                    name: codeconsortium.com-2_0_0-sf_2_2_11
                     natdnshostresolver1: on
                     memory: '1024'
                 setextradata:

@@ -1,8 +1,8 @@
 {
-    "name": "symfony/framework-standard-edition",
+	"name": "CCDN/Sandbox",
+    "description": "The \"CodeConsortium Standard Edition\" distribution",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -86,15 +86,15 @@
         "twitter/bootstrap": "v2.3.1",
         "isagalaev/highlight": "dev-master",
 
-        "codeconsortium/ccdn-component-common-bundle": "dev-master",
-        "codeconsortium/ccdn-component-bb-code-bundle": "dev-master",
-        "codeconsortium/ccdn-component-dashboard-bundle": "dev-master",
-        "codeconsortium/ccdn-user-bundle": "dev-master",
-        "codeconsortium/ccdn-user-security-bundle": "dev-master",
-        "codeconsortium/ccdn-user-profile-bundle": "dev-master",
-        "codeconsortium/ccdn-user-admin-bundle": "dev-master",
-        "codeconsortium/ccdn-message-bundle": "dev-master",
-        "codeconsortium/ccdn-forum-bundle": "dev-master"
+        "codeconsortium/ccdn-component-common-bundle": "2.0.*",
+        "codeconsortium/ccdn-component-bb-code-bundle": "2.0.*",
+        "codeconsortium/ccdn-component-dashboard-bundle": "2.0.*",
+        "codeconsortium/ccdn-user-bundle": "2.0.*",
+        "codeconsortium/ccdn-user-security-bundle": "2.0.*",
+        "codeconsortium/ccdn-user-profile-bundle": "2.0.*",
+        "codeconsortium/ccdn-user-admin-bundle": "2.0.*",
+        "codeconsortium/ccdn-message-bundle": "2.0.*",
+        "codeconsortium/ccdn-forum-bundle": "2.0.*"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle" : "2.1.x-dev",

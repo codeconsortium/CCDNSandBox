@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "08a2e19032b37ee21d334ee3198deaba",
+    "hash": "8782572f2e851fdaaee185cb024ee311",
     "packages": [
         {
             "name": "codeconsortium/ccdn-component-bb-code",
@@ -52,7 +52,7 @@
         },
         {
             "name": "codeconsortium/ccdn-component-bb-code-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNComponent/BBCodeBundle",
             "source": {
                 "type": "git",
@@ -102,17 +102,17 @@
         },
         {
             "name": "codeconsortium/ccdn-component-common-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNComponent/CommonBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNComponentCommonBundle.git",
-                "reference": "378e4b632f59615b4192e081849bf8f8c86c864b"
+                "reference": "4353866dace2698d4b8d686c4b3b9a8b9e7b90fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentCommonBundle/zipball/378e4b632f59615b4192e081849bf8f8c86c864b",
-                "reference": "378e4b632f59615b4192e081849bf8f8c86c864b",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentCommonBundle/zipball/4353866dace2698d4b8d686c4b3b9a8b9e7b90fa",
+                "reference": "4353866dace2698d4b8d686c4b3b9a8b9e7b90fa",
                 "shasum": ""
             },
             "require": {
@@ -144,21 +144,21 @@
                 "codeconsortium",
                 "common"
             ],
-            "time": "2014-01-10 12:40:58"
+            "time": "2014-01-13 10:42:11"
         },
         {
             "name": "codeconsortium/ccdn-component-dashboard-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNComponent/DashboardBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNComponentDashboardBundle.git",
-                "reference": "db4bc7f5c24bf79c8e3a7ff1935582c16085834c"
+                "reference": "fc8c76011428e260796ef3ae23099660d21256a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentDashboardBundle/zipball/db4bc7f5c24bf79c8e3a7ff1935582c16085834c",
-                "reference": "db4bc7f5c24bf79c8e3a7ff1935582c16085834c",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNComponentDashboardBundle/zipball/fc8c76011428e260796ef3ae23099660d21256a6",
+                "reference": "fc8c76011428e260796ef3ae23099660d21256a6",
                 "shasum": ""
             },
             "require": {
@@ -190,27 +190,27 @@
                 "codeconsortium",
                 "dashboard"
             ],
-            "time": "2014-01-10 12:40:23"
+            "time": "2014-01-12 17:05:34"
         },
         {
             "name": "codeconsortium/ccdn-forum-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNForum/ForumBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNForumForumBundle.git",
-                "reference": "d7c769a802bd64d71d040c72c0e794628d01396b"
+                "reference": "a652353fbb7c94b90ec5cba1f39d529320d3d93f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNForumForumBundle/zipball/d7c769a802bd64d71d040c72c0e794628d01396b",
-                "reference": "d7c769a802bd64d71d040c72c0e794628d01396b",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNForumForumBundle/zipball/a652353fbb7c94b90ec5cba1f39d529320d3d93f",
+                "reference": "a652353fbb7c94b90ec5cba1f39d529320d3d93f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "1.2.*",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "knplabs/knp-paginator-bundle": "dev-master",
+                "knplabs/knp-paginator-bundle": "2.3.*",
                 "php": ">=5.3.2",
                 "symfony/symfony": "2.2.*",
                 "twig/extensions": "1.0.*"
@@ -261,27 +261,27 @@
                 "codeconsortium",
                 "forum"
             ],
-            "time": "2014-01-11 11:51:33"
+            "time": "2014-01-13 10:40:25"
         },
         {
             "name": "codeconsortium/ccdn-message-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNMessage/MessageBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNMessageMessageBundle.git",
-                "reference": "e7ef7e7fd22d4e34d7f14bba1431ecc3c798146e"
+                "reference": "35ef79de953315d95dd97c72a47b6702ae3889ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNMessageMessageBundle/zipball/e7ef7e7fd22d4e34d7f14bba1431ecc3c798146e",
-                "reference": "e7ef7e7fd22d4e34d7f14bba1431ecc3c798146e",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNMessageMessageBundle/zipball/35ef79de953315d95dd97c72a47b6702ae3889ca",
+                "reference": "35ef79de953315d95dd97c72a47b6702ae3889ca",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "1.2.*",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "knplabs/knp-paginator-bundle": "dev-master",
+                "knplabs/knp-paginator-bundle": "2.3.*",
                 "php": ">=5.3.2",
                 "symfony/symfony": "2.2.*",
                 "twig/extensions": "1.0.*"
@@ -333,27 +333,27 @@
                 "mail",
                 "message"
             ],
-            "time": "2014-01-11 12:18:55"
+            "time": "2014-01-13 10:40:43"
         },
         {
             "name": "codeconsortium/ccdn-user-admin-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNUser/AdminBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserAdminBundle.git",
-                "reference": "940d01fd65e27beb7a2228c5f2e6a5b96ab33a18"
+                "reference": "93cebcc70915ccfcb33f3c6b2aae8cf8be0402fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserAdminBundle/zipball/940d01fd65e27beb7a2228c5f2e6a5b96ab33a18",
-                "reference": "940d01fd65e27beb7a2228c5f2e6a5b96ab33a18",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserAdminBundle/zipball/93cebcc70915ccfcb33f3c6b2aae8cf8be0402fd",
+                "reference": "93cebcc70915ccfcb33f3c6b2aae8cf8be0402fd",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "1.2.*",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "knplabs/knp-paginator-bundle": "dev-master",
+                "knplabs/knp-paginator-bundle": "2.3.*",
                 "php": ">=5.3.2",
                 "symfony/symfony": "2.2.*",
                 "twig/extensions": "1.0.*"
@@ -405,21 +405,21 @@
                 "codeconsortium",
                 "user"
             ],
-            "time": "2014-01-11 12:10:28"
+            "time": "2014-01-13 10:40:59"
         },
         {
             "name": "codeconsortium/ccdn-user-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNUser/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserUserBundle.git",
-                "reference": "9711610be13a26dc402843bd247f173400011397"
+                "reference": "410727c22050fa226faa467b52b1f277739d39b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserUserBundle/zipball/9711610be13a26dc402843bd247f173400011397",
-                "reference": "9711610be13a26dc402843bd247f173400011397",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserUserBundle/zipball/410727c22050fa226faa467b52b1f277739d39b6",
+                "reference": "410727c22050fa226faa467b52b1f277739d39b6",
                 "shasum": ""
             },
             "require": {
@@ -457,27 +457,27 @@
                 "codeconsortium",
                 "user"
             ],
-            "time": "2014-01-11 12:05:49"
+            "time": "2014-01-13 10:41:17"
         },
         {
             "name": "codeconsortium/ccdn-user-profile-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNUser/ProfileBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserProfileBundle.git",
-                "reference": "6674061e49a3275f7a418f7cada8b36ef9142b3d"
+                "reference": "7f2c557b5cf36f06d6740169fea67879122f7950"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserProfileBundle/zipball/6674061e49a3275f7a418f7cada8b36ef9142b3d",
-                "reference": "6674061e49a3275f7a418f7cada8b36ef9142b3d",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserProfileBundle/zipball/7f2c557b5cf36f06d6740169fea67879122f7950",
+                "reference": "7f2c557b5cf36f06d6740169fea67879122f7950",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "1.2.*",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "knplabs/knp-paginator-bundle": "dev-master",
+                "knplabs/knp-paginator-bundle": "2.3.*",
                 "php": ">=5.3.2",
                 "symfony/symfony": "2.2.*",
                 "twig/extensions": "1.0.*"
@@ -529,27 +529,26 @@
                 "profile",
                 "user"
             ],
-            "time": "2014-01-11 12:08:25"
+            "time": "2014-01-13 10:41:36"
         },
         {
             "name": "codeconsortium/ccdn-user-security-bundle",
-            "version": "dev-master",
+            "version": "2.0.1",
             "target-dir": "CCDNUser/SecurityBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeconsortium/CCDNUserSecurityBundle.git",
-                "reference": "847310b53443a6582cd75bf68f6c6ba71345dc76"
+                "reference": "75a2c0689fabc2ac362b9ed7045b6e3fe740e9c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeconsortium/CCDNUserSecurityBundle/zipball/847310b53443a6582cd75bf68f6c6ba71345dc76",
-                "reference": "847310b53443a6582cd75bf68f6c6ba71345dc76",
+                "url": "https://api.github.com/repos/codeconsortium/CCDNUserSecurityBundle/zipball/75a2c0689fabc2ac362b9ed7045b6e3fe740e9c1",
+                "reference": "75a2c0689fabc2ac362b9ed7045b6e3fe740e9c1",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "1.2.*",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "knplabs/knp-paginator-bundle": "dev-master",
                 "php": ">=5.3.2",
                 "symfony/symfony": "2.2.*",
                 "twig/extensions": "1.0.*"
@@ -599,7 +598,7 @@
                 "security",
                 "user"
             ],
-            "time": "2014-01-11 12:09:52"
+            "time": "2014-01-13 10:24:20"
         },
         {
             "name": "doctrine/annotations",
@@ -952,12 +951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2790ee79ff0fc09dc224e4529c24ff5d9f9a3936"
+                "reference": "0a7df7c58aeab4d1cef55a78e5ca50299a12a62b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2790ee79ff0fc09dc224e4529c24ff5d9f9a3936",
-                "reference": "2790ee79ff0fc09dc224e4529c24ff5d9f9a3936",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0a7df7c58aeab4d1cef55a78e5ca50299a12a62b",
+                "reference": "0a7df7c58aeab4d1cef55a78e5ca50299a12a62b",
                 "shasum": ""
             },
             "require": {
@@ -1015,7 +1014,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-01-08 19:26:50"
+            "time": "2014-01-15 00:19:18"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1277,12 +1276,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "93c110673521c18273b885fb9359d049b6676df4"
+                "reference": "cf43edd6a10ac8b17dc07bd40f9886e582a832b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/93c110673521c18273b885fb9359d049b6676df4",
-                "reference": "93c110673521c18273b885fb9359d049b6676df4",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/cf43edd6a10ac8b17dc07bd40f9886e582a832b2",
+                "reference": "cf43edd6a10ac8b17dc07bd40f9886e582a832b2",
                 "shasum": ""
             },
             "require": {
@@ -1345,7 +1344,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-01-08 19:22:29"
+            "time": "2014-01-14 22:50:33"
         },
         {
             "name": "excelwebzone/recaptcha-bundle",
@@ -1533,12 +1532,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "8859d664737492d313c34796731b35eca851b362"
+                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/8859d664737492d313c34796731b35eca851b362",
-                "reference": "8859d664737492d313c34796731b35eca851b362",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
+                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
                 "shasum": ""
             },
             "require": {
@@ -1575,7 +1574,7 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2013-11-27 22:51:13"
+            "time": "2014-01-12 16:20:24"
         },
         {
             "name": "jms/aop-bundle",
@@ -2135,12 +2134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "d81ca5a8d2d97bf9d77605359a12399c0ca28653"
+                "reference": "01a01a4841ea749426834d127c897f4dc9d62611"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d81ca5a8d2d97bf9d77605359a12399c0ca28653",
-                "reference": "d81ca5a8d2d97bf9d77605359a12399c0ca28653",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/01a01a4841ea749426834d127c897f4dc9d62611",
+                "reference": "01a01a4841ea749426834d127c897f4dc9d62611",
                 "shasum": ""
             },
             "require": {
@@ -2194,7 +2193,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-01-10 08:22:47"
+            "time": "2014-01-15 09:37:32"
         },
         {
             "name": "phpoption/phpoption",
@@ -3971,15 +3970,6 @@
         "doctrine/doctrine-fixtures-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
         "isagalaev/highlight": 20,
-        "codeconsortium/ccdn-component-common-bundle": 20,
-        "codeconsortium/ccdn-component-bb-code-bundle": 20,
-        "codeconsortium/ccdn-component-dashboard-bundle": 20,
-        "codeconsortium/ccdn-user-bundle": 20,
-        "codeconsortium/ccdn-user-security-bundle": 20,
-        "codeconsortium/ccdn-user-profile-bundle": 20,
-        "codeconsortium/ccdn-user-admin-bundle": 20,
-        "codeconsortium/ccdn-message-bundle": 20,
-        "codeconsortium/ccdn-forum-bundle": 20,
         "elao/web-profiler-extra-bundle": 20,
         "raulfraile/ladybug-bundle": 20,
         "js/mysqlnd-bundle": 20,

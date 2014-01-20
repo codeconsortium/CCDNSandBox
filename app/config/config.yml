@@ -32,6 +32,7 @@ framework:
     trusted_proxies: ~
     session:         ~
     fragments:       ~
+    http_method_override: true
 
 # Twig Configuration
 twig:
@@ -40,6 +41,7 @@ twig:
     form:
         resources:
             - 'CCDNComponentBBCodeBundle:Form:fields.html.twig'
+            - 'EWZRecaptchaBundle:Form:ewz_recaptcha_widget.html.twig'
 
 # Doctrine Configuration
 doctrine:

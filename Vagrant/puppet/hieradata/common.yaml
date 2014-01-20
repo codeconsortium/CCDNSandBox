@@ -109,6 +109,7 @@ php:
     ini:
         display_errors: On
         error_reporting: '-1'
+        memory_limit: 1024M
         #session.save_path: '/var/lib/php/session'
         #session.cookie_httponly: '1'
         #session.referer_check: 'codeconsortium.com'

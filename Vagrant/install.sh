@@ -28,8 +28,16 @@ chmod 777 app/cache app/logs
 
 composer install --dev --prefer-dist -o
 
-php /var/www/codeconsortium.com/public/app/console --env=dev doctrine:database:create
+php /var/www/codeconsortium.com/public/app/console --env=prod doctrine:database:create
+php -dmemory_limit=1G app/console cache:warmup --env=prod
 
+chown -R root:www-data app/cache/
+chown -R root:www-data vendor/
+chmod -R 777 app/cache/
+chmod -R 755 vendor/
+
+# Disable XDebug for performance reasons
+# place ; at front of .so file include line
 
 
 # yum update --assumeyes

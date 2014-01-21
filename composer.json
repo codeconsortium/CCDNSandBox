@@ -59,16 +59,16 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.3.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.2.*",
-        "twig/extensions": "1.0.*",
-        "symfony/assetic-bundle": "2.3.*",
-        "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.3.*",
-        "sensio/distribution-bundle": "2.3.*",
-        "sensio/framework-extra-bundle": "2.3.*",
-        "sensio/generator-bundle": "2.3.*",
+        "symfony/symfony": "~2.4",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~2.3",
+        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
 
         "jms/security-extra-bundle": "1.5.1",
@@ -83,23 +83,22 @@
         "isagalaev/highlight": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
 
-        "codeconsortium/ccdn-component-common-bundle": "2.0.*",
-        "codeconsortium/ccdn-component-bb-code-bundle": "2.0.*",
-        "codeconsortium/ccdn-component-dashboard-bundle": "2.0.*",
-        "codeconsortium/ccdn-user-bundle": "2.0.*",
-        "codeconsortium/ccdn-user-security-bundle": "2.0.*",
-        "codeconsortium/ccdn-user-profile-bundle": "2.0.*",
-        "codeconsortium/ccdn-user-admin-bundle": "2.0.*",
-        "codeconsortium/ccdn-message-bundle": "2.0.*",
-        "codeconsortium/ccdn-forum-bundle": "2.0.*"
+        "codeconsortium/ccdn-component-common-bundle": "dev-master",
+        "codeconsortium/ccdn-component-bb-code-bundle": "dev-master",
+        "codeconsortium/ccdn-component-dashboard-bundle": "dev-master",
+        "codeconsortium/ccdn-user-bundle": "dev-master",
+        "codeconsortium/ccdn-user-security-bundle": "dev-master",
+        "codeconsortium/ccdn-user-profile-bundle": "dev-master",
+        "codeconsortium/ccdn-user-admin-bundle": "dev-master",
+        "codeconsortium/ccdn-message-bundle": "dev-master",
+        "codeconsortium/ccdn-forum-bundle": "dev-master"
     },
     "require-dev": {
         "doctrine/data-fixtures": "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "elao/web-profiler-extra-bundle": "2.3.*@dev",
         "raulfraile/ladybug-bundle": "dev-master",
-        "js/mysqlnd-bundle": "dev-master",
-        "mdm/translator-checker-bundle": "2.3.*@dev"
+        "js/mysqlnd-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -130,7 +129,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "2.4-dev"
         }
     }
 }

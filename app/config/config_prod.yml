@@ -13,10 +13,8 @@ framework:
     #    cache: apc
 
 doctrine:
-   dbal:
-       dbname:   %database_name%_prod
-
-#doctrine:
+    dbal:
+        dbname:   %database_name%_prod
 #    orm:
 #        metadata_cache_driver: apc
 #        result_cache_driver: apc
@@ -52,3 +50,5 @@ monolog:
             type:         stream
             path:         "%kernel.logs_dir%/%kernel.environment%.log"
             level:        debug
+        console:
+            type:         console

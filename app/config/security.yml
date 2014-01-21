@@ -47,6 +47,7 @@ security:
                 path: /logout
                 target: /
                 success_handler: ccdn_user_security.component.authentication.handler.logout_success_handler
+                invalidate_session: false
             anonymous: true
             remember_me:
                 key: "%secret%"

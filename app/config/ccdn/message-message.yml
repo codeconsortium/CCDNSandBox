@@ -14,7 +14,7 @@ ccdn_message_message:
             class: CCDNUser\UserBundle\Entity\User
     template:
         engine:                   twig
-        pager_theme:              CCDNMessageMessageBundle:Common:Paginator/twitter_bootstrap.html.twig
+        pager_theme:              CCDNComponentCommonBundle:Common:Paginator/twitter_bootstrap.html.twig
     seo:
         title_length:             67
     folder:
@@ -32,6 +32,6 @@ ccdn_message_message:
             sent_datetime_format: d-m-Y - H:i
         compose:
             layout_template:      CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-            form_theme:           CCDNMessageMessageBundle:Common:Form/fields.html.twig
+            form_theme:           CCDNComponentCommonBundle:Common:Form/fields.html.twig
     quotas:
         max_messages:             200

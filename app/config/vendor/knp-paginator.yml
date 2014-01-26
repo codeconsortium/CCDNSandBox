@@ -1,0 +1,4 @@
+knp_paginator:
+    template:
+        sortable: CCDNComponentCommonBundle:Common:Paginator/sortable_link.html.twig
+

@@ -29,3 +29,5 @@ Vagrant/.vagrant/
 Vagrant/.vagrant/*
 web/assetic/
 web/css/
+
+app/sessions/

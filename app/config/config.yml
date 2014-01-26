@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: assetic.yml }
     - { resource: ccdn/component-bb-code.yml }
     - { resource: ccdn/component-dashboard.yml }
     - { resource: ccdn/user-user.yml }
@@ -9,33 +8,39 @@ imports:
     - { resource: ccdn/user-admin.yml }
     - { resource: ccdn/forum-forum.yml }
     - { resource: ccdn/message-message.yml }
-    # Sub CCDN Resources
+    # Sub CCDN Config Resources
     #- { resource: ccdn/sub/forum-forum.yml }
     #- { resource: ccdn/sub/message-message.yml }
     #- { resource: ccdn/sub/user-admin.yml }
     #- { resource: ccdn/sub/user-profile.yml }
+    # Vendor Config Resources
+    - { resource: vendor/assetic.yml }
+    - { resource: vendor/knp-paginator.yml }
+    - { resource: vendor/ewz-recaptcha.yml }
+    - { resource: vendor/fos-user.yml }
 
 framework:
     #esi:             ~
-    translator:      { fallback: "%locale%" }
-    secret:          "%secret%"
+    translator:              { fallback: "%locale%" }
+    secret:                  "%secret%"
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
+        resource:            "%kernel.root_dir%/config/routing.yml"
         strict_requirements: "%kernel.debug%"
-    form:            true
-    csrf_protection: true
-    validation:      { enable_annotations: true }
-    templating:
-        engines: ['twig']
+    form:                    true
+    csrf_protection:         true
+    validation:              { enable_annotations: true }
+    templating:              
+        engines:             ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
-    trusted_hosts:   ~
-    trusted_proxies: ~
+    default_locale:          "%locale%"
+    trusted_hosts:           ~
+    trusted_proxies:         ~
     session:
         # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
-    fragments:       ~
-    http_method_override: true
+        handler_id:          session.handler.native_file
+        save_path:           "%kernel.root_dir%/sessions"
+    fragments:               ~
+    http_method_override:    true
 
 # Twig Configuration
 twig:
@@ -113,50 +118,4 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-ewz_recaptcha:
-    enabled:      true
-    public_key:   %ewz_recaptcha_public_key%
-    private_key:  %ewz_recaptcha_private_key%
-    secure:       false
-    locale_key:   kernel.default_locale
-
-fos_user:
-    db_driver:                  orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    user_class:                 CCDNUser\UserBundle\Entity\User
-    firewall_name:              main
-    model_manager_name:         ~
-    use_listener:               true
-    use_username_form_type:     true
-    from_email:
-        address:                noreply@codeconsortium.com
-        sender_name:            Code Consortium
-    registration:
-        confirmation:
-            enabled:            false
-            template:           FOSUserBundle:Registration:email.txt.twig
-            from_email:
-                address:        noreply@codeconsortium.com
-                sender_name:    Code Consortium
-        form:
-            type:               ccdn_user_registration
-            name:               fos_user_registration_form
-            validation_groups:
-                - Registration
-                - Default
-    resetting:
-        token_ttl:              86400
-        email:
-            template:           FOSUserBundle:Resetting:email.txt.twig 
-            from_email:
-                address:        noreply@codeconsortium.com
-                sender_name:    Code Consortium
-    service:
-        mailer:                 fos_user.mailer.default
-        email_canonicalizer:    fos_user.util.canonicalizer.default
-        token_generator:        fos_user.util.token_generator.default
-        username_canonicalizer: fos_user.util.canonicalizer.default
-        user_manager:           fos_user.user_manager.default
-    template:
-        engine:                 twig
 

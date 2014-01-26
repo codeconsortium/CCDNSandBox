@@ -11,15 +11,15 @@ ccdn_user_user:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
         edit:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+            form_theme:                 CCDNComponentCommonBundle:Common:Form/fields.html.twig
     password:
         change_password:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+            form_theme:                 CCDNComponentCommonBundle:Common:Form/fields.html.twig
     registration:
         register:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_single_column.html.twig
-            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+            form_theme:                 CCDNComponentCommonBundle:Common:Form/fields.html.twig
         terms:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_single_column.html.twig
         check_email:
@@ -35,7 +35,7 @@ ccdn_user_user:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_single_column.html.twig
         reset:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_single_column.html.twig
-            form_theme:                 CCDNUserUserBundle:Common:Form/fields.html.twig
+            form_theme:                 CCDNComponentCommonBundle:Common:Form/fields.html.twig
     security:
         login:
             layout_template:            CCDNComponentCommonBundle::Layout/Base/base_single_column.html.twig

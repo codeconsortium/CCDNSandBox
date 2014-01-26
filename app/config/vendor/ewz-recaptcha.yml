@@ -1,0 +1,7 @@
+ewz_recaptcha:
+    enabled:      true
+    public_key:   %ewz_recaptcha_public_key%
+    private_key:  %ewz_recaptcha_private_key%
+    secure:       false
+    locale_key:   kernel.default_locale
+

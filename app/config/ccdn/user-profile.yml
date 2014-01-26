@@ -1,7 +1,7 @@
 ccdn_user_profile:
     template:
-        engine:                                twig
-        pager_theme:                          CCDNUserProfileBundle:Common:Paginator/twitter_bootstrap.html.twig
+        engine:                               twig
+        pager_theme:                          CCDNComponentCommonBundle:Common:Paginator/twitter_bootstrap.html.twig
     entity:
         user:
             class:                            CCDNUser\UserBundle\Entity\User
@@ -18,22 +18,22 @@ ccdn_user_profile:
         edit:
             personal:
                 layout_template:              CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+                form_theme:                   CCDNComponentCommonBundle:Common:Form/fields.html.twig
             info:
                 layout_template:              CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+                form_theme:                   CCDNComponentCommonBundle:Common:Form/fields.html.twig
             contact:
                 layout_template:              CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+                form_theme:                   CCDNComponentCommonBundle:Common:Form/fields.html.twig
             avatar:
                 layout_template:              CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+                form_theme:                   CCDNComponentCommonBundle:Common:Form/fields.html.twig
             bio:
                 layout_template:              CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+                form_theme:                   CCDNComponentCommonBundle:Common:Form/fields.html.twig
             signature:
                 layout_template:              CCDNComponentCommonBundle::Layout/Base/base_sidebar_left.html.twig
-                form_theme:                   CCDNUserProfileBundle:Common:Form/fields.html.twig
+                form_theme:                   CCDNComponentCommonBundle:Common:Form/fields.html.twig
         show:
             requires_login:                   false
             overview:

@@ -17,34 +17,16 @@ assetic:
             file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
             apply_to: "\.less$"
     assets:
-#        bootstrap_less:
-#            inputs:
-#                - '%kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less'
-#            filters: [lessphp,cssembed]
         theme:
             inputs:
                 - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-common-bundle/CCDNComponent/CommonBundle/Resources/public/css/theme.css'
                 - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-bb-code/src/CCDNComponent/BBCode/Resources/public/css/default.css'
                 - '%kernel.root_dir%/../vendor/isagalaev/highlight/src/styles/sunburst.css'
             filters: [lessphp]
-#        jquery_js:
-#            inputs:
-#                - '%kernel.root_dir%/Resources/public/js/vendor/jquery-1.7.1.min.js'
+        scripts:
+            inputs:
+                - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-bb-code/src/CCDNComponent/BBCode/Resources/public/js/jquery.bbeditor.js'
+                - '%kernel.root_dir%/../vendor/reecefowell/jquery-checkboxes/jquery.checkboxes.js'
+                - '%kernel.root_dir%/../vendor/reecefowell/moment/moment.js'
+                - '%kernel.root_dir%/../vendor/reecefowell/jquery-timestamper/jquery.timestamper.js'
 #            filters: [?yui_js]
-#        bbcode_editor_js:
-#            inputs:
-#                - '%kernel.root_dir%/../vendor/codeconsortium/ccdn-component-bb-code/src/CCDNComponent/BBCode/Resources/public/js/jquery.bbeditor.js'
-#            filters: [?yui_js]
-#        checkboxes_js:
-#            inputs:
-#                - '%kernel.root_dir%/../vendor/reecefowell/jquery-checkboxes/jquery.checkboxes.js'
-#            filters: [?yui_js]
-#        moment_js:
-#            inputs:
-#                - '%kernel.root_dir%/../vendor/reecefowell/moment/moment.js'
-#            filters: [?yui_js]
-#        timestamper_js:
-#            inputs:
-#                - '%kernel.root_dir%/../vendor/reecefowell/jquery-timestamper/jquery.timestamper.js'
-#            filters: [?yui_js]
-

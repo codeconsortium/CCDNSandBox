@@ -959,12 +959,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "d46f8401d00741f431e32abcec400f560ebd87b0"
+                "reference": "1b76e216240e9ef677af55d4e89e4541b17d7878"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/d46f8401d00741f431e32abcec400f560ebd87b0",
-                "reference": "d46f8401d00741f431e32abcec400f560ebd87b0",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/1b76e216240e9ef677af55d4e89e4541b17d7878",
+                "reference": "1b76e216240e9ef677af55d4e89e4541b17d7878",
                 "shasum": ""
             },
             "require": {
@@ -1021,7 +1021,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2014-01-28 13:14:01"
+            "time": "2014-01-28 19:12:18"
         },
         {
             "name": "doctrine/inflector",

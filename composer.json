@@ -11,8 +11,8 @@
         {
            "type": "package",
            "package": {
-               "version": "dev-master",
                "name": "todc/todc-bootstrap",
+               "version": "dev-master",
                "source": {
                    "url": "https://github.com/todc/todc-bootstrap.git",
                    "type": "git",
@@ -27,24 +27,8 @@
         {
            "type": "package",
            "package": {
-               "version": "dev-master",
-               "name": "reecefowell/moment",
-               "source": {
-                   "url": "https://github.com/reecefowell/moment.git",
-                   "type": "git",
-                   "reference": "master"
-               },
-               "dist": {
-                   "url": "https://github.com/reecefowell/moment/zipball/master",
-                   "type": "zip"
-               }
-           }
-        },
-        {
-           "type": "package",
-           "package": {
-               "version": "dev-master",
                "name": "isagalaev/highlight",
+               "version": "dev-master",
                "source": {
                    "url": "https://github.com/isagalaev/highlight.js.git",
                    "type": "git",
@@ -52,6 +36,22 @@
                },
                "dist": {
                    "url": "https://github.com/isagalaev/highlight.js/zipball/master",
+                   "type": "zip"
+               }
+           }
+        },
+        {
+           "type": "package",
+           "package": {
+               "name": "reecefowell/moment",
+               "version": "dev-master",
+               "source": {
+                   "url": "https://github.com/reecefowell/moment.git",
+                   "type": "git",
+                   "reference": "master"
+               },
+               "dist": {
+                   "url": "https://github.com/reecefowell/moment/archive/master.zip",
                    "type": "zip"
                }
            }
@@ -91,7 +91,12 @@
         "codeconsortium/ccdn-user-profile-bundle": "2.0.*",
         "codeconsortium/ccdn-user-admin-bundle": "2.0.*",
         "codeconsortium/ccdn-message-bundle": "2.0.*",
-        "codeconsortium/ccdn-forum-bundle": "2.0.*"
+        "codeconsortium/ccdn-forum-bundle": "2.0.*",
+
+        "isagalaev/highlight": "dev-master",
+        "reecefowell/moment": "dev-master",
+        "reecefowell/jquery-checkboxes": "dev-master",
+        "reecefowell/jquery-timestamper": "dev-master"
     },
     "require-dev": {
         "doctrine/data-fixtures": "1.0.*@dev",
